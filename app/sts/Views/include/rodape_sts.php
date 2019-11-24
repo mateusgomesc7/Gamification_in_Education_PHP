@@ -10,6 +10,8 @@ if (!defined('URL')) {
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="<?php echo URL . 'assets/js/dashboard.js'; ?>"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/10.1.0/classic/ckeditor.js"></script>
+<script src="https://kit.fontawesome.com/f47bc3f7b9.js" crossorigin="anonymous"></script>
+
 <script>
 ClassicEditor
     .create( document.querySelector( '#editor-um' ) )
