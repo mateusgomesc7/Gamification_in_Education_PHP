@@ -1,6 +1,6 @@
 <?php
 
-namespace Sts\Models\helper;
+namespace App\sts\Models\helper;
 
 use PDO;
 

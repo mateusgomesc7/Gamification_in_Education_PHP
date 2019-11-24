@@ -4,10 +4,12 @@ namespace Core;
 
 class ConfigController
 {
+
     private $Url;
     private $UrlConjunto;
     private $UrlController;
     private $UrlParametro;
+    private $UrlMetodo;
     private $Classe;
     private $Paginas;
     private static $Format;
@@ -26,16 +28,25 @@ class ConfigController
             }
 
             if (isset($this->UrlConjunto[1])) {
-                $this->UrlParametro = $this->UrlConjunto[1];
+                $this->UrlMetodo = $this->UrlConjunto[1];
+            } else {
+                $this->UrlController = $this->slugController(METODO);
+            }
+
+            if (isset($this->UrlConjunto[2])) {
+                $this->UrlParametro = $this->UrlConjunto[2];
             } else {
                 $this->UrlParametro = null;
             }
-            //echo "URL: {$this->Url} <br>";
-            //echo "Controlle: {$this->UrlController} <br>";
         } else {
             $this->UrlController = $this->slugController(CONTROLER);
+            $this->UrlController = $this->slugController(METODO);
             $this->UrlParametro = null;
         }
+        //echo "URL: {$this->Url} <br>";
+        //echo "Controlle: {$this->UrlController} <br>";
+        //echo "Metodo: {$this->UrlMetodo} <br>";
+        //echo "Paramento: {$this->UrlParametro} <br>";
     }
 
     private function limparUrl()
@@ -55,19 +66,14 @@ class ConfigController
 
     public function slugController($SlugController)
     {
-        //$UrlController = strtolower($SlugController);
-        //$UrlController = explode("-", $UrlController);
-        //$UrlController = implode(" ", $UrlController);
-        //$UrlController = ucwords($UrlController);
-        //$UrlController = str_replace(" ", "", $UrlController);
         $UrlController = str_replace(" ", "", ucwords(implode(" ", explode("-", strtolower($SlugController)))));
         return $UrlController;
     }
 
     public function carregar()
     {
-        $listarPg = new \Sts\Models\StsPaginas();
-        $this->Paginas = $listarPg->listarPaginas($this->UrlController);
+        $listarPg = new \App\sts\Models\StsPaginas();
+        $this->Paginas = $listarPg->listarPaginas($this->UrlController, $this->UrlMetodo);
         if ($this->Paginas) {
             extract($this->Paginas[0]);
             $this->Classe = "\\App\\{$tipo_tpg}\\Controllers\\" . $this->UrlController;
@@ -75,28 +81,29 @@ class ConfigController
                 $this->carregarMetodo();
             } else {
                 $this->UrlController = $this->slugController(CONTROLER);
+                $this->UrlMetodo = $this->slugController(METODO);
                 $this->carregar();
             }
         } else {
             $this->UrlController = $this->slugController(CONTROLER);
+            $this->UrlMetodo = $this->slugController(METODO);
             $this->carregar();
         }
     }
 
     private function carregarMetodo()
     {
-       //echo "<br><br><br>";
         $classeCarregar = new $this->Classe;
-        if (method_exists($classeCarregar, "index")) {
-            if ($this->UrlParametro !== null) {
-                $classeCarregar->index($this->UrlParametro);
-            } else {
-                $classeCarregar->index();
+        if(method_exists($classeCarregar, $this->UrlMetodo)){
+            if($this->UrlParametro !== null){
+                $classeCarregar->{$this->UrlMetodo}($this->UrlParametro);
+            }else{
+                $classeCarregar->{$this->UrlMetodo}();
             }
-        } else {
+        }else{
             $this->UrlController = $this->slugController(CONTROLER);
+            $this->UrlMetodo = $this->slugController(METODO);
             $this->carregar();
         }
     }
-
 }

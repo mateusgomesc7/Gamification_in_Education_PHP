@@ -4,6 +4,7 @@ namespace Core;
 
 class ConfigView
 {
+
     private $Nome;
     private $Dados;
 
@@ -15,13 +16,22 @@ class ConfigView
 
     public function renderizar()
     {
+
         if (file_exists('app/' . $this->Nome . '.php')) {
-            include 'app/sts/Views/include/cabecalho.php';
-            include 'app/sts/Views/include/menu.php';
             include 'app/' . $this->Nome . '.php';
-            include 'app/sts/Views/include/rodape.php';
-        } else {
+        }else{
             echo "Erro ao carregar a Página: {$this->Nome}";
         }
     }
+
+    public function renderizarLogin()
+    {
+        include 'app/sts/Views/include/cabecalho.php';
+        if (file_exists('app/' . $this->Nome . '.php')) {
+            include 'app/' . $this->Nome . '.php';
+        }else{
+            echo "Erro ao carregar a Página: {$this->Nome}";
+        }
+    }
+
 }
