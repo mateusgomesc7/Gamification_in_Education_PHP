@@ -32,8 +32,8 @@ class Login
 
     public function logout()
     {
-        unset($_SESSION['usuario_id'], $_SESSION['usuario_nome'], $_SESSION['usuario_email'], $_SESSION['usuario_imagem'], $_SESSION['adms_niveis_acesso_id'], $_SESSION['ordem_nivac']);
-        $_SESSION['msg'] = "<div class='alert alert-success'>Deslogado com sucesso</div>";
+        unset($_SESSION['adms_usuario_id'], $_SESSION['adms_usuario_nome'], $_SESSION['adms_usuario_email'], $_SESSION['adms_usuario_imagem'], $_SESSION['adms_niveis_acesso_id'], $_SESSION['adms_ordem_nivac']);
+        $_SESSION['adms_msg'] = "<div class='alert alert-success'>Deslogado com sucesso</div>";
         $UrlDestino = URLADM . 'login/acesso';
         header("Location: $UrlDestino");
     }
