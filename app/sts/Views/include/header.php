@@ -10,7 +10,9 @@ if (!defined('URL')) {
     <a class="sidebar-toggle text-light mr-3">
         <span class="navbar-toggler-icon"></span>
     </a>
-    <a class="navbar-brand" href="#">Gamification</a>
+    <?php
+        echo "<a class='navbar-brand' href='" . URL . "home/index" . " '>Gamification</a>";
+    ?>
 
     <div class="collapse navbar-collapse">
 
