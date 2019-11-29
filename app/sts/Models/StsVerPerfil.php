@@ -15,7 +15,8 @@ class StsVerPerfil
     public function verPerfil()
     {
         $verPerfil = new \App\sts\Models\helper\StsRead();
-        $verPerfil->fullRead("SELECT * FROM sts_usuarios WHERE id =:id LIMIT :limit", "id=" . $_SESSION['usuario_id'] . "&limit=1");
+        $verPerfil->fullRead("SELECT * FROM sts_usuarios 
+        WHERE id =:id LIMIT :limit", "id=" . $_SESSION['usuario_id'] . "&limit=1");
         $this->Resultado = $verPerfil->getResultado();
         return $this->Resultado;
     }

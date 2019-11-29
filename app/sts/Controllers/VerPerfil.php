@@ -18,7 +18,7 @@ class VerPerfil
         
         $listarMenu = new \App\sts\Models\StsMenu();
         $this->Dados['menu']= $listarMenu->itemMenu();
-        
+
         $carregarView = new \Core\ConfigView("sts/Views/usuario/perfil", $this->Dados);
         $carregarView->renderizar();
     }
