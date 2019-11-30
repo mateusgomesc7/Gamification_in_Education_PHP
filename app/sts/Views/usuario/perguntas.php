@@ -12,10 +12,10 @@ if (!defined('URL')) {
             <div class="row">
                 <div class="col-md-8 blog-main">
                     <?php
-                    if (empty($this->Dados['artigos'])) {
+                    if (empty($this->Dados['perguntas'])) {
                         echo "<div class='alert alert-danger'>Erro: Nenhum artigo encontrado!</div>";
                     }
-                    foreach ($this->Dados['artigos'] as $artigo) {
+                    foreach ($this->Dados['perguntas'] as $artigo) {
                         extract($artigo);
                         ?>
                         <div class="row featurette">
@@ -53,7 +53,7 @@ if (!defined('URL')) {
                         <h4 class="font-italic">Recentes</h4>
                         <ol class="list-unstyled mb-0">
                             <?php
-                            foreach ($this->Dados['artRecente'] as $artigoRec) {
+                            foreach ($this->Dados['pergRecente'] as $artigoRec) {
                                 extract($artigoRec);
                                 echo "<li><a href='" . URL . "artigo/$slug'>$titulo</a></li>";
                             }
@@ -65,7 +65,7 @@ if (!defined('URL')) {
                         <h4 class="font-italic">Destaque</h4>
                         <ol class="list-unstyled">
                             <?php
-                            foreach ($this->Dados['artDestaque'] as $artigoDest) {
+                            foreach ($this->Dados['pergDestaque'] as $artigoDest) {
                                 extract($artigoDest);
                                 echo "<li><a href='" . URL . "artigo/$slug'>$titulo</a></li>";
                             }

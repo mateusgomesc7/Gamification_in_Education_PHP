@@ -27,14 +27,14 @@ class VerPerguntas
         $this->PageId = $this->PageId ? $this->PageId : 1;
 
         $listar_art = new \App\sts\Models\StsPerguntas();
-        $this->Dados['artigos'] = $listar_art->listarPerguntas($this->PageId);
+        $this->Dados['perguntas'] = $listar_art->listarPerguntas($this->PageId);
         $this->Dados['paginacao'] = $listar_art->getResultadoPg();
 
         $listarPergRecente = new \App\sts\Models\StsPergRecente();
-        $this->Dados['artRecente'] = $listarPergRecente->listarPergRecente();
+        $this->Dados['pergRecente'] = $listarPergRecente->listarPergRecente();
 
         $listarPergDestaque = new \App\sts\Models\StsPergDestaque();
-        $this->Dados['artDestaque'] = $listarPergDestaque->listarPergDestaque();
+        $this->Dados['pergDestaque'] = $listarPergDestaque->listarPergDestaque();
 
         $visSobreAutor = new \App\sts\Models\StsSobreAutor();
         $this->Dados['sobreAutor'] = $visSobreAutor->sobreAutor();
