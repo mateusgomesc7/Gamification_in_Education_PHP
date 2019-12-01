@@ -5,18 +5,23 @@ if (!defined('URL')) {
 }
 ?>
 <div class="container">
-    <div class="row">
+    <?php
+        if (isset($_SESSION['msg'])) {
+            echo $_SESSION['msg'];
+            unset($_SESSION['msg']);
+        }
+    ?>
 
+    <div class="row">
         <div class="col-md-9 col-lg-9">
             <div class="row justify-content-center">
                 <div class="jumbotron mb-0 bg-white">
                     <h1 class="display-4"><strong>Qual a sua dúvida?</strong></h1>
                     <hr class="my-4">
-                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-lg">Faça uma pergunta</button>
-
-                    <?php
-                    include 'app/sts/Views/pergunta/cadPergunta.php';
-                    ?>
+                   
+                    <a href="<?php echo URL . "cadastrar-pergunta/cad-pergunta"; ?>">
+                    <button type="button" class="btn btn-primary btn-lg">Faça uma pergunta</button>  
+                    </a>
 
                 </div>
             </div>

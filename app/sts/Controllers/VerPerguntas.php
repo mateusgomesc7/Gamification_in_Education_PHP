@@ -40,7 +40,7 @@ class VerPerguntas
         $this->Dados['sobreAutor'] = $visSobreAutor->sobreAutor();
         
         
-        $carregarView = new \Core\ConfigView("sts/Views/usuario/perguntas", $this->Dados);
+        $carregarView = new \Core\ConfigView("sts/Views/pergunta/perguntas", $this->Dados);
         $carregarView->renderizar();
     }
 }

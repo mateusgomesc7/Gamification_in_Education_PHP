@@ -25,7 +25,7 @@ class StsCadastrarPergunta
         $this->Foto = $this->Dados['imagem_nova'];
         unset($this->Dados['imagem_nova']);
 
-        $valCampoVazio = new \App\adms\Models\helper\AdmsCampoVazioComTag;
+        $valCampoVazio = new \App\sts\Models\helper\StsCampoVazioComTag;
         $valCampoVazio->validarDados($this->Dados);
 
         if ($valCampoVazio->getResultado()) {
@@ -38,19 +38,20 @@ class StsCadastrarPergunta
     private function inserirPergunta()
     {   
         $this->Dados['created'] = date("Y-m-d H:i:s");
-        $slugImg = new \App\adms\Models\helper\AdmsSlug();
-        $this->Dados['imagem'] = $slugImg->nomeSlug($this->Foto['name']);
+       
+        // $slugImg = new \App\sts\Models\helper\StsSlug();
+        // $this->Dados['imagem'] = $slugImg->nomeSlug($this->Foto['name']);
         
-        $slugPg = new \App\adms\Models\helper\AdmsSlug();
-        $this->Dados['slug'] = $slugPg->nomeSlug($this->Dados['slug']);
+        // $slugPg = new \App\sts\Models\helper\StsSlug();
+        // $this->Dados['slug'] = $slugPg->nomeSlug($this->Dados['slug']);
 
-        var_dump($this->Dados);
+        // var_dump($this->Dados);
 
-        $cadPergunta = new \App\adms\Models\helper\AdmsCreate;
+        $cadPergunta = new \App\sts\Models\helper\StsCreate;
         $cadPergunta->exeCreate("sts_perguntas", $this->Dados);
         if ($cadPergunta->getResultado()) {
             if (empty($this->Foto['name'])) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>Pergunta cadastrado com sucesso!</div>";
+                $_SESSION['msg'] = "<div class='alert alert-success'>Pergunta cadastrada com sucesso!</div>";
                 $this->Resultado = true;
             } else {
                 $this->Dados['id'] = $cadPergunta->getResultado();
@@ -64,7 +65,7 @@ class StsCadastrarPergunta
     
     private function valFoto()
     {
-        $uploadImg = new \App\adms\Models\helper\AdmsUploadImgRed();
+        $uploadImg = new \App\sts\Models\helper\StsUploadImgRed();
         $uploadImg->uploadImagem($this->Foto, '../assets/imagens/pergunta/' . $this->Dados['id'] . '/', $this->Dados['imagem'], 1200, 627);
         if ($uploadImg->getResultado()) {
             $_SESSION['msg'] = "<div class='alert alert-success'>Pergunta cadastrado com sucesso. Upload da imagem realizado com sucesso!</div>";
@@ -77,12 +78,12 @@ class StsCadastrarPergunta
 
     public function listarCadastrar()
     {
-        $listar = new \App\adms\Models\helper\AdmsRead();
+        $listar = new \App\sts\Models\helper\StsRead();
         
         $listar->fullRead("SELECT id id_rob, nome nome_rob, tipo tipo_rob FROM sts_robots ORDER BY nome ASC");        
         $registro['rob'] = $listar->getResultado();
 
-        $listar->fullRead("SELECT id id_user, nome nome_user FROM adms_usuarios ORDER BY nome ASC");
+        $listar->fullRead("SELECT id id_user, nome nome_user FROM sts_usuarios ORDER BY nome ASC");
         $registro['user'] = $listar->getResultado();
 
         $listar->fullRead("SELECT id id_sit, nome nome_sit FROM adms_sits ORDER BY nome ASC");
