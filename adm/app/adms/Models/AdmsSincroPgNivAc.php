@@ -46,11 +46,11 @@ class AdmsSincroPgNivAc
             if ($this->ListarPg) {
                 $this->lerNivAc();
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Nenhum página encontrada!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Nenhum página encontrada!</div>";
                 $this->Resultado = false;
             }
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Nenhum nível de acesso encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Nenhum nível de acesso encontrado!</div>";
             $this->Resultado = false;
         }
     }
@@ -131,10 +131,10 @@ class AdmsSincroPgNivAc
         $cadNivAcPg->exeCreate("adms_nivacs_pgs", $this->DadosNivAcPg);
 
         if ($cadNivAcPg->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Permissão cadastrado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Permissão cadastrado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-warning'>Erro ao inserir a permissão de acesso ao nível de acesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-warning'>Erro ao inserir a permissão de acesso ao nível de acesso!</div>";
             $this->Resultado = false;
         }
     }

@@ -25,7 +25,7 @@ class EditarSobEmpresa
         if (!empty($this->DadosId)) {
             $this->editSobEmpresaPriv();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Sobre empresa não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Sobre empresa não encontrado!</div>";
             $UrlDestino = URLADM . 'sob-empresa/listar';
             header("Location: $UrlDestino");
         }
@@ -39,7 +39,7 @@ class EditarSobEmpresa
             $editarSobEmpresa = new \App\sts\Models\StsEditarSobEmpresa();
             $editarSobEmpresa->altSobEmpresa($this->Dados);
             if ($editarSobEmpresa->getResultado()) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>Sobre empresa editado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Sobre empresa editado com sucesso!</div>";
                 $UrlDestino = URLADM . 'ver-sob-empresa/ver-sob-empresa/' . $this->Dados['id'];
                 header("Location: $UrlDestino");
             } else {
@@ -68,7 +68,7 @@ class EditarSobEmpresa
             $carregarView = new \Core\ConfigView("sts/Views/sobEmpresa/editarSobEmpresa", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Sobre empresa não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Sobre empresa não encontrado!</div>";
             $UrlDestino = URLADM . 'sob-empresa/listar';
             header("Location: $UrlDestino");
         }

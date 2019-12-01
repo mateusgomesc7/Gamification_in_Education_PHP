@@ -36,10 +36,10 @@ class AdmsApagarNivAc
             if ($apagarNivAc->getResultado()) {
                 $this->atualizarOrdem();
                 $this->apagarNivAcPg();
-                $_SESSION['msg'] = "<div class='alert alert-success'>Nível de acesso apagado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Nível de acesso apagado com sucesso!</div>";
                 $this->Resultado = true;
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Nivel de acesso não foi apagado!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Nivel de acesso não foi apagado!</div>";
                 $this->Resultado = false;
             }
         }
@@ -51,7 +51,7 @@ class AdmsApagarNivAc
         $verUsuario->fullRead("SELECT id FROM adms_usuarios
                 WHERE adms_niveis_acesso_id =:adms_niveis_acesso_id LIMIT :limit", "adms_niveis_acesso_id=" . $this->DadosId . "&limit=2");
         if ($verUsuario->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: O nível de acesso não pode ser apagado, há usuários cadastrados neste nível!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: O nível de acesso não pode ser apagado, há usuários cadastrados neste nível!</div>";
             $this->Resultado = false;
         } else {
             $this->Resultado = true;

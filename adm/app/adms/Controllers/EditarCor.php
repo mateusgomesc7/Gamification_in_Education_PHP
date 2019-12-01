@@ -25,7 +25,7 @@ class EditarCor
         if (!empty($this->DadosId)) {
             $this->editCorPriv();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Cor não encontrada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Cor não encontrada!</div>";
             $UrlDestino = URLADM . 'cor/listar';
             header("Location: $UrlDestino");
         }
@@ -38,7 +38,7 @@ class EditarCor
             $editarCor = new \App\adms\Models\AdmsEditarCor();
             $editarCor->altCor($this->Dados);
             if ($editarCor->getResultado()) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>Cor editada com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Cor editada com sucesso!</div>";
                 $UrlDestino = URLADM . 'ver-cor/ver-cor/' . $this->Dados['id'];
                 header("Location: $UrlDestino");
             } else {
@@ -65,7 +65,7 @@ class EditarCor
             $carregarView = new \Core\ConfigView("adms/Views/cor/editarCor", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Cor não encontrada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Cor não encontrada!</div>";
             $UrlDestino = URLADM . 'cor/listar';
             header("Location: $UrlDestino");
         }

@@ -24,7 +24,7 @@ class ApagarUsuario
            $apagarUsuario = new \App\adms\Models\AdmsApagarUsuario();
            $apagarUsuario->apagarUsuario($this->DadosId);
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar um usuário!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar um usuário!</div>";
         }
         $UrlDestino = URLADM . 'usuarios/listar';
         header("Location: $UrlDestino");

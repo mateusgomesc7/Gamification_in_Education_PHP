@@ -32,7 +32,7 @@ class StsAltSitCarousel
         if ($this->DadosCarousel) {
             $this->altCarousel();
         }else{
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação do slide do carousel!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação do slide do carousel!</div>";
             $this->Resultado = false;
         }
     }
@@ -58,10 +58,10 @@ class StsAltSitCarousel
         $upCarousel->exeUpdate("sts_carousels", $this->Dados, "WHERE id =:id", "id={$this->DadosId}");
 
         if ($upCarousel->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Alterado a situação do slide do carousel!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Alterado a situação do slide do carousel!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação do slide do carousel!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação do slide do carousel!</div>";
             $this->Resultado = false;
         }
     }

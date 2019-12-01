@@ -23,7 +23,7 @@ class EditarRobots {
         if (!empty($this->DadosId)) {
             $this->editRobotsPriv();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Robots de página não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Robots de página não encontrado!</div>";
             $UrlDestino = URLADM . 'robots/listar';
             header("Location: $UrlDestino");
         }
@@ -60,7 +60,7 @@ class EditarRobots {
             $carregarView = new \Core\ConfigView("sts/Views/robots/editarRobots", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Robots de página não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Robots de página não encontrado!</div>";
             $UrlDestino = URLADM . 'robots/listar';
             header("Location: $UrlDestino");
         }

@@ -73,10 +73,10 @@ class AdmsEditarPagina
         $upAltPagina = new \App\adms\Models\helper\AdmsUpdate();
         $upAltPagina->exeUpdate("adms_paginas", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltPagina->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Página atualizada com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Página atualizada com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A página não foi atualizada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A página não foi atualizada!</div>";
             $this->Resultado = false;
         }
     }

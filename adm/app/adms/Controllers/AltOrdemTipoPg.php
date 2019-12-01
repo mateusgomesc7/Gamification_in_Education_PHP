@@ -24,7 +24,7 @@ class AltOrdemTipoPg
            $altOrdemTipoPg = new \App\adms\Models\AdmsAltOrdemTipoPg();
            $altOrdemTipoPg->altOrdemTipoPg($this->DadosId);
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar um tipo de página!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar um tipo de página!</div>";
         }
         $UrlDestino = URLADM . 'tipo-pg/listar';
         header("Location: $UrlDestino");

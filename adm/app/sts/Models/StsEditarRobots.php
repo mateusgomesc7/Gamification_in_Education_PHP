@@ -54,10 +54,10 @@ class StsEditarRobots
         $upAltRobots = new \App\adms\Models\helper\AdmsUpdate();
         $upAltRobots->exeUpdate("sts_robots", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltRobots->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Robots atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Robots atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Robots não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Robots não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

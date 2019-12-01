@@ -41,7 +41,7 @@ class AdmsListarPermi
 		AND nivac.ordem >=:ordem
                 AND (((SELECT permissao FROM adms_nivacs_pgs WHERE adms_pagina_id=nivpg.adms_pagina_id AND adms_niveis_acesso_id={$_SESSION['adms_niveis_acesso_id']}) = 1) OR (pg.lib_pub = 1))
                     
-                ", "adms_niveis_acesso_id={$this->NivId}&ordem=".$_SESSION['ordem_nivac']);
+                ", "adms_niveis_acesso_id={$this->NivId}&ordem=".$_SESSION['adms_ordem_nivac']);
         $this->ResultadoPg = $paginacao->getResultado();
 
         $listarUsuario = new \App\adms\Models\helper\AdmsRead();
@@ -52,7 +52,7 @@ class AdmsListarPermi
                 INNER JOIN adms_niveis_acessos nivac ON nivac.id=nivpg.adms_niveis_acesso_id
                 WHERE nivpg.adms_niveis_acesso_id =:adms_niveis_acesso_id AND nivac.ordem >=:ordem
                 AND (((SELECT permissao FROM adms_nivacs_pgs WHERE adms_pagina_id=nivpg.adms_pagina_id AND adms_niveis_acesso_id={$_SESSION['adms_niveis_acesso_id']}) = 1) OR (pg.lib_pub = 1))
-                ORDER BY nivpg.ordem ASC LIMIT :limit OFFSET :offset", "adms_niveis_acesso_id={$this->NivId}&ordem=".$_SESSION['ordem_nivac']."&limit={$this->LimiteResultado}&offset={$paginacao->getOffset()}");
+                ORDER BY nivpg.ordem ASC LIMIT :limit OFFSET :offset", "adms_niveis_acesso_id={$this->NivId}&ordem=".$_SESSION['adms_ordem_nivac']."&limit={$this->LimiteResultado}&offset={$paginacao->getOffset()}");
         $this->Resultado = $listarUsuario->getResultado();
         return $this->Resultado;
     }

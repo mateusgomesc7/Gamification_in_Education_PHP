@@ -34,14 +34,14 @@ class AdmsApagarUsuario
             if ($apagarUsuario->getResultado()) {
                 $apagarImg = new \App\adms\Models\helper\AdmsApagarImg();
                 $apagarImg->apagarImg('assets/imagens/usuario/' . $this->DadosId . '/' . $this->DadosUsuario[0]['imagem'], 'assets/imagens/usuario/' . $this->DadosId);
-                $_SESSION['msg'] = "<div class='alert alert-success'>Usuário apagado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Usuário apagado com sucesso!</div>";
                 $this->Resultado = true;
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Usuário não foi apagado!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Usuário não foi apagado!</div>";
                 $this->Resultado = false;
             }
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Usuário não foi apagado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Usuário não foi apagado!</div>";
             $this->Resultado = false;
         }
     }
@@ -51,7 +51,7 @@ class AdmsApagarUsuario
         $verUsuario = new \App\adms\Models\helper\AdmsRead();
         $verUsuario->fullRead("SELECT user.imagem FROM adms_usuarios user
                 INNER JOIN adms_niveis_acessos nivac ON nivac.id=user.adms_niveis_acesso_id
-                WHERE user.id =:id AND nivac.ordem >:ordem LIMIT :limit", "id=" . $this->DadosId . "&ordem=" . $_SESSION['ordem_nivac'] . "&limit=1");
+                WHERE user.id =:id AND nivac.ordem >:ordem LIMIT :limit", "id=" . $this->DadosId . "&ordem=" . $_SESSION['adms_ordem_nivac'] . "&limit=1");
         $this->DadosUsuario = $verUsuario->getResultado();
     }
 

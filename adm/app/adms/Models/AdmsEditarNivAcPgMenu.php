@@ -54,10 +54,10 @@ class AdmsEditarNivAcPgMenu
         $upAltNivAc = new \App\adms\Models\helper\AdmsUpdate();
         $upAltNivAc->exeUpdate("adms_nivacs_pgs", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltNivAc->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Item de menu da página atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Item de menu da página atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: O item de menu da página não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: O item de menu da página não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

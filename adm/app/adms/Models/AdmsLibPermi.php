@@ -32,7 +32,7 @@ class AdmsLibPermi
         if ($this->DadosNivAcPg) {
             $this->altPermi();
         }else{
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a permissão de acesso a página!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a permissão de acesso a página!</div>";
             $this->Resultado = false;
         }
     }
@@ -43,7 +43,7 @@ class AdmsLibPermi
         $verNivAcPg->fullRead("SELECT nivpg.id, nivpg.permissao 
                 FROM adms_nivacs_pgs nivpg
                 INNER JOIN adms_niveis_acessos nivac ON nivac.id=nivpg.adms_niveis_acesso_id
-                WHERE nivpg.id =:id AND nivac.ordem >:ordem", "id={$this->DadosId}&ordem=".$_SESSION['ordem_nivac']);        
+                WHERE nivpg.id =:id AND nivac.ordem >:ordem", "id={$this->DadosId}&ordem=".$_SESSION['adms_ordem_nivac']);        
         $this->DadosNivAcPg = $verNivAcPg->getResultado();
     }
 
@@ -59,10 +59,10 @@ class AdmsLibPermi
         $upPerm->exeUpdate("adms_nivacs_pgs", $this->Dados, "WHERE id =:id", "id={$this->DadosId}");
 
         if ($upPerm->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Alterado a permissão de acesso a página com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Alterado a permissão de acesso a página com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a permissão de acesso a página!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a permissão de acesso a página!</div>";
             $this->Resultado = false;
         }
     }

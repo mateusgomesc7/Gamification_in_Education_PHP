@@ -50,14 +50,14 @@ class StsCadastrarArtigo
         $cadArtigo->exeCreate("sts_perguntas", $this->Dados);
         if ($cadArtigo->getResultado()) {
             if (empty($this->Foto['name'])) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>Artigo cadastrado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Artigo cadastrado com sucesso!</div>";
                 $this->Resultado = true;
             } else {
                 $this->Dados['id'] = $cadArtigo->getResultado();
                 $this->valFoto();
             }
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Artigo não foi cadastrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Artigo não foi cadastrado!</div>";
             $this->Resultado = false;
         }
     }
@@ -67,10 +67,10 @@ class StsCadastrarArtigo
         $uploadImg = new \App\adms\Models\helper\AdmsUploadImgRed();
         $uploadImg->uploadImagem($this->Foto, '../assets/imagens/artigo/' . $this->Dados['id'] . '/', $this->Dados['imagem'], 1200, 627);
         if ($uploadImg->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Artigo cadastrado com sucesso. Upload da imagem realizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Artigo cadastrado com sucesso. Upload da imagem realizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-info'>Erro: Artigo cadastrado. Erro ao realizar o upload da imagem!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-info'>Erro: Artigo cadastrado. Erro ao realizar o upload da imagem!</div>";
             $this->Resultado = false;
         }
     }

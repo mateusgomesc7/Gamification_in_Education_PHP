@@ -24,7 +24,7 @@ class ApagarSit
            $apagarSit = new \App\adms\Models\AdmsApagarSit();
            $apagarSit->apagarSit($this->DadosId);
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar uma situação!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar uma situação!</div>";
         }
         $UrlDestino = URLADM . 'situacao/listar';
         header("Location: $UrlDestino");

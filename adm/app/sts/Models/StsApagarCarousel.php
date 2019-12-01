@@ -37,14 +37,14 @@ class StsApagarCarousel
                 $this->atualizarOrdem();
                 $apagarImg = new \App\adms\Models\helper\AdmsApagarImg();
                 $apagarImg->apagarImg('../assets/imagens/carousel/' . $this->DadosId . '/' . $this->DadosCarousel[0]['imagem'], '../assets/imagens/carousel/' . $this->DadosId);
-                $_SESSION['msg'] = "<div class='alert alert-success'>Slide do carousel apagado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Slide do carousel apagado com sucesso!</div>";
                 $this->Resultado = true;
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Slide do carousel não foi apagado!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Slide do carousel não foi apagado!</div>";
                 $this->Resultado = false;
             }
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Slide de carousel não foi apagado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Slide de carousel não foi apagado!</div>";
             $this->Resultado = false;
         }
     }

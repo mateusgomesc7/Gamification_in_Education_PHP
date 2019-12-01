@@ -32,7 +32,7 @@ class StsAltSitSobEmpresa
         if ($this->DadosSobEmpresa) {
             $this->altSobEmpresa();
         }else{
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação do tópico sobre empresa!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação do tópico sobre empresa!</div>";
             $this->Resultado = false;
         }
     }
@@ -58,10 +58,10 @@ class StsAltSitSobEmpresa
         $upSobEmpresa->exeUpdate("sts_sobs_emps", $this->Dados, "WHERE id =:id", "id={$this->DadosId}");
 
         if ($upSobEmpresa->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Alterado a situação do tópico sobre empresa!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Alterado a situação do tópico sobre empresa!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação do tópico sobre empresa!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação do tópico sobre empresa!</div>";
             $this->Resultado = false;
         }
     }

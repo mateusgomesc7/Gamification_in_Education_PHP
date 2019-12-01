@@ -33,14 +33,14 @@ class AdmsListarNivAc
         $paginacao->condicao($this->PageId, $this->LimiteResultado);
         $paginacao->paginacao("SELECT COUNT(nivac.id) AS num_result 
                 FROM adms_niveis_acessos nivac
-                WHERE nivac.ordem >=:ordem", "ordem=".$_SESSION['ordem_nivac']);
+                WHERE nivac.ordem >=:ordem", "ordem=".$_SESSION['adms_ordem_nivac']);
         $this->ResultadoPg = $paginacao->getResultado();
                
         $listarNivAc = new \App\adms\Models\helper\AdmsRead();
         $listarNivAc->fullRead("SELECT nivac.id, nivac.nome, nivac.ordem
                 FROM adms_niveis_acessos nivac 
                 WHERE nivac.ordem >=:ordem
-                ORDER BY ordem ASC LIMIT :limit OFFSET :offset", "ordem=".$_SESSION['ordem_nivac']."&limit={$this->LimiteResultado}&offset={$paginacao->getOffset()}");
+                ORDER BY ordem ASC LIMIT :limit OFFSET :offset", "ordem=".$_SESSION['adms_ordem_nivac']."&limit={$this->LimiteResultado}&offset={$paginacao->getOffset()}");
         $this->Resultado = $listarNivAc->getResultado();
         return $this->Resultado;
     }

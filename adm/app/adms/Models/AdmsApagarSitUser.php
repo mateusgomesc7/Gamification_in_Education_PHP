@@ -28,10 +28,10 @@ class AdmsApagarSitUser {
             $apagarSitUser = new \App\adms\Models\helper\AdmsDelete();
             $apagarSitUser->exeDelete("adms_sits_usuarios", "WHERE id =:id", "id={$this->DadosId}");
             if ($apagarSitUser->getResultado()) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>Situação de usuário apagado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Situação de usuário apagado com sucesso!</div>";
                 $this->Resultado = true;
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A situação de usuário não foi apagado!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A situação de usuário não foi apagado!</div>";
                 $this->Resultado = false;
             }
         }
@@ -42,7 +42,7 @@ class AdmsApagarSitUser {
         $verUsuario->fullRead("SELECT id FROM adms_usuarios
                 WHERE adms_sits_usuario_id =:adms_sits_usuario_id LIMIT :limit", "adms_sits_usuario_id=" . $this->DadosId . "&limit=2");
         if ($verUsuario->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A situação de usuário não pode ser apagada, há usuários cadastrados com essa situação!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A situação de usuário não pode ser apagada, há usuários cadastrados com essa situação!</div>";
             $this->Resultado = false;
         } else {
             $this->Resultado = true;

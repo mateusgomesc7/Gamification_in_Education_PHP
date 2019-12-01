@@ -39,7 +39,7 @@ class VerPagina
             $carregarView = new \Core\ConfigView("adms/Views/pagina/verPagina", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Página não encontrada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Página não encontrada!</div>";
             $UrlDestino = URLADM . 'pagina/listar';
             header("Location: $UrlDestino");
         }

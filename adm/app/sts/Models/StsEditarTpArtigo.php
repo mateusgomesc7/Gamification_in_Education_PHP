@@ -54,10 +54,10 @@ class StsEditarTpArtigo
         $upAltTpArtigo = new \App\adms\Models\helper\AdmsUpdate();
         $upAltTpArtigo->exeUpdate("sts_tps_artigos", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltTpArtigo->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Tipo de artigo atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Tipo de artigo atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Tipo de artigo não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Tipo de artigo não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

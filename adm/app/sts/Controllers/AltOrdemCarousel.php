@@ -24,7 +24,7 @@ class AltOrdemCarousel
            $altOrdemCarousel = new \App\sts\Models\StsAltOrdemCarousel();
            $altOrdemCarousel->altOrdemCarousel($this->DadosId);
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar um slide de carousel!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar um slide de carousel!</div>";
         }
         $UrlDestino = URLADM . 'carousel/listar';
         header("Location: $UrlDestino");

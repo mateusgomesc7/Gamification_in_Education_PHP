@@ -32,7 +32,7 @@ class StsAltOrdemPaginaSite {
             if ($this->DadosPgInferior) {
                 $this->exeAltOrdemPg();
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem da página!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem da página!</div>";
                 $this->Resultado = false;
             }
         }
@@ -63,10 +63,10 @@ class StsAltOrdemPaginaSite {
         $upMvCima->exeUpdate("sts_paginas", $this->Dados, "WHERE id =:id", "id={$this->DadosPg[0]['id']}");
 
         if ($upMvCima->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Ordem da página editado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Ordem da página editado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem da página!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem da página!</div>";
             $this->Resultado = false;
         }
     }

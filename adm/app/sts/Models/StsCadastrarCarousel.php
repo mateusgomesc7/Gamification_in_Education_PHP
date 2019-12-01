@@ -63,14 +63,14 @@ class StsCadastrarCarousel
         $cadCarousel->exeCreate("sts_carousels", $this->Dados);
         if ($cadCarousel->getResultado()) {
             if (empty($this->Foto['name'])) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>Slide do carousel cadastrado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Slide do carousel cadastrado com sucesso!</div>";
                 $this->Resultado = true;
             } else {
                 $this->Dados['id'] = $cadCarousel->getResultado();
                 $this->valFoto();
             }
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: O slide do carousel não foi cadastrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: O slide do carousel não foi cadastrado!</div>";
             $this->Resultado = false;
         }
     }
@@ -87,10 +87,10 @@ class StsCadastrarCarousel
         $uploadImg = new \App\adms\Models\helper\AdmsUploadImgRed();
         $uploadImg->uploadImagem($this->Foto, '../assets/imagens/carousel/' . $this->Dados['id'] . '/', $this->Dados['imagem'], 1920, 846);
         if ($uploadImg->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Slide do carousel cadastrado com sucesso. Upload da imagem realizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Slide do carousel cadastrado com sucesso. Upload da imagem realizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-info'>Erro: O slide do carousel não foi cadastrado. Erro ao realizar o upload da imagem!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-info'>Erro: O slide do carousel não foi cadastrado. Erro ao realizar o upload da imagem!</div>";
             $this->Resultado = false;
         }
     }

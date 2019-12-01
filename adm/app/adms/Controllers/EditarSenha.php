@@ -32,7 +32,7 @@ class EditarSenha
                 header("Location: $UrlDestino");
             }
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Usuário não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Usuário não encontrado!</div>";
             $UrlDestino = URLADM . 'usuarios/listar';
             header("Location: $UrlDestino");
         }
@@ -45,7 +45,7 @@ class EditarSenha
             $editarSenha = new \App\adms\Models\AdmsEditarSenha();
             $editarSenha->editSenha($this->Dados);
             if ($editarSenha->getResultado()) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>Senha editada com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Senha editada com sucesso!</div>";
                 $UrlDestino = URLADM . 'ver-usuario/ver-usuario/' . $this->Dados['id'];
                 header("Location: $UrlDestino");
             } else {
@@ -71,7 +71,7 @@ class EditarSenha
             $carregarView = new \Core\ConfigView("adms/Views/usuario/editarSenha", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Usuário não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Usuário não encontrado!</div>";
             $UrlDestino = URLADM . 'usuarios/listar';
             header("Location: $UrlDestino");
         }

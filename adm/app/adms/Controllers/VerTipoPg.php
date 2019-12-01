@@ -38,7 +38,7 @@ class VerTipoPg
             $carregarView = new \Core\ConfigView("adms/Views/tipoPg/verTipoPg", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Tipo de página não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Tipo de página não encontrado!</div>";
             $UrlDestino = URLADM . 'tipo-pg/listar';
             header("Location: $UrlDestino");
         }

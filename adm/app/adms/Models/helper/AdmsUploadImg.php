@@ -48,7 +48,7 @@ class AdmsUploadImg
         if($this->Imagem){
             $this->valDiretorio();
         }else{
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A extensão da imagem é inválida. Selecione um imagem JPEG ou PNG!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A extensão da imagem é inválida. Selecione um imagem JPEG ou PNG!</div>";
             $this->Resultado = false;
         }
     }
@@ -66,7 +66,7 @@ class AdmsUploadImg
         if(move_uploaded_file($this->DadosImagem['tmp_name'], $this->Diretorio . $this->NomeImg)){
             $this->Resultado = true; 
         }else{
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi realizar o upload da imagem!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi realizar o upload da imagem!</div>";
             $this->Resultado = false;            
         }
     }

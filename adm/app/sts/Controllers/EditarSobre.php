@@ -48,7 +48,7 @@ class EditarSobre {
             $carregarView = new \Core\ConfigView("sts/Views/sobre/editarSobre", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Nenhum registro encontrado para editar sobre da página blog!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Nenhum registro encontrado para editar sobre da página blog!</div>";
             $UrlDestino = URLADM . 'home/index';
             header("Location: $UrlDestino");
         }

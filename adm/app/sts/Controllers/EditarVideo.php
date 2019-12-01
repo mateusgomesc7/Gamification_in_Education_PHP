@@ -45,7 +45,7 @@ class EditarVideo {
             $carregarView = new \Core\ConfigView("sts/Views/video/editarVideo", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Formulário para editar os dados do vídeo não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Formulário para editar os dados do vídeo não encontrado!</div>";
             $UrlDestino = URLADM . 'editar-video/edit-video';
             header("Location: $UrlDestino");
         }

@@ -54,10 +54,10 @@ class AdmsEditarSit
         $upAltSit = new \App\adms\Models\helper\AdmsUpdate();
         $upAltSit->exeUpdate("adms_sits", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltSit->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Situação atualizada com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Situação atualizada com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A situação não foi atualizada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A situação não foi atualizada!</div>";
             $this->Resultado = false;
         }
     }

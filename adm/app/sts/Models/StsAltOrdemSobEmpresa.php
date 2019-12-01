@@ -32,7 +32,7 @@ class StsAltOrdemSobEmpresa {
             if ($this->DadosSobEmpresaInferior) {
                 $this->exeAltOrdemSobEmpresa();
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do tópico sobre empresa!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do tópico sobre empresa!</div>";
                 $this->Resultado = false;
             }
         }
@@ -63,10 +63,10 @@ class StsAltOrdemSobEmpresa {
         $upMvCima->exeUpdate("sts_sobs_emps", $this->Dados, "WHERE id =:id", "id={$this->DadosSobEmpresa[0]['id']}");
 
         if ($upMvCima->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Ordem do tópico sobre empresa editado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Ordem do tópico sobre empresa editado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do tópico sobre empresa!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do tópico sobre empresa!</div>";
             $this->Resultado = false;
         }
     }

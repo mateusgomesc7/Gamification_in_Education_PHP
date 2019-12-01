@@ -38,7 +38,7 @@ class VerTpArtigo
             $carregarView = new \Core\ConfigView("sts/Views/tpArtigo/verTpArtigo", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Tipo de artigo não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Tipo de artigo não encontrado!</div>";
             $UrlDestino = URLADM . 'tp-artigo/listar';
             header("Location: $UrlDestino");
         }

@@ -54,10 +54,10 @@ class StsEditarAutorArtigo
         $upAltAutorArtigo = new \App\adms\Models\helper\AdmsUpdate();
         $upAltAutorArtigo->exeUpdate("sts_artigos", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltAutorArtigo->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Autor do artigo atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Autor do artigo atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Autor do artigo não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Autor do artigo não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

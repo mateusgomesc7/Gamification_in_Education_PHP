@@ -25,7 +25,7 @@ class EditarPagina
         if (!empty($this->DadosId)) {
             $this->editPaginaPriv();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Página não encontrada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Página não encontrada!</div>";
             $UrlDestino = URLADM . 'pagina/listar';
             header("Location: $UrlDestino");
         }
@@ -66,7 +66,7 @@ class EditarPagina
             $carregarView = new \Core\ConfigView("adms/Views/pagina/editarPagina", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Página não encontrada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Página não encontrada!</div>";
             $UrlDestino = URLADM . 'pagina/listar';
             header("Location: $UrlDestino");
         }

@@ -38,7 +38,7 @@ class VerCarousel
             $carregarView = new \Core\ConfigView("sts/Views/carousel/verCarousel", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Slide de carousel não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Slide de carousel não encontrado!</div>";
             $UrlDestino = URLADM . 'carousel/listar';
             header("Location: $UrlDestino");
         }

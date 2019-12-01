@@ -28,10 +28,10 @@ class AdmsApagarSitPg {
             $apagarSitPg = new \App\adms\Models\helper\AdmsDelete();
             $apagarSitPg->exeDelete("adms_sits_pgs", "WHERE id =:id", "id={$this->DadosId}");
             if ($apagarSitPg->getResultado()) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>Situação de página apagado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Situação de página apagado com sucesso!</div>";
                 $this->Resultado = true;
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A situação de página não foi apagado!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A situação de página não foi apagado!</div>";
                 $this->Resultado = false;
             }
         }
@@ -42,7 +42,7 @@ class AdmsApagarSitPg {
         $verPg->fullRead("SELECT id FROM adms_paginas
                 WHERE adms_sits_pg_id =:adms_sits_pg_id LIMIT :limit", "adms_sits_pg_id=" . $this->DadosId . "&limit=2");
         if ($verPg->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A situação de página não pode ser apagada, há páginas cadastradas com essa situação!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A situação de página não pode ser apagada, há páginas cadastradas com essa situação!</div>";
             $this->Resultado = false;
         } else {
             $this->Resultado = true;

@@ -3,9 +3,9 @@
         <img class="mb-4" src="<?php echo URLADM . 'assets/imagens/logo_login/logo.png'; ?>" alt="Celke" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Recuperar a senha</h1>
         <?php
-        if (isset($_SESSION['msg'])) {
-            echo $_SESSION['msg'];
-            unset($_SESSION['msg']);
+        if (isset($_SESSION['adms_msg'])) {
+            echo $_SESSION['adms_msg'];
+            unset($_SESSION['adms_msg']);
         }
         if (isset($this->Dados['form'])) {
             $valorForm = $this->Dados['form'];

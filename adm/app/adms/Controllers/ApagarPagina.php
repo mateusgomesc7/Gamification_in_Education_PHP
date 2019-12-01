@@ -24,7 +24,7 @@ class ApagarPagina
            $apagarPagina = new \App\adms\Models\AdmsApagarPagina();
            $apagarPagina->apagarPagina($this->DadosId);
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar uma página!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar uma página!</div>";
         }
         $UrlDestino = URLADM . 'pagina/listar';
         header("Location: $UrlDestino");

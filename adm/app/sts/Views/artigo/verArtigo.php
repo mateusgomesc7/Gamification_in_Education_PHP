@@ -53,9 +53,9 @@ if (!empty($this->Dados['dados_Artigo'][0])) {
                 </div>
             </div><hr>
             <?php
-            if (isset($_SESSION['msg'])) {
-                echo $_SESSION['msg'];
-                unset($_SESSION['msg']);
+            if (isset($_SESSION['adms_msg'])) {
+                echo $_SESSION['adms_msg'];
+                unset($_SESSION['adms_msg']);
             }
             ?>
             <h2 class="display-4 titulo">Conteúdo</h2>
@@ -137,7 +137,7 @@ if (!empty($this->Dados['dados_Artigo'][0])) {
     </div>
     <?php
 } else {
-    $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Artigo não encontrado!</div>";
+    $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Artigo não encontrado!</div>";
     $UrlDestino = URLADM . 'artigo/listar';
     header("Location: $UrlDestino");
 }

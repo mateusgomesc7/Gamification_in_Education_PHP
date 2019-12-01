@@ -23,7 +23,7 @@ class EditarAutorArtigo {
         if (!empty($this->DadosId)) {
             $this->editAutorArtigoPriv();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Artigo não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Artigo não encontrado!</div>";
             $UrlDestino = URLADM . 'artigo/listar';
             header("Location: $UrlDestino");
         }
@@ -62,7 +62,7 @@ class EditarAutorArtigo {
             $carregarView = new \Core\ConfigView("sts/Views/artigo/editarAutorArtigo", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Artigo não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Artigo não encontrado!</div>";
             $UrlDestino = URLADM . 'artigo/listar';
             header("Location: $UrlDestino");
         }

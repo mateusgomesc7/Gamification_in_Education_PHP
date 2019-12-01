@@ -38,7 +38,7 @@ class VerSobEmpresa
             $carregarView = new \Core\ConfigView("sts/Views/sobEmpresa/verSobEmpresa", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Sobre empresa não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Sobre empresa não encontrado!</div>";
             $UrlDestino = URLADM . 'sob-empresa/listar';
             header("Location: $UrlDestino");
         }

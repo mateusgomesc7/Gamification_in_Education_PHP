@@ -54,10 +54,10 @@ class AdmsEditarMenu
         $upAltNivAc = new \App\adms\Models\helper\AdmsUpdate();
         $upAltNivAc->exeUpdate("adms_menus", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltNivAc->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Item de menu atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Item de menu atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: O item de menu não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: O item de menu não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

@@ -43,10 +43,10 @@ class StsCadastrarTpArtigo
         $cadTpArtigo = new \App\adms\Models\helper\AdmsCreate;
         $cadTpArtigo->exeCreate("sts_tps_artigos", $this->Dados);
         if ($cadTpArtigo->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Tipo de artigo cadastrado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Tipo de artigo cadastrado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Tipo de artigo não foi cadastrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Tipo de artigo não foi cadastrado!</div>";
             $this->Resultado = false;
         }
     }

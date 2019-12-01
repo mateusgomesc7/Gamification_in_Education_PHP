@@ -46,10 +46,10 @@ class StsCadastrarTipoPgSite
         $cadTipoPg = new \App\adms\Models\helper\AdmsCreate;
         $cadTipoPg->exeCreate("sts_tps_pgs", $this->Dados);
         if ($cadTipoPg->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Tipo de página cadastrado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Tipo de página cadastrado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Tipo de página não foi cadastrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Tipo de página não foi cadastrado!</div>";
             $this->Resultado = false;
         }
     }

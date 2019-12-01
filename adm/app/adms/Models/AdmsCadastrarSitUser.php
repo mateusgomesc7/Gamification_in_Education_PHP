@@ -43,10 +43,10 @@ class AdmsCadastrarSitUser
         $cadSitUser = new \App\adms\Models\helper\AdmsCreate;
         $cadSitUser->exeCreate("adms_sits_usuarios", $this->Dados);
         if ($cadSitUser->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Situação de usuário cadastrado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Situação de usuário cadastrado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A situação de usuário não foi cadastrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A situação de usuário não foi cadastrado!</div>";
             $this->Resultado = false;
         }
     }

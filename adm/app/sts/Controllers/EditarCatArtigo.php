@@ -23,7 +23,7 @@ class EditarCatArtigo {
         if (!empty($this->DadosId)) {
             $this->editCatArtigoPriv();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Categoria de artigo não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Categoria de artigo não encontrado!</div>";
             $UrlDestino = URLADM . 'cat-artigo/listar';
             header("Location: $UrlDestino");
         }
@@ -62,7 +62,7 @@ class EditarCatArtigo {
             $carregarView = new \Core\ConfigView("sts/Views/catArtigo/editarCatArtigo", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Categoria de artigo não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Categoria de artigo não encontrado!</div>";
             $UrlDestino = URLADM . 'cat-artigo/listar';
             header("Location: $UrlDestino");
         }

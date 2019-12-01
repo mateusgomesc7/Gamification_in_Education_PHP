@@ -23,7 +23,7 @@ class EditarTipoPgSite {
         if (!empty($this->DadosId)) {
             $this->editTipoPgPriv();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Tipo de página não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Tipo de página não encontrado!</div>";
             $UrlDestino = URLADM . 'tipo-pg-site/listar';
             header("Location: $UrlDestino");
         }
@@ -60,7 +60,7 @@ class EditarTipoPgSite {
             $carregarView = new \Core\ConfigView("sts/Views/tipoPg/editarTipoPg", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Tipo de página não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Tipo de página não encontrado!</div>";
             $UrlDestino = URLADM . 'tipo-pg-site/listar';
             header("Location: $UrlDestino");
         }

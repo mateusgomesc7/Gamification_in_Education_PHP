@@ -32,7 +32,7 @@ class StsAltSitArtigo
         if ($this->DadosArtigo) {
             $this->altArtigo();
         }else{
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação do artigo!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação do artigo!</div>";
             $this->Resultado = false;
         }
     }
@@ -58,10 +58,10 @@ class StsAltSitArtigo
         $upArtigo->exeUpdate("sts_artigos", $this->Dados, "WHERE id =:id", "id={$this->DadosId}");
 
         if ($upArtigo->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Alterado a situação do artigo!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Alterado a situação do artigo!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação do artigo!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação do artigo!</div>";
             $this->Resultado = false;
         }
     }

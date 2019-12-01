@@ -38,7 +38,7 @@ class VerNivAc
             $carregarView = new \Core\ConfigView("adms/Views/nivAcesso/verNivAc", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Nivel de acesso não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Nivel de acesso não encontrado!</div>";
             $UrlDestino = URLADM . 'nivel-acesso/listar';
             header("Location: $UrlDestino");
         }

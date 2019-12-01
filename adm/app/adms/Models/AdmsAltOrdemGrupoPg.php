@@ -32,7 +32,7 @@ class AdmsAltOrdemGrupoPg {
             if ($this->DadosGrupoPgInferior) {
                 $this->exeAltOrdemGrupoPg();
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do grupo de página!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do grupo de página!</div>";
                 $this->Resultado = false;
             }
         }
@@ -63,10 +63,10 @@ class AdmsAltOrdemGrupoPg {
         $upMvCima->exeUpdate("adms_grps_pgs", $this->Dados, "WHERE id =:id", "id={$this->DadosGrupoPg[0]['id']}");
 
         if ($upMvCima->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Ordem do grupo de página editado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Ordem do grupo de página editado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do grupo de página!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do grupo de página!</div>";
             $this->Resultado = false;
         }
     }

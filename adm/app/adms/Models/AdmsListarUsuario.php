@@ -34,7 +34,7 @@ class AdmsListarUsuario
         $paginacao->paginacao("SELECT COUNT(user.id) AS num_result 
                 FROM adms_usuarios user
                 INNER JOIN adms_niveis_acessos nivac ON nivac.id=user.adms_niveis_acesso_id
-                WHERE nivac.ordem >=:ordem", "ordem=".$_SESSION['ordem_nivac']);
+                WHERE nivac.ordem >=:ordem", "ordem=".$_SESSION['adms_ordem_nivac']);
         $this->ResultadoPg = $paginacao->getResultado();
                
         $listarUsuario = new \App\adms\Models\helper\AdmsRead();
@@ -46,7 +46,7 @@ class AdmsListarUsuario
                 INNER JOIN adms_cors cr ON cr.id=sit.adms_cor_id
                 INNER JOIN adms_niveis_acessos nivac ON nivac.id=user.adms_niveis_acesso_id
                 WHERE nivac.ordem >=:ordem
-                ORDER BY id DESC LIMIT :limit OFFSET :offset", "ordem=".$_SESSION['ordem_nivac']."&limit={$this->LimiteResultado}&offset={$paginacao->getOffset()}");
+                ORDER BY id DESC LIMIT :limit OFFSET :offset", "ordem=".$_SESSION['adms_ordem_nivac']."&limit={$this->LimiteResultado}&offset={$paginacao->getOffset()}");
         $this->Resultado = $listarUsuario->getResultado();
         return $this->Resultado;
     }

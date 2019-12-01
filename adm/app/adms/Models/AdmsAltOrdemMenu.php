@@ -34,7 +34,7 @@ class AdmsAltOrdemMenu
             $this->verfNivAcPgInferior();
             $this->exeAltOrdemNivAc();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do menu!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do menu!</div>";
             $this->Resultado = false;
         }
     }
@@ -45,7 +45,7 @@ class AdmsAltOrdemMenu
         $verNivAcPg->fullRead("SELECT nivpg.id, nivpg.ordem, nivpg.adms_niveis_acesso_id
                 FROM adms_nivacs_pgs nivpg
                 INNER JOIN adms_niveis_acessos nivac ON nivac.id=nivpg.adms_niveis_acesso_id
-                WHERE nivpg.id =:id AND nivac.ordem >=:ordem", "id={$this->DadosId}&ordem=" . $_SESSION['ordem_nivac']);
+                WHERE nivpg.id =:id AND nivac.ordem >=:ordem", "id={$this->DadosId}&ordem=" . $_SESSION['adms_ordem_nivac']);
         $this->DadosNivAcPg = $verNivAcPg->getResultado();
     }
 
@@ -71,10 +71,10 @@ class AdmsAltOrdemMenu
         $upMvCima->exeUpdate("adms_nivacs_pgs", $this->Dados, "WHERE id =:id", "id={$this->DadosNivAcPg[0]['id']}");
 
         if ($upMvCima->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Ordem do menu editado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Ordem do menu editado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do menu!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do menu!</div>";
             $this->Resultado = false;
         }
     }

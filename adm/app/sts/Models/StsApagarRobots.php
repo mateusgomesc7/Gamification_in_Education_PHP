@@ -28,10 +28,10 @@ class StsApagarRobots {
             $apagarRobots = new \App\adms\Models\helper\AdmsDelete();
             $apagarRobots->exeDelete("sts_robots", "WHERE id =:id", "id={$this->DadosId}");
             if ($apagarRobots->getResultado()) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>Robots de página apagado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Robots de página apagado com sucesso!</div>";
                 $this->Resultado = true;
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Robots de página não foi apagado!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Robots de página não foi apagado!</div>";
                 $this->Resultado = false;
             }
         }
@@ -42,7 +42,7 @@ class StsApagarRobots {
         $verPg->fullRead("SELECT id FROM sts_paginas
                 WHERE sts_robot_id =:sts_robot_id LIMIT :limit", "sts_robot_id=" . $this->DadosId . "&limit=2");
         if ($verPg->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Robots de página não pode ser apagada, há páginas cadastradas com esse robots!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Robots de página não pode ser apagada, há páginas cadastradas com esse robots!</div>";
             $this->Resultado = false;
         } else {
             $this->verfArtigoCad();
@@ -54,7 +54,7 @@ class StsApagarRobots {
         $verArtigo->fullRead("SELECT id FROM sts_artigos
                 WHERE sts_robot_id =:sts_robot_id LIMIT :limit", "sts_robot_id=" . $this->DadosId . "&limit=2");
         if ($verArtigo->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Robots de página não pode ser apagada, há artigo cadastrado com esse robots!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Robots de página não pode ser apagada, há artigo cadastrado com esse robots!</div>";
             $this->Resultado = false;
         } else {
             $this->Resultado = true;

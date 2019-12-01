@@ -31,7 +31,7 @@ class Confirmar
                 header("Location: $UrlDestino");
             }
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Link de confirmação inválido!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Link de confirmação inválido!</div>";
             $UrlDestino = URLADM . 'login/acesso';
             header("Location: $UrlDestino");
         }

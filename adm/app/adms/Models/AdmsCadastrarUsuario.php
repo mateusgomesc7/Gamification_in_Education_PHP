@@ -83,14 +83,14 @@ class AdmsCadastrarUsuario
         $cadUsuario->exeCreate("adms_usuarios", $this->Dados);
         if ($cadUsuario->getResultado()) {
             if (empty($this->Foto['name'])) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>Usuário cadastrado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Usuário cadastrado com sucesso!</div>";
                 $this->Resultado = true;
             } else {
                 $this->Dados['id'] = $cadUsuario->getResultado();
                 $this->valFoto();
             }
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: O usuario não foi cadastrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: O usuario não foi cadastrado!</div>";
             $this->Resultado = false;
         }
     }
@@ -100,10 +100,10 @@ class AdmsCadastrarUsuario
         $uploadImg = new \App\adms\Models\helper\AdmsUploadImgRed();
         $uploadImg->uploadImagem($this->Foto, 'assets/imagens/usuario/' . $this->Dados['id'] . '/', $this->Dados['imagem'], 150, 150);
         if ($uploadImg->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Usuário cadastrado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Usuário cadastrado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: O usuario não foi cadastrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: O usuario não foi cadastrado!</div>";
             $this->Resultado = false;
         }
     }
@@ -111,7 +111,7 @@ class AdmsCadastrarUsuario
     public function listarCadastrar()
     {
         $listar = new \App\adms\Models\helper\AdmsRead();
-        $listar->fullRead("SELECT id id_nivac, nome nome_nivac FROM adms_niveis_acessos WHERE ordem >=:ordem ORDER BY nome ASC", "ordem=" . $_SESSION['ordem_nivac']);
+        $listar->fullRead("SELECT id id_nivac, nome nome_nivac FROM adms_niveis_acessos WHERE ordem >=:ordem ORDER BY nome ASC", "ordem=" . $_SESSION['adms_ordem_nivac']);
         
         $registro['nivac'] = $listar->getResultado();
 

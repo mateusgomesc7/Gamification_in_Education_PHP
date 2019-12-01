@@ -38,7 +38,7 @@ class VerSitPg
             $carregarView = new \Core\ConfigView("adms/Views/situacaoPg/verSitPg", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Situação de página não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Situação de página não encontrado!</div>";
             $UrlDestino = URLADM . 'situacao-pg/listar';
             header("Location: $UrlDestino");
         }

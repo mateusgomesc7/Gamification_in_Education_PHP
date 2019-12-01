@@ -24,7 +24,7 @@ class AltOrdemPaginaSite
            $altOrdemPaginaSite = new \App\sts\Models\StsAltOrdemPaginaSite();
            $altOrdemPaginaSite->altOrdemPaginaSite($this->DadosId);
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar uma página!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar uma página!</div>";
         }
         $UrlDestino = URLADM . 'pagina-site/listar/listar';
         header("Location: $UrlDestino");

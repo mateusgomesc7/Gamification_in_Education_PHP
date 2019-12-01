@@ -38,9 +38,9 @@ if (!defined('URL')) {
             </div>
             <?php
         }
-        if (isset($_SESSION['msg'])) {
-            echo $_SESSION['msg'];
-            unset($_SESSION['msg']);
+        if (isset($_SESSION['adms_msg'])) {
+            echo $_SESSION['adms_msg'];
+            unset($_SESSION['adms_msg']);
         }
         ?>
         <div class="table-responsive">

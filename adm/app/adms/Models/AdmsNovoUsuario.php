@@ -55,7 +55,7 @@ class AdmsNovoUsuario
         $this->Dados = array_map('strip_tags', $this->Dados);
         $this->Dados = array_map('trim', $this->Dados);
         if (in_array('', $this->Dados)) {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Necessário preencher todos os campos!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Necessário preencher todos os campos!</div>";
             $this->Resultado = false;
         } else {
             $this->Resultado = true;
@@ -77,12 +77,12 @@ class AdmsNovoUsuario
             if($this->InfoCadUser[0]['env_email_conf'] == 1){
                 $this->dadosEmail();
             }else{
-                $_SESSION['msg'] = "<div class='alert alert-success'>Usuário cadastrado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Usuário cadastrado com sucesso!</div>";
                 $this->Resultado = true;
             }
             
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Usuário não foi cadastrado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Usuário não foi cadastrado com sucesso!</div>";
             $this->Resultado = false;
         }
     }
@@ -114,10 +114,10 @@ class AdmsNovoUsuario
         $emailPHPMailer = new \App\adms\Models\helper\AdmsPhpMailer();
         $emailPHPMailer->emailPhpMailer($this->DadosEmail);
         if($emailPHPMailer->getResultado()){
-            $_SESSION['msg'] = "<div class='alert alert-success'>Usuário cadastrado com sucesso. Enviado no seu e-mail o link para confirmar o e-mail!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Usuário cadastrado com sucesso. Enviado no seu e-mail o link para confirmar o e-mail!</div>";
             $this->Resultado = true;            
         }else{
-            $_SESSION['msg'] = "<div class='alert alert-primary'>Usuário cadastrado com sucesso. Erro: Não foi possivel enviar o link no seu e-mail para confirmar o e-mail!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-primary'>Usuário cadastrado com sucesso. Erro: Não foi possivel enviar o link no seu e-mail para confirmar o e-mail!</div>";
             $this->Resultado = false; 
         }
     }

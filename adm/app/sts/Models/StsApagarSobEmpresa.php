@@ -37,14 +37,14 @@ class StsApagarSobEmpresa
                 $this->atualizarOrdem();
                 $apagarImg = new \App\adms\Models\helper\AdmsApagarImg();
                 $apagarImg->apagarImg('../assets/imagens/sob_emp/' . $this->DadosId . '/' . $this->DadosSobEmpresa[0]['imagem'], '../assets/imagens/sob_emp/' . $this->DadosId);
-                $_SESSION['msg'] = "<div class='alert alert-success'>Tópico sobre empresa apagado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Tópico sobre empresa apagado com sucesso!</div>";
                 $this->Resultado = true;
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Tópico sobre empresa não foi apagado!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Tópico sobre empresa não foi apagado!</div>";
                 $this->Resultado = false;
             }
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Tópico sobre empresa não foi apagado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Tópico sobre empresa não foi apagado!</div>";
             $this->Resultado = false;
         }
     }

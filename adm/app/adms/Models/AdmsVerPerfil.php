@@ -20,7 +20,7 @@ class AdmsVerPerfil
     public function verPerfil()
     {
         $verPerfil = new \App\adms\Models\helper\AdmsRead();
-        $verPerfil->fullRead("SELECT * FROM adms_usuarios WHERE id =:id LIMIT :limit", "id=" . $_SESSION['usuario_id'] . "&limit=1");
+        $verPerfil->fullRead("SELECT * FROM adms_usuarios WHERE id =:id LIMIT :limit", "id=" . $_SESSION['adms_usuario_id'] . "&limit=1");
         $this->Resultado = $verPerfil->getResultado();
         return $this->Resultado;
     }

@@ -80,10 +80,10 @@ class StsEditarCarousel
         $upAltCarousel = new \App\adms\Models\helper\AdmsUpdate();
         $upAltCarousel->exeUpdate("sts_carousels", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltCarousel->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Slide do carousel atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Slide do carousel atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: O slide do carousel não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: O slide do carousel não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

@@ -30,12 +30,12 @@ class AdmsEditarSenha
         $validaUsuario = new \App\adms\Models\helper\AdmsRead();
         $validaUsuario->fullRead("SELECT user.id FROM adms_usuarios user
                 INNER JOIN adms_niveis_acessos nivac ON nivac.id=user.adms_niveis_acesso_id
-                WHERE user.id =:id AND nivac.ordem >:ordem LIMIT :limit", "id=" . $this->DadosId . "&ordem=".$_SESSION['ordem_nivac']."&limit=1");
+                WHERE user.id =:id AND nivac.ordem >:ordem LIMIT :limit", "id=" . $this->DadosId . "&ordem=".$_SESSION['adms_ordem_nivac']."&limit=1");
         $this->DadosUsuario = $validaUsuario->getResultado();
         if (!empty($this->DadosUsuario)) {
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Usuário não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Usuário não encontrado!</div>";
             $this->Resultado = false;
         }
     }
@@ -67,14 +67,14 @@ class AdmsEditarSenha
             $upAtualSenha = new \App\adms\Models\helper\AdmsUpdate();
             $upAtualSenha->exeUpdate("adms_usuarios", $this->Dados, "WHERE id =:id", "id={$this->Dados['id']}");
             if ($upAtualSenha->getResultado()) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>Senha atualizada com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Senha atualizada com sucesso!</div>";
                 $this->Resultado = true;
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A senha não foi atualizada!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A senha não foi atualizada!</div>";
                 $this->Resultado = false;
             }
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A senha não foi atualizada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A senha não foi atualizada!</div>";
             $this->Resultado = false;
         }
     }

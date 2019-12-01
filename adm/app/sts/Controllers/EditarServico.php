@@ -45,7 +45,7 @@ class EditarServico {
             $carregarView = new \Core\ConfigView("sts/Views/servico/editarServico", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Formulário para editar os dados do serviço não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Formulário para editar os dados do serviço não encontrado!</div>";
             $UrlDestino = URLADM . 'editar-servico/edit-servico';
             header("Location: $UrlDestino");
         }

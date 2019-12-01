@@ -39,7 +39,7 @@ class AdmsUploadImgRed
         if($this->Imagem){
             $this->Resultado = true;
         }else{
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A extensão da imagem é inválida. Selecione um imagem JPEG ou PNG!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A extensão da imagem é inválida. Selecione um imagem JPEG ou PNG!</div>";
             $this->Resultado = false;
         }
     }

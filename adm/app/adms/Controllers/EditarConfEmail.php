@@ -45,7 +45,7 @@ class EditarConfEmail {
             $carregarView = new \Core\ConfigView("adms/Views/confEmail/editarConfEmail", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Formulário para editar os dados do servidor de e-mail não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Formulário para editar os dados do servidor de e-mail não encontrado!</div>";
             $UrlDestino = URLADM . 'editar-conf-email/edit-conf-email';
             header("Location: $UrlDestino");
         }

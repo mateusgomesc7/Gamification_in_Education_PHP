@@ -32,7 +32,7 @@ class AdmsAltOrdemTipoPg {
             if ($this->DadosTipoPgInferior) {
                 $this->exeAltOrdemTipoPg();
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do tipo de página!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do tipo de página!</div>";
                 $this->Resultado = false;
             }
         }
@@ -63,10 +63,10 @@ class AdmsAltOrdemTipoPg {
         $upMvCima->exeUpdate("adms_tps_pgs", $this->Dados, "WHERE id =:id", "id={$this->DadosTipoPg[0]['id']}");
 
         if ($upMvCima->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Ordem do tipo de página editado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Ordem do tipo de página editado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do tipo de página!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do tipo de página!</div>";
             $this->Resultado = false;
         }
     }

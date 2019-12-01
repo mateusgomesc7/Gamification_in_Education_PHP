@@ -32,7 +32,7 @@ class AdmsAltOrdemItemMenu {
             if ($this->DadosMenuInferior) {
                 $this->exeAltOrdemMenu();
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do item de menu!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do item de menu!</div>";
                 $this->Resultado = false;
             }
         }
@@ -63,10 +63,10 @@ class AdmsAltOrdemItemMenu {
         $upMvCima->exeUpdate("adms_menus", $this->Dados, "WHERE id =:id", "id={$this->DadosMenu[0]['id']}");
 
         if ($upMvCima->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Ordem do item de menu editado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Ordem do item de menu editado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do item de menu!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do item de menu!</div>";
             $this->Resultado = false;
         }
     }

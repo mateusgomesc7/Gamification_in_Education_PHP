@@ -54,10 +54,10 @@ class StsEditarSitPgSite
         $upAltSitPgSite = new \App\adms\Models\helper\AdmsUpdate();
         $upAltSitPgSite->exeUpdate("sts_situacaos_pgs", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltSitPgSite->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Situação de página de site atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Situação de página de site atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Situação de página de site não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Situação de página de site não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

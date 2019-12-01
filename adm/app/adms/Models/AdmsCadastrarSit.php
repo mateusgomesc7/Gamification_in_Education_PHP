@@ -43,10 +43,10 @@ class AdmsCadastrarSit
         $cadSit = new \App\adms\Models\helper\AdmsCreate;
         $cadSit->exeCreate("adms_sits", $this->Dados);
         if ($cadSit->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Situação cadastrada com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Situação cadastrada com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A situação não foi cadastrada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A situação não foi cadastrada!</div>";
             $this->Resultado = false;
         }
     }

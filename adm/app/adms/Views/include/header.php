@@ -14,13 +14,13 @@ if (!defined('URL')) {
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle menu-header" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">
-                    <?php if (isset($_SESSION['usuario_imagem']) AND ( !empty($_SESSION['usuario_imagem']))) { ?>
-                        <img class="rounded-circle" src="<?php echo URLADM . 'assets/imagens/usuario/' . $_SESSION['usuario_id'] . '/' . $_SESSION['usuario_imagem']; ?>" width="20" height="20"> &nbsp;<span class="d-none d-sm-inline">
+                    <?php if (isset($_SESSION['adms_usuario_imagem']) AND ( !empty($_SESSION['adms_usuario_imagem']))) { ?>
+                        <img class="rounded-circle" src="<?php echo URLADM . 'assets/imagens/usuario/' . $_SESSION['adms_usuario_id'] . '/' . $_SESSION['adms_usuario_imagem']; ?>" width="20" height="20"> &nbsp;<span class="d-none d-sm-inline">
                         <?php } else { ?>
                             <img class="rounded-circle" src="<?php echo URLADM . 'assets/imagens/usuario/icone_usuario.png'; ?>" width="20" height="20"> &nbsp;<span class="d-none d-sm-inline">
                                 <?php
                             }
-                            $nome = explode(" ", $_SESSION['usuario_nome']);
+                            $nome = explode(" ", $_SESSION['adms_usuario_nome']);
                             $prim_nome = $nome[0];
                             echo $prim_nome;
                             ?></span>

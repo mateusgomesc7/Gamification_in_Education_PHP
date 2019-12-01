@@ -38,7 +38,7 @@ class VerSit
             $carregarView = new \Core\ConfigView("adms/Views/situacao/verSit", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Situação não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Situação não encontrado!</div>";
             $UrlDestino = URLADM . 'situacao/listar';
             header("Location: $UrlDestino");
         }

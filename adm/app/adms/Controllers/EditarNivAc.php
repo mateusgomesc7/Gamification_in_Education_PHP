@@ -25,7 +25,7 @@ class EditarNivAc
         if (!empty($this->DadosId)) {
             $this->editNivAcPriv();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Nível de acesso não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Nível de acesso não encontrado!</div>";
             $UrlDestino = URLADM . 'nivel-acesso/listar';
             header("Location: $UrlDestino");
         }
@@ -38,7 +38,7 @@ class EditarNivAc
             $editarNivAc = new \App\adms\Models\AdmsEditarNivAc();
             $editarNivAc->altNivAc($this->Dados);
             if ($editarNivAc->getResultado()) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>Nível de acesso editado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Nível de acesso editado com sucesso!</div>";
                 $UrlDestino = URLADM . 'ver-niv-ac/ver-niv-ac/' . $this->Dados['id'];
                 header("Location: $UrlDestino");
             } else {
@@ -64,7 +64,7 @@ class EditarNivAc
             $carregarView = new \Core\ConfigView("adms/Views/nivAcesso/editarNivAc", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Nível de acesso não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Nível de acesso não encontrado!</div>";
             $UrlDestino = URLADM . 'nivel-acesso/listar';
             header("Location: $UrlDestino");
         }

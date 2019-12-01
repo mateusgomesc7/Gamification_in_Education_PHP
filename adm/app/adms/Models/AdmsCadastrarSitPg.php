@@ -43,10 +43,10 @@ class AdmsCadastrarSitPg
         $cadSitPg = new \App\adms\Models\helper\AdmsCreate;
         $cadSitPg->exeCreate("adms_sits_pgs", $this->Dados);
         if ($cadSitPg->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Situação de página cadastrado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Situação de página cadastrado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A situação de página não foi cadastrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A situação de página não foi cadastrado!</div>";
             $this->Resultado = false;
         }
     }

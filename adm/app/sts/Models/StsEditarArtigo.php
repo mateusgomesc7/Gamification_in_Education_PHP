@@ -83,10 +83,10 @@ class StsEditarArtigo
         $upAltArtigo = new \App\adms\Models\helper\AdmsUpdate();
         $upAltArtigo->exeUpdate("sts_artigos", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltArtigo->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Artigo atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Artigo atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: O Artigo não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: O Artigo não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

@@ -24,7 +24,7 @@ class AltOrdemItemMenu
            $altOrdemMenu = new \App\adms\Models\AdmsAltOrdemItemMenu();
            $altOrdemMenu->altOrdemMenu($this->DadosId);
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar um item de menu!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar um item de menu!</div>";
         }
         $UrlDestino = URLADM . 'menu/listar';
         header("Location: $UrlDestino");

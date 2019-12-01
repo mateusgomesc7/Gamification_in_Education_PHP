@@ -42,10 +42,10 @@ class AdmsApagarPagina
         $apagarPagina = new \App\adms\Models\helper\AdmsDelete();
         $apagarPagina->exeDelete("adms_paginas", "WHERE id =:id", "id={$this->DadosId}");
         if ($apagarPagina->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Pagina apagada com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Pagina apagada com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Pagina não foi apagada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Pagina não foi apagada!</div>";
             $this->Resultado = false;
         }
     }

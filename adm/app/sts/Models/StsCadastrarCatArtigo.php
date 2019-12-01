@@ -43,10 +43,10 @@ class StsCadastrarCatArtigo
         $cadCatArtigo = new \App\adms\Models\helper\AdmsCreate;
         $cadCatArtigo->exeCreate("sts_cats_artigos", $this->Dados);
         if ($cadCatArtigo->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Categoria de artigo cadastrado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Categoria de artigo cadastrado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Categoria de artigo não foi cadastrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Categoria de artigo não foi cadastrado!</div>";
             $this->Resultado = false;
         }
     }

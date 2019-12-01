@@ -24,7 +24,7 @@ class AltOrdemGrupoPg
            $altOrdemGrupoPg = new \App\adms\Models\AdmsAltOrdemGrupoPg();
            $altOrdemGrupoPg->altOrdemGrupoPg($this->DadosId);
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar um grupo de página!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar um grupo de página!</div>";
         }
         $UrlDestino = URLADM . 'grupo-pg/listar';
         header("Location: $UrlDestino");

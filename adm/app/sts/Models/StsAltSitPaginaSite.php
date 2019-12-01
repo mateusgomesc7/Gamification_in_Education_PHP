@@ -32,7 +32,7 @@ class StsAltSitPaginaSite
         if ($this->DadosPaginaSite) {
             $this->altPaginaSite();
         }else{
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação da página do site!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação da página do site!</div>";
             $this->Resultado = false;
         }
     }
@@ -58,10 +58,10 @@ class StsAltSitPaginaSite
         $upPaginaSite->exeUpdate("sts_paginas", $this->Dados, "WHERE id =:id", "id={$this->DadosId}");
 
         if ($upPaginaSite->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Alterado a situação da página do site!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Alterado a situação da página do site!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação da página do site!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação da página do site!</div>";
             $this->Resultado = false;
         }
     }

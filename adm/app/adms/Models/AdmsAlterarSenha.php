@@ -42,12 +42,12 @@ class AdmsAlterarSenha
         $this->Dados['senha'] = password_hash($this->Dados['senha'], PASSWORD_DEFAULT);
         $this->Dados['modified'] = date("Y-m-d H:i:s");
         $upAltSenha = new \App\adms\Models\helper\AdmsUpdate();
-        $upAltSenha->exeUpdate("adms_usuarios", $this->Dados, "WHERE id =:id", "id=" . $_SESSION['usuario_id']);
+        $upAltSenha->exeUpdate("adms_usuarios", $this->Dados, "WHERE id =:id", "id=" . $_SESSION['adms_usuario_id']);
         if ($upAltSenha->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Senha atualizada com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Senha atualizada com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A senha não foi atualizada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A senha não foi atualizada!</div>";
             $this->Resultado = false;
         }
     }

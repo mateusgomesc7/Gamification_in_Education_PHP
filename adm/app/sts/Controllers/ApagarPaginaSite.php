@@ -24,7 +24,7 @@ class ApagarPaginaSite
            $apagarPaginaSite = new \App\sts\Models\StsApagarPaginaSite();
            $apagarPaginaSite->apagarPaginaSite($this->DadosId);
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar uma página do site!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar uma página do site!</div>";
         }
         $UrlDestino = URLADM . 'pagina-site/listar';
         header("Location: $UrlDestino");

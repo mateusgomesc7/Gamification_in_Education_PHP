@@ -24,7 +24,7 @@ class ApagarTpArtigo
            $apagarTpArtigo = new \App\sts\Models\StsApagarTpArtigo();
            $apagarTpArtigo->apagarTpArtigo($this->DadosId);
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar um tipo de artigo!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar um tipo de artigo!</div>";
         }
         $UrlDestino = URLADM . 'tp-artigo/listar';
         header("Location: $UrlDestino");

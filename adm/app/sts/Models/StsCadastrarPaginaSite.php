@@ -53,14 +53,14 @@ class StsCadastrarPaginaSite
         $cadPaginaSite->exeCreate("sts_paginas", $this->Dados);
         if ($cadPaginaSite->getResultado()) {
             if (empty($this->Foto['name'])) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>Página do site cadastrado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Página do site cadastrado com sucesso!</div>";
                 $this->Resultado = true;
             } else {
                 $this->Dados['id'] = $cadPaginaSite->getResultado();
                 $this->valFoto();
             }
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Página do site não foi cadastrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Página do site não foi cadastrado!</div>";
             $this->Resultado = false;
         }
     }
@@ -77,10 +77,10 @@ class StsCadastrarPaginaSite
         $uploadImg = new \App\adms\Models\helper\AdmsUploadImgRed();
         $uploadImg->uploadImagem($this->Foto, '../assets/imagens/pagina/' . $this->Dados['id'] . '/', $this->Dados['imagem'], 1200, 627);
         if ($uploadImg->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Página do site cadastrado com sucesso. Upload da imagem realizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Página do site cadastrado com sucesso. Upload da imagem realizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-info'>Erro: Página do site não foi cadastrado. Erro ao realizar o upload da imagem!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-info'>Erro: Página do site não foi cadastrado. Erro ao realizar o upload da imagem!</div>";
             $this->Resultado = false;
         }
     }

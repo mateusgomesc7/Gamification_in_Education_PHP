@@ -33,7 +33,7 @@ class AdmsConfirmarEmail
         if(!empty($this->DadosUsuario)){
             $this->updateConfEmail();
         }else{
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Link de confirmação inválido!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Link de confirmação inválido!</div>";
             $this->Resultado = false;
         }
         
@@ -47,7 +47,7 @@ class AdmsConfirmarEmail
         $updateConfEmail = new \App\adms\Models\helper\AdmsUpdate();
         $updateConfEmail->exeUpdate("adms_usuarios", $this->Dados, "WHERE id =:id", "id={$this->DadosUsuario[0]['id']}");
         if($updateConfEmail->getResultado()){
-            $_SESSION['msg'] = "<div class='alert alert-success'>E-mail confirmado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>E-mail confirmado com sucesso!</div>";
             $this->Resultado = true;
         }else{
             $this->Resultado = false;

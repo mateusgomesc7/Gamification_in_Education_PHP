@@ -63,14 +63,14 @@ class StsCadastrarSobEmpresa
         $cadSobEmpresa->exeCreate("sts_sobs_emps", $this->Dados);
         if ($cadSobEmpresa->getResultado()) {
             if (empty($this->Foto['name'])) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>Sobre empresa cadastrado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Sobre empresa cadastrado com sucesso!</div>";
                 $this->Resultado = true;
             } else {
                 $this->Dados['id'] = $cadSobEmpresa->getResultado();
                 $this->valFoto();
             }
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Sobre empresa não foi cadastrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Sobre empresa não foi cadastrado!</div>";
             $this->Resultado = false;
         }
     }
@@ -87,10 +87,10 @@ class StsCadastrarSobEmpresa
         $uploadImg = new \App\adms\Models\helper\AdmsUploadImgRed();
         $uploadImg->uploadImagem($this->Foto, '../assets/imagens/sob_emp/' . $this->Dados['id'] . '/', $this->Dados['imagem'], 500, 400);
         if ($uploadImg->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Sobre empresa cadastrado com sucesso. Upload da imagem realizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Sobre empresa cadastrado com sucesso. Upload da imagem realizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-info'>Erro: O sobre empresa foi cadastrado. Erro ao realizar o upload da imagem!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-info'>Erro: O sobre empresa foi cadastrado. Erro ao realizar o upload da imagem!</div>";
             $this->Resultado = false;
         }
     }

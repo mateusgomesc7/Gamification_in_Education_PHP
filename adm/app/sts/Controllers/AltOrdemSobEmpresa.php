@@ -24,7 +24,7 @@ class AltOrdemSobEmpresa
            $altOrdemSobEmpresa = new \App\sts\Models\StsAltOrdemSobEmpresa();
            $altOrdemSobEmpresa->altOrdemSobEmpresa($this->DadosId);
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar um tópico sobre empresa!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar um tópico sobre empresa!</div>";
         }
         $UrlDestino = URLADM . 'sob-empresa/listar';
         header("Location: $UrlDestino");

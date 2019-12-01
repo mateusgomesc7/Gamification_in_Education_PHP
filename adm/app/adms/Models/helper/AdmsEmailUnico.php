@@ -37,7 +37,7 @@ class AdmsEmailUnico
         }        
         $this->Resultado = $valEmailUnico->getResultado();
         if (!empty($this->Resultado)) {            
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Este e-mail já está cadastrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Este e-mail já está cadastrado!</div>";
             $this->Resultado = false;
         } else {
             $this->Resultado = true;

@@ -35,10 +35,10 @@ class AdmsApagarMenu
             $apagarMenu->exeDelete("adms_menus", "WHERE id =:id", "id={$this->DadosId}");
             if ($apagarMenu->getResultado()) {
                 $this->atualizarOrdem();
-                $_SESSION['msg'] = "<div class='alert alert-success'>Item de menu apagado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Item de menu apagado com sucesso!</div>";
                 $this->Resultado = true;
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Item de menu não foi apagado!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Item de menu não foi apagado!</div>";
                 $this->Resultado = false;
             }
         }
@@ -50,7 +50,7 @@ class AdmsApagarMenu
         $verMenu->fullRead("SELECT id FROM adms_nivacs_pgs
                 WHERE adms_menu_id =:adms_menu_id LIMIT :limit", "adms_menu_id=" . $this->DadosId . "&limit=2");
         if ($verMenu->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: O item de menu não pode ser apagado, há permissões cadastradas neste item de menu!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: O item de menu não pode ser apagado, há permissões cadastradas neste item de menu!</div>";
             $this->Resultado = false;
         } else {
             $this->Resultado = true;

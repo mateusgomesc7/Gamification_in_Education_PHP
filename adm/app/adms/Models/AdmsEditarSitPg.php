@@ -54,10 +54,10 @@ class AdmsEditarSitPg
         $upAltSitPg = new \App\adms\Models\helper\AdmsUpdate();
         $upAltSitPg->exeUpdate("adms_sits_pgs", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltSitPg->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Situação de página atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Situação de página atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A situação de página não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A situação de página não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

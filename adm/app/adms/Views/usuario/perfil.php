@@ -27,9 +27,9 @@ if (!defined('URL')) {
             </div>
         </div><hr>
         <?php
-        if (isset($_SESSION['msg'])) {
-            echo $_SESSION['msg'];
-            unset($_SESSION['msg']);
+        if (isset($_SESSION['adms_msg'])) {
+            echo $_SESSION['adms_msg'];
+            unset($_SESSION['adms_msg']);
         }
         ?>
         <dl class="row">
@@ -40,8 +40,8 @@ if (!defined('URL')) {
                 <dt class="col-sm-3">Foto</dt>
                 <dd class="col-sm-9">                    
                     <?php
-                    if (!empty($_SESSION['usuario_imagem'])) {
-                        echo "<img src='" . URLADM . "assets/imagens/usuario/" . $_SESSION['usuario_id'] . "/" . $_SESSION['usuario_imagem'] . "' witdh='150' height='150'>";
+                    if (!empty($_SESSION['adms_usuario_imagem'])) {
+                        echo "<img src='" . URLADM . "assets/imagens/usuario/" . $_SESSION['adms_usuario_id'] . "/" . $_SESSION['adms_usuario_imagem'] . "' witdh='150' height='150'>";
                     } else {
                         echo "<img src='" . URLADM . "assets/imagens/usuario/icone_usuario.png' witdh='150' height='150'>";
                     }

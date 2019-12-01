@@ -32,7 +32,7 @@ class StsAltOrdemCarousel {
             if ($this->DadosCarouselInferior) {
                 $this->exeAltOrdemCarousel();
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do slide de carousel!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do slide de carousel!</div>";
                 $this->Resultado = false;
             }
         }
@@ -63,10 +63,10 @@ class StsAltOrdemCarousel {
         $upMvCima->exeUpdate("sts_carousels", $this->Dados, "WHERE id =:id", "id={$this->DadosCarousel[0]['id']}");
 
         if ($upMvCima->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Ordem do slide de carousel editado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Ordem do slide de carousel editado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do slide de carousel!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a ordem do slide de carousel!</div>";
             $this->Resultado = false;
         }
     }

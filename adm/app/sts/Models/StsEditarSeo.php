@@ -52,10 +52,10 @@ class StsEditarSeo
         $upSeo = new \App\adms\Models\helper\AdmsUpdate();
         $upSeo->exeUpdate("sts_seo", $this->Dados, "WHERE id =:id", "id=1");
         if ($upSeo->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Formulário para editar os dados do seo atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Formulário para editar os dados do seo atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Formulário para editar os dados do seo não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Formulário para editar os dados do seo não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

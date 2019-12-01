@@ -37,7 +37,7 @@ class VerContato
             $carregarView = new \Core\ConfigView("sts/Views/contato/verContato", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Mensagem de contato não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Mensagem de contato não encontrado!</div>";
             $UrlDestino = URLADM . 'contato/listar';
             header("Location: $UrlDestino");
         }

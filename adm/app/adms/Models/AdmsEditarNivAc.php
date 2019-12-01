@@ -29,7 +29,7 @@ class AdmsEditarNivAc
         $this->DadosId = (int) $DadosId;
         $verPerfil = new \App\adms\Models\helper\AdmsRead();
         $verPerfil->fullRead("SELECT * FROM adms_niveis_acessos
-                WHERE id =:id AND ordem >=:ordem LIMIT :limit", "id=" . $this->DadosId . "&ordem=".$_SESSION['ordem_nivac']."&limit=1");
+                WHERE id =:id AND ordem >=:ordem LIMIT :limit", "id=" . $this->DadosId . "&ordem=".$_SESSION['adms_ordem_nivac']."&limit=1");
         $this->Resultado = $verPerfil->getResultado();
         return $this->Resultado;
     }
@@ -54,10 +54,10 @@ class AdmsEditarNivAc
         $upAltNivAc = new \App\adms\Models\helper\AdmsUpdate();
         $upAltNivAc->exeUpdate("adms_niveis_acessos", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltNivAc->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Nível de acesso atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Nível de acesso atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: O nível de acesso não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: O nível de acesso não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

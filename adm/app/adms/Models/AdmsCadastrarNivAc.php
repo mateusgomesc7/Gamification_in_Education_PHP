@@ -46,10 +46,10 @@ class AdmsCadastrarNivAc
         $cadNivAc = new \App\adms\Models\helper\AdmsCreate;
         $cadNivAc->exeCreate("adms_niveis_acessos", $this->Dados);
         if ($cadNivAc->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Nível de acesso cadastrado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Nível de acesso cadastrado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: O nível de acesso não foi cadastrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: O nível de acesso não foi cadastrado!</div>";
             $this->Resultado = false;
         }
     }

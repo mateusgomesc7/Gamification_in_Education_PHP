@@ -26,10 +26,10 @@ class AdmsApagarSit {
         $apagarSit = new \App\adms\Models\helper\AdmsDelete();
         $apagarSit->exeDelete("adms_sits", "WHERE id =:id", "id={$this->DadosId}");
         if ($apagarSit->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Situação apagada com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Situação apagada com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A situação não foi apagada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A situação não foi apagada!</div>";
             $this->Resultado = false;
         }
     }

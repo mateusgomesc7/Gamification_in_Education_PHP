@@ -37,7 +37,7 @@ class AdmsEsqueceuSenha
             if (!empty($this->DadosUsuario)) {
                 $this->valChaveRecSenha();
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: E-mail não cadastrado!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: E-mail não cadastrado!</div>";
                 $this->Resultado = false;
             }
         }
@@ -48,7 +48,7 @@ class AdmsEsqueceuSenha
         $this->Dados = array_map('strip_tags', $this->Dados);
         $this->Dados = array_map('trim', $this->Dados);
         if (in_array('', $this->Dados)) {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Necessário preencher todos os campos!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Necessário preencher todos os campos!</div>";
             $this->Resultado = false;
         } else {
             $valEmail = new \App\adms\Models\helper\AdmsEmail();
@@ -75,7 +75,7 @@ class AdmsEsqueceuSenha
                 $this->DadosUsuario[0]['recuperar_senha'] = $this->DadosUpdate['recuperar_senha'];
                 $this->dadosEmail();
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Erro ao recuperar a senha!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Erro ao recuperar a senha!</div>";
                 $this->Resultado = false;
             }
         }
@@ -103,10 +103,10 @@ class AdmsEsqueceuSenha
         $emailPHPMailer->emailPhpMailer($this->DadosEmail);
 
         if ($emailPHPMailer->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>E-mail enviado com sucesso, verifique sua caixa de entrada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>E-mail enviado com sucesso, verifique sua caixa de entrada!</div>";
             $this->Resultado = true;
         } else {
-            //$_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Erro ao recuperar a senha!</div>";
+            //$_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Erro ao recuperar a senha!</div>";
             $this->Resultado = false;
         }
     }

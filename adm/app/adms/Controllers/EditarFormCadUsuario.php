@@ -46,7 +46,7 @@ class EditarFormCadUsuario {
             $carregarView = new \Core\ConfigView("adms/Views/usuario/editarFormCadUsuario", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Formulário para editar o cadastro de usuário na página de login não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Formulário para editar o cadastro de usuário na página de login não encontrado!</div>";
             $UrlDestino = URLADM . 'editar-form-cad-usuario/edit-form-cad-usuario';
             header("Location: $UrlDestino");
         }

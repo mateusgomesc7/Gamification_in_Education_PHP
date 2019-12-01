@@ -32,7 +32,7 @@ class AdmsLibDropdown
         if ($this->DadosNivAcPg) {
             $this->altPermi();
         }else{
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação do dropdown da página no menu!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação do dropdown da página no menu!</div>";
             $this->Resultado = false;
         }
     }
@@ -43,7 +43,7 @@ class AdmsLibDropdown
         $verNivAcPg->fullRead("SELECT nivpg.id, nivpg.dropdown 
                 FROM adms_nivacs_pgs nivpg
                 INNER JOIN adms_niveis_acessos nivac ON nivac.id=nivpg.adms_niveis_acesso_id
-                WHERE nivpg.id =:id AND nivac.ordem >=:ordem", "id={$this->DadosId}&ordem=".$_SESSION['ordem_nivac']);        
+                WHERE nivpg.id =:id AND nivac.ordem >=:ordem", "id={$this->DadosId}&ordem=".$_SESSION['adms_ordem_nivac']);        
         $this->DadosNivAcPg = $verNivAcPg->getResultado();
     }
 
@@ -59,10 +59,10 @@ class AdmsLibDropdown
         $upPerm->exeUpdate("adms_nivacs_pgs", $this->Dados, "WHERE id =:id", "id={$this->DadosId}");
 
         if ($upPerm->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Alterado a situação do dropdown da página no menu com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Alterado a situação do dropdown da página no menu com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação do dropdown da página no menu!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Não foi alterado a situação do dropdown da página no menu!</div>";
             $this->Resultado = false;
         }
     }

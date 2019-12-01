@@ -34,7 +34,7 @@ class AdmsAtualSenha
         if (!empty($this->DadosUsuario)) {
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Link inválido!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Link inválido!</div>";
             $this->Resultado = false;
         }
     }
@@ -59,7 +59,7 @@ class AdmsAtualSenha
         $this->Dados = array_map('strip_tags', $this->Dados);
         $this->Dados = array_map('trim', $this->Dados);
         if (in_array('', $this->Dados)) {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Necessário preencher todos os campos!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Necessário preencher todos os campos!</div>";
             $this->Resultado = false;
         } else {
             $this->Resultado = true;
@@ -76,14 +76,14 @@ class AdmsAtualSenha
             $upAtualSenha = new \App\adms\Models\helper\AdmsUpdate();
             $upAtualSenha->exeUpdate("adms_usuarios", $this->Dados, "WHERE id =:id", "id={$this->DadosUsuario[0]['id']}");
             if ($upAtualSenha->getResultado()) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>Senha atualizada com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Senha atualizada com sucesso!</div>";
                 $this->Resultado = true;
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A senha não foi atualizada!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A senha não foi atualizada!</div>";
                 $this->Resultado = false;
             }
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A senha não foi atualizada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A senha não foi atualizada!</div>";
             $this->Resultado = false;
         }
     }

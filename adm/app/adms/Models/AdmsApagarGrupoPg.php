@@ -35,10 +35,10 @@ class AdmsApagarGrupoPg
             $apagarGrupoPg->exeDelete("adms_grps_pgs", "WHERE id =:id", "id={$this->DadosId}");
             if ($apagarGrupoPg->getResultado()) {
                 $this->atualizarOrdem();
-                $_SESSION['msg'] = "<div class='alert alert-success'>Grupo de página apagado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Grupo de página apagado com sucesso!</div>";
                 $this->Resultado = true;
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Grupo de página não foi apagado!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Grupo de página não foi apagado!</div>";
                 $this->Resultado = false;
             }
         }
@@ -50,7 +50,7 @@ class AdmsApagarGrupoPg
         $verMenu->fullRead("SELECT id FROM adms_paginas
                 WHERE adms_grps_pg_id =:adms_grps_pg_id LIMIT :limit", "adms_grps_pg_id=" . $this->DadosId . "&limit=2");
         if ($verMenu->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: O grupo de página não pode ser apagado, há páginas cadastradas neste grupo de página!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: O grupo de página não pode ser apagado, há páginas cadastradas neste grupo de página!</div>";
             $this->Resultado = false;
         } else {
             $this->Resultado = true;

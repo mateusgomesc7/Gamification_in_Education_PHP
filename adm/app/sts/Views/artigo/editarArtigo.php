@@ -26,9 +26,9 @@ if (isset($this->Dados['form'][0])) {
 
         </div><hr>
         <?php
-        if (isset($_SESSION['msg'])) {
-            echo $_SESSION['msg'];
-            unset($_SESSION['msg']);
+        if (isset($_SESSION['adms_msg'])) {
+            echo $_SESSION['adms_msg'];
+            unset($_SESSION['adms_msg']);
         }
         ?>
         <form method="POST" action="" enctype="multipart/form-data"> 
@@ -152,7 +152,7 @@ if (isset($this->Dados['form'][0])) {
                                 if ($valorForm['sts_usuario_id'] == $id_user) {
                                     echo "<option value='$id_user' selected>$nome_user</option>";
                                     $cont = 2;
-                                } elseif (($_SESSION['usuario_id'] == $id_user) AND ( $cont == 1)) {
+                                } elseif (($_SESSION['adms_usuario_id'] == $id_user) AND ( $cont == 1)) {
                                     echo "<option value='$id_user' selected>$nome_user</option>";
                                 } else {
                                     echo "<option value='$id_user'>$nome_user</option>";

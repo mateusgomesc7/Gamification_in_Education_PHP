@@ -45,7 +45,7 @@ class EditarSeo {
             $carregarView = new \Core\ConfigView("sts/Views/seo/editarSeo", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Formulário para editar os dados do seo não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Formulário para editar os dados do seo não encontrado!</div>";
             $UrlDestino = URLADM . 'home/index';
             header("Location: $UrlDestino");
         }

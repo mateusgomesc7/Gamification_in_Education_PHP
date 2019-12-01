@@ -38,7 +38,7 @@ class VerMenu
             $carregarView = new \Core\ConfigView("adms/Views/menu/verMenu", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Item de menu não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Item de menu não encontrado!</div>";
             $UrlDestino = URLADM . 'menu/listar';
             header("Location: $UrlDestino");
         }

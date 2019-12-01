@@ -34,14 +34,14 @@ class StsApagarArtigo
             if ($apagarArtigo->getResultado()) {
                 $apagarImg = new \App\adms\Models\helper\AdmsApagarImg();
                 $apagarImg->apagarImg('../assets/imagens/artigo/' . $this->DadosId . '/' . $this->DadosArtigo[0]['imagem'], '../assets/imagens/artigo/' . $this->DadosId);
-                $_SESSION['msg'] = "<div class='alert alert-success'>Artigo apagado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Artigo apagado com sucesso!</div>";
                 $this->Resultado = true;
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Artigo não foi apagado!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Artigo não foi apagado!</div>";
                 $this->Resultado = false;
             }
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Artigo não foi apagado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Artigo não foi apagado!</div>";
             $this->Resultado = false;
         }
     }

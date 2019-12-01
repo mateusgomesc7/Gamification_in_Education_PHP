@@ -23,7 +23,7 @@ class EditarSitPg {
         if (!empty($this->DadosId)) {
             $this->editSitPgPriv();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Situação de página não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Situação de página não encontrado!</div>";
             $UrlDestino = URLADM . 'situacao-pg/listar';
             header("Location: $UrlDestino");
         }
@@ -60,7 +60,7 @@ class EditarSitPg {
             $carregarView = new \Core\ConfigView("adms/Views/situacaoPg/editarSitPg", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Situação de página não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Situação de página não encontrado!</div>";
             $UrlDestino = URLADM . 'situacao-pg/listar';
             header("Location: $UrlDestino");
         }

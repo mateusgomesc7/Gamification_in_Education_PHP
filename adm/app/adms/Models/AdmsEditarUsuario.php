@@ -32,7 +32,7 @@ class AdmsEditarUsuario
         $verPerfil = new \App\adms\Models\helper\AdmsRead();
         $verPerfil->fullRead("SELECT user.* FROM adms_usuarios user
                 INNER JOIN adms_niveis_acessos nivac ON nivac.id=user.adms_niveis_acesso_id
-                WHERE user.id =:id AND nivac.ordem >:ordem LIMIT :limit", "id=" . $this->DadosId . "&ordem=".$_SESSION['ordem_nivac']."&limit=1");
+                WHERE user.id =:id AND nivac.ordem >:ordem LIMIT :limit", "id=" . $this->DadosId . "&ordem=".$_SESSION['adms_ordem_nivac']."&limit=1");
         $this->Resultado = $verPerfil->getResultado();
         return $this->Resultado;
     }
@@ -100,10 +100,10 @@ class AdmsEditarUsuario
         $upAltSenha = new \App\adms\Models\helper\AdmsUpdate();
         $upAltSenha->exeUpdate("adms_usuarios", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltSenha->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Usuário atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Usuário atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: O usuario não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: O usuario não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }
@@ -111,7 +111,7 @@ class AdmsEditarUsuario
     public function listarCadastrar()
     {
         $listar = new \App\adms\Models\helper\AdmsRead();
-        $listar->fullRead("SELECT id id_nivac, nome nome_nivac FROM adms_niveis_acessos WHERE ordem >=:ordem ORDER BY nome ASC", "ordem=" . $_SESSION['ordem_nivac']);
+        $listar->fullRead("SELECT id id_nivac, nome nome_nivac FROM adms_niveis_acessos WHERE ordem >=:ordem ORDER BY nome ASC", "ordem=" . $_SESSION['adms_ordem_nivac']);
         $registro['nivac'] = $listar->getResultado();
         
         $listar->fullRead("SELECT id id_sit, nome nome_sit FROM adms_sits_usuarios ORDER BY nome ASC");

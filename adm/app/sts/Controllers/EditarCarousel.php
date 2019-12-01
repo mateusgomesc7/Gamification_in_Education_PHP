@@ -25,7 +25,7 @@ class EditarCarousel
         if (!empty($this->DadosId)) {
             $this->editCarouselPriv();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Slide de carousel não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Slide de carousel não encontrado!</div>";
             $UrlDestino = URLADM . 'carousel/listar';
             header("Location: $UrlDestino");
         }
@@ -39,7 +39,7 @@ class EditarCarousel
             $editarCarousel = new \App\sts\Models\StsEditarCarousel();
             $editarCarousel->altCarousel($this->Dados);
             if ($editarCarousel->getResultado()) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>Slide de carousel editado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Slide de carousel editado com sucesso!</div>";
                 $UrlDestino = URLADM . 'ver-carousel/ver-carousel/' . $this->Dados['id'];
                 header("Location: $UrlDestino");
             } else {
@@ -68,7 +68,7 @@ class EditarCarousel
             $carregarView = new \Core\ConfigView("sts/Views/carousel/editarCarousel", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Slide carousel não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Slide carousel não encontrado!</div>";
             $UrlDestino = URLADM . 'carousel/listar';
             header("Location: $UrlDestino");
         }

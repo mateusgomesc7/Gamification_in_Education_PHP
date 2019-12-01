@@ -52,10 +52,10 @@ class StsEditarServico
         $upServico = new \App\adms\Models\helper\AdmsUpdate();
         $upServico->exeUpdate("sts_servicos", $this->Dados, "WHERE id =:id", "id=1");
         if ($upServico->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Formulário para editar os dados do serviço atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Formulário para editar os dados do serviço atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Formulário para editar os dados do serviço não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Formulário para editar os dados do serviço não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

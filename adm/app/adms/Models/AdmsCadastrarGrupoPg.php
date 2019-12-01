@@ -46,10 +46,10 @@ class AdmsCadastrarGrupoPg
         $cadGrupoPg = new \App\adms\Models\helper\AdmsCreate;
         $cadGrupoPg->exeCreate("adms_grps_pgs", $this->Dados);
         if ($cadGrupoPg->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Grupo de página cadastrado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Grupo de página cadastrado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Grupo de página não foi cadastrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Grupo de página não foi cadastrado!</div>";
             $this->Resultado = false;
         }
     }

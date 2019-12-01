@@ -27,7 +27,7 @@ class EditarNivAcPgMenu {
         if (!empty($this->DadosId) AND ! empty($this->NivId) AND ! empty($this->PageId)) {
             $this->editNivAcPgMenuPriv();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Item de menu não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Item de menu não encontrado!</div>";
             $UrlDestino = URLADM . 'nivel-acesso/listar';
             header("Location: $UrlDestino");
         }
@@ -62,7 +62,7 @@ class EditarNivAcPgMenu {
             $carregarView = new \Core\ConfigView("adms/Views/permi/editarNivAcPgMenu", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Item de menu não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Item de menu não encontrado!</div>";
             $UrlDestino = URLADM . 'nivel-acesso/listar';
             header("Location: $UrlDestino");
         }

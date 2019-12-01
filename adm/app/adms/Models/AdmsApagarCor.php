@@ -26,10 +26,10 @@ class AdmsApagarCor {
         $apagarCor = new \App\adms\Models\helper\AdmsDelete();
         $apagarCor->exeDelete("adms_cors", "WHERE id =:id", "id={$this->DadosId}");
         if ($apagarCor->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Cor apagada com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Cor apagada com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A cor não foi apagada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A cor não foi apagada!</div>";
             $this->Resultado = false;
         }
     }

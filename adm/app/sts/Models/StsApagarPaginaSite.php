@@ -37,14 +37,14 @@ class StsApagarPaginaSite
                 $this->atualizarOrdem();
                 $apagarImg = new \App\adms\Models\helper\AdmsApagarImg();
                 $apagarImg->apagarImg('../assets/imagens/pagina/' . $this->DadosId . '/' . $this->DadosPaginaSite[0]['imagem'], '../assets/imagens/pagina/' . $this->DadosId);
-                $_SESSION['msg'] = "<div class='alert alert-success'>Página do site apagado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Página do site apagado com sucesso!</div>";
                 $this->Resultado = true;
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Página do site não foi apagado!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Página do site não foi apagado!</div>";
                 $this->Resultado = false;
             }
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Página do site não foi apagado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Página do site não foi apagado!</div>";
             $this->Resultado = false;
         }
     }

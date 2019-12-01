@@ -38,7 +38,7 @@ class VerCatArtigo
             $carregarView = new \Core\ConfigView("sts/Views/catArtigo/verCatArtigo", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Categoria de artigo não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Categoria de artigo não encontrado!</div>";
             $UrlDestino = URLADM . 'cat-artigo/listar';
             header("Location: $UrlDestino");
         }

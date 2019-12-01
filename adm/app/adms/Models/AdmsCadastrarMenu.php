@@ -46,10 +46,10 @@ class AdmsCadastrarMenu
         $cadNivAc = new \App\adms\Models\helper\AdmsCreate;
         $cadNivAc->exeCreate("adms_menus", $this->Dados);
         if ($cadNivAc->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Item de menu cadastrado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Item de menu cadastrado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: O item de menu não foi cadastrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: O item de menu não foi cadastrado!</div>";
             $this->Resultado = false;
         }
     }

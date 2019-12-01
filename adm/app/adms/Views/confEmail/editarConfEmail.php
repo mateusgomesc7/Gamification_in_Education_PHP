@@ -16,9 +16,9 @@ if (isset($this->Dados['form'][0])) {
 
         </div><hr>
         <?php
-        if (isset($_SESSION['msg'])) {
-            echo $_SESSION['msg'];
-            unset($_SESSION['msg']);
+        if (isset($_SESSION['adms_msg'])) {
+            echo $_SESSION['adms_msg'];
+            unset($_SESSION['adms_msg']);
         }
         ?>
         <form method="POST" action="" enctype="multipart/form-data"> 

@@ -52,10 +52,10 @@ class StsEditarVideo
         $upVideo = new \App\adms\Models\helper\AdmsUpdate();
         $upVideo->exeUpdate("sts_videos", $this->Dados, "WHERE id =:id", "id=1");
         if ($upVideo->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Formulário para editar os dados do vídeo atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Formulário para editar os dados do vídeo atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Formulário para editar os dados do vídeo não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Formulário para editar os dados do vídeo não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

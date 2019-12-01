@@ -47,9 +47,9 @@ if (!empty($this->Dados['dados_tpg'][0])) {
                 </div>
             </div><hr>
             <?php
-            if (isset($_SESSION['msg'])) {
-                echo $_SESSION['msg'];
-                unset($_SESSION['msg']);
+            if (isset($_SESSION['adms_msg'])) {
+                echo $_SESSION['adms_msg'];
+                unset($_SESSION['adms_msg']);
             }
             ?>
             <dl class="row">
@@ -86,7 +86,7 @@ if (!empty($this->Dados['dados_tpg'][0])) {
     </div>
     <?php
 } else {
-    $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Grupo de página não encontrado!</div>";
+    $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Grupo de página não encontrado!</div>";
     $UrlDestino = URLADM . 'grupo-pg/listar';
     header("Location: $UrlDestino");
 }

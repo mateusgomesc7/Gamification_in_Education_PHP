@@ -32,7 +32,7 @@ class AdmsEmail
         if(preg_match($this->Formato, $this->Dados)){
             $this->Resultado = true;
         }else{
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: E-mail inválido!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: E-mail inválido!</div>";
             $this->Resultado = false;
         }
     }

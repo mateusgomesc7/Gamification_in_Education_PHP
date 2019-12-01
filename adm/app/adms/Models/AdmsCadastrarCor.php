@@ -43,10 +43,10 @@ class AdmsCadastrarCor
         $cadCor = new \App\adms\Models\helper\AdmsCreate;
         $cadCor->exeCreate("adms_cors", $this->Dados);
         if ($cadCor->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Cor cadastrada com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Cor cadastrada com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A cor não foi cadastrada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A cor não foi cadastrada!</div>";
             $this->Resultado = false;
         }
     }

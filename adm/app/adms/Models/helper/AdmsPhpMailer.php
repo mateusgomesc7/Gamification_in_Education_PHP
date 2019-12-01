@@ -38,7 +38,7 @@ class AdmsPhpMailer
         if ((isset($this->DadosCredEmail[0]['host'])) AND ( !empty($this->DadosCredEmail[0]['host']))) {
             $this->confEmail();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Necessário inserir as credencias do e-mail no administrativo para enviar e-mail!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Necessário inserir as credencias do e-mail no administrativo para enviar e-mail!</div>";
             $this->Resultado = false;
         }
     }
@@ -67,10 +67,10 @@ class AdmsPhpMailer
             $mail->AltBody = $this->Dados['cont_text_email'];
 
             if ($mail->send()) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>E-mail enviado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>E-mail enviado com sucesso!</div>";
                 $this->Resultado = true;
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: E-mail não foi enviado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: E-mail não foi enviado com sucesso!</div>";
                 $this->Resultado = false;
             }
         } catch (Exception $e) {

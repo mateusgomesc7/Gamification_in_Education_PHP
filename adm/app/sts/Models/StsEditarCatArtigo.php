@@ -54,10 +54,10 @@ class StsEditarCatArtigo
         $upAltCatArtigo = new \App\adms\Models\helper\AdmsUpdate();
         $upAltCatArtigo->exeUpdate("sts_cats_artigos", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltCatArtigo->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Categoria de artigo atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Categoria de artigo atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Categoria de artigo não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Categoria de artigo não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

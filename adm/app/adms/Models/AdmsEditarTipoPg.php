@@ -54,10 +54,10 @@ class AdmsEditarTipoPg
         $upAltTipoPg = new \App\adms\Models\helper\AdmsUpdate();
         $upAltTipoPg->exeUpdate("adms_tps_pgs", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltTipoPg->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Tipo de página atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Tipo de página atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Tipo de página não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Tipo de página não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

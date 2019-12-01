@@ -23,7 +23,7 @@ class EditarSit {
         if (!empty($this->DadosId)) {
             $this->editSitPriv();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Situação não encontrada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Situação não encontrada!</div>";
             $UrlDestino = URLADM . 'situacao/listar';
             header("Location: $UrlDestino");
         }
@@ -62,7 +62,7 @@ class EditarSit {
             $carregarView = new \Core\ConfigView("adms/Views/situacao/editarSit", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Situação não encontrada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Situação não encontrada!</div>";
             $UrlDestino = URLADM . 'situacao/listar';
             header("Location: $UrlDestino");
         }

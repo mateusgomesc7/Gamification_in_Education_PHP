@@ -54,10 +54,10 @@ class AdmsEditarCor
         $upAltCor = new \App\adms\Models\helper\AdmsUpdate();
         $upAltCor->exeUpdate("adms_cors", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltCor->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Cor atualizada com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Cor atualizada com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A cor não foi atualizada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A cor não foi atualizada!</div>";
             $this->Resultado = false;
         }
     }

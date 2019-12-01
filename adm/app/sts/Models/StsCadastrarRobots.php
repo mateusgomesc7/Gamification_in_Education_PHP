@@ -43,10 +43,10 @@ class StsCadastrarRobots
         $cadRobots = new \App\adms\Models\helper\AdmsCreate;
         $cadRobots->exeCreate("sts_robots", $this->Dados);
         if ($cadRobots->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Robots de página cadastrado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Robots de página cadastrado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Robots de página não foi cadastrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Robots de página não foi cadastrado!</div>";
             $this->Resultado = false;
         }
     }

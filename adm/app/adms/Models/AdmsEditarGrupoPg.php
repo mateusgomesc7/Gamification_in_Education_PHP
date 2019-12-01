@@ -54,10 +54,10 @@ class AdmsEditarGrupoPg
         $upAltGrupoPg = new \App\adms\Models\helper\AdmsUpdate();
         $upAltGrupoPg->exeUpdate("adms_grps_pgs", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltGrupoPg->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Grupo de página atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Grupo de página atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Grupo de página não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Grupo de página não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

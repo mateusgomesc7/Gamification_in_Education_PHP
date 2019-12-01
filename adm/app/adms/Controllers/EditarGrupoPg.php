@@ -23,7 +23,7 @@ class EditarGrupoPg {
         if (!empty($this->DadosId)) {
             $this->editGrupoPgPriv();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Grupo de página não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Grupo de página não encontrado!</div>";
             $UrlDestino = URLADM . 'grupo-pg/listar';
             header("Location: $UrlDestino");
         }
@@ -60,7 +60,7 @@ class EditarGrupoPg {
             $carregarView = new \Core\ConfigView("adms/Views/grupoPg/editarGrupoPg", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Grupo de página não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Grupo de página não encontrado!</div>";
             $UrlDestino = URLADM . 'grupo-pg/listar';
             header("Location: $UrlDestino");
         }

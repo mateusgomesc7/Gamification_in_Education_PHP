@@ -80,10 +80,10 @@ class StsEditarSobEmpresa
         $upAltSobEmpresa = new \App\adms\Models\helper\AdmsUpdate();
         $upAltSobEmpresa->exeUpdate("sts_sobs_emps", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltSobEmpresa->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Sobre empresa atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Sobre empresa atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Sobre empresa não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Sobre empresa não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

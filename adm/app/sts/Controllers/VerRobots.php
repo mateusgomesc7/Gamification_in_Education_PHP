@@ -38,7 +38,7 @@ class VerRobots
             $carregarView = new \Core\ConfigView("sts/Views/robots/verRobots", $this->Dados);
             $carregarView->renderizar();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Robots da Página não encontrado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Robots da Página não encontrado!</div>";
             $UrlDestino = URLADM . 'robots/listar';
             header("Location: $UrlDestino");
         }

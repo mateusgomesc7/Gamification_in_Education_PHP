@@ -24,7 +24,7 @@ class ApagarSitPgSite
            $apagarSitPgSite = new \App\sts\Models\StsApagarSitPgSite();
            $apagarSitPgSite->apagarSitPgSite($this->DadosId);
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar uma situação de pagina do site!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar uma situação de pagina do site!</div>";
         }
         $UrlDestino = URLADM . 'sit-pg-site/listar';
         header("Location: $UrlDestino");

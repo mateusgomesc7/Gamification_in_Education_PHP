@@ -24,7 +24,7 @@ class ApagarCor
            $apagarCor = new \App\adms\Models\AdmsApagarCor();
            $apagarCor->apagarCor($this->DadosId);
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar uma cor!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar uma cor!</div>";
         }
         $UrlDestino = URLADM . 'cor/listar';
         header("Location: $UrlDestino");

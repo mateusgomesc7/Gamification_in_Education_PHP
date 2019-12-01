@@ -80,10 +80,10 @@ class StsEditarPaginaSite
         $upAltPaginaSite = new \App\adms\Models\helper\AdmsUpdate();
         $upAltPaginaSite->exeUpdate("sts_paginas", $this->Dados, "WHERE id =:id", "id=" . $this->Dados['id']);
         if ($upAltPaginaSite->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>´Página do site atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>´Página do site atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Página do site não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Página do site não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

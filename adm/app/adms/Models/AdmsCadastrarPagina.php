@@ -66,7 +66,7 @@ class AdmsCadastrarPagina
             $this->UltimoIdInserido = $cadNivAc->getResultado();
             $this->inserirPerNivAc();
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A página não foi cadastrada!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A página não foi cadastrada!</div>";
             $this->Resultado = false;
         }
     }
@@ -113,10 +113,10 @@ class AdmsCadastrarPagina
             $cadNivAcPg->exeCreate("adms_nivacs_pgs", $this->DadosNivAcPg);
 
             if ($cadNivAcPg->getResultado()) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>Página cadastrada com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Página cadastrada com sucesso!</div>";
                 $this->Resultado = true;
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-warning'>Página cadastrada com sucesso. Erro ao liberar a permissão de acesso ao nível de acesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-warning'>Página cadastrada com sucesso. Erro ao liberar a permissão de acesso ao nível de acesso!</div>";
                 $this->Resultado = false;
             }
         }

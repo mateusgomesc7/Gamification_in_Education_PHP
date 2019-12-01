@@ -52,10 +52,10 @@ class AdmsEditarFormCadUsuario
         $upFormCadUsuario = new \App\adms\Models\helper\AdmsUpdate();
         $upFormCadUsuario->exeUpdate("adms_cads_usuarios", $this->Dados, "WHERE id =:id", "id=1");
         if ($upFormCadUsuario->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Formulário para editar o cadastro de usuário na página de login atualizado com sucesso!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-success'>Formulário para editar o cadastro de usuário na página de login atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Formulário para editar o cadastro de usuário na página de login não foi atualizado!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Formulário para editar o cadastro de usuário na página de login não foi atualizado!</div>";
             $this->Resultado = false;
         }
     }

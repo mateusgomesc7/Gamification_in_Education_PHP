@@ -24,7 +24,7 @@ class ApagarCatArtigo
            $apagarCatArtigo = new \App\sts\Models\StsApagarCatArtigo();
            $apagarCatArtigo->apagarCatArtigo($this->DadosId);
         } else {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar uma categoria de artigo!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Necessário selecionar uma categoria de artigo!</div>";
         }
         $UrlDestino = URLADM . 'cat-artigo/listar';
         header("Location: $UrlDestino");

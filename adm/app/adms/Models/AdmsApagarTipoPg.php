@@ -35,10 +35,10 @@ class AdmsApagarTipoPg
             $apagarTipoPg->exeDelete("adms_tps_pgs", "WHERE id =:id", "id={$this->DadosId}");
             if ($apagarTipoPg->getResultado()) {
                 $this->atualizarOrdem();
-                $_SESSION['msg'] = "<div class='alert alert-success'>Tipo de página apagado com sucesso!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-success'>Tipo de página apagado com sucesso!</div>";
                 $this->Resultado = true;
             } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Tipo de página não foi apagado!</div>";
+                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Tipo de página não foi apagado!</div>";
                 $this->Resultado = false;
             }
         }
@@ -50,7 +50,7 @@ class AdmsApagarTipoPg
         $verMenu->fullRead("SELECT id FROM adms_paginas
                 WHERE adms_tps_pg_id =:adms_tps_pg_id LIMIT :limit", "adms_tps_pg_id=" . $this->DadosId . "&limit=2");
         if ($verMenu->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: O tipo de página não pode ser apagado, há páginas cadastradas neste tipo de página!</div>";
+            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: O tipo de página não pode ser apagado, há páginas cadastradas neste tipo de página!</div>";
             $this->Resultado = false;
         } else {
             $this->Resultado = true;
