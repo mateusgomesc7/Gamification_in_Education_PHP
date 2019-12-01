@@ -15,11 +15,11 @@ class CadastrarPergunta
     public function cadPergunta()
     {
         $this->Dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-
         
         if (!empty($this->Dados['CadPergunta'])) {
             unset($this->Dados['CadPergunta']);
-            $this->Dados['imagem_nova'] = ($_FILES['imagem_nova'] ? $_FILES['imagem_nova'] : null);
+            // $this->Dados['imagem_nova'] = ($_FILES['imagem_nova'] ? $_FILES['imagem_nova'] : null);
+            // var_dump($this->Dados['imagem_nova']);
             $cadPergunta = new \App\sts\Models\StsCadastrarPergunta();
             $cadPergunta->cadPergunta($this->Dados);
             if ($cadPergunta->getResultado()) {

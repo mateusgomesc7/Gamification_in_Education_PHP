@@ -13,21 +13,21 @@ if (!defined('URL')) {
                 <div class="col-md-8 blog-main">
                     <?php
                     if (empty($this->Dados['perguntas'])) {
-                        echo "<div class='alert alert-danger'>Erro: Nenhum artigo encontrado!</div>";
+                        echo "<div class='alert alert-danger'>Erro: Nenhum pergunta encontrado!</div>";
                     }
-                    foreach ($this->Dados['perguntas'] as $artigo) {
-                        extract($artigo);
+                    foreach ($this->Dados['perguntas'] as $pergunta) {
+                        extract($pergunta);
                         ?>
                         <div class="row featurette">
                             <div class="col-md-7 order-md-2 blog-text anim_right">
-                                <a href="<?php echo URL . 'artigo/' . $slug; ?>">
+                                <a href="<?php echo URL . 'pergunta/pergunta/' . $id; ?>">
                                     <h2 class="featurette-heading text-danger"><?php echo $titulo; ?></h2>
                                 </a>
-                                <p class="lead"><?php echo $descricao; ?> <a href="<?php echo URL . 'artigo/' . $slug; ?>" class="text-danger">Continuar lendo</a></p>
+                                <p class="lead"><?php echo $descricao; ?> <a href="<?php echo URL . 'pergunta/pergunta/' . $id; ?>" class="text-danger">Continuar lendo</a></p>
                             </div>
                             <div class="col-md-5 order-md-1 anim_left">
-                                <a href="<?php echo URL . 'artigo/' . $slug; ?>">
-                                    <img class="featurette-image img-fluid mx-auto" src="<?php echo URL . 'assets/imagens/artigo/' . $id . '/' . $imagem; ?>" alt="<?php echo $titulo; ?>">
+                                <a href="<?php echo URL . 'pergunta/pergunta/' . $id; ?>">
+                                    <img class="featurette-image img-fluid mx-auto" src="<?php echo URL . 'assets/imagens/pergunta/pergunta/' . $id . '/' . $imagem; ?>" alt="<?php echo $titulo; ?>">
                                 </a>
                             </div>
                         </div>
@@ -53,9 +53,9 @@ if (!defined('URL')) {
                         <h4 class="font-italic">Recentes</h4>
                         <ol class="list-unstyled mb-0">
                             <?php
-                            foreach ($this->Dados['pergRecente'] as $artigoRec) {
-                                extract($artigoRec);
-                                echo "<li><a href='" . URL . "artigo/$slug'>$titulo</a></li>";
+                            foreach ($this->Dados['pergRecente'] as $perguntaRec) {
+                                extract($perguntaRec);
+                                echo "<li><a href='" . URL . "pergunta/pergunta/$id'>$titulo</a></li>";
                             }
                             ?>
                         </ol>
@@ -65,9 +65,9 @@ if (!defined('URL')) {
                         <h4 class="font-italic">Destaque</h4>
                         <ol class="list-unstyled">
                             <?php
-                            foreach ($this->Dados['pergDestaque'] as $artigoDest) {
-                                extract($artigoDest);
-                                echo "<li><a href='" . URL . "artigo/$slug'>$titulo</a></li>";
+                            foreach ($this->Dados['pergDestaque'] as $perguntaDest) {
+                                extract($perguntaDest);
+                                echo "<li><a href='" . URL . "pergunta/pergunta/$id'>$titulo</a></li>";
                             }
                             ?>
                         </ol>

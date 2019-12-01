@@ -22,8 +22,8 @@ class StsCadastrarPergunta
     public function cadPergunta(array $Dados)
     {
         $this->Dados = $Dados;
-        $this->Foto = $this->Dados['imagem_nova'];
-        unset($this->Dados['imagem_nova']);
+        // $this->Foto = $this->Dados['imagem_nova'];
+        // unset($this->Dados['imagem_nova']);
 
         $valCampoVazio = new \App\sts\Models\helper\StsCampoVazioComTag;
         $valCampoVazio->validarDados($this->Dados);
