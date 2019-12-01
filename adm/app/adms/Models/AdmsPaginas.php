@@ -7,6 +7,11 @@ if (!defined('URL')) {
     exit();
 }
 
+/**
+ * Description of StsPaginas
+ *
+ * @copyright (c) year, Cesar Szpak - Celke
+ */
 class AdmsPaginas
 {
     private $Resultado;

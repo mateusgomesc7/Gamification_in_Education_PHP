@@ -7,6 +7,11 @@ if (!defined('URL')) {
     exit();
 }
 
+/**
+ * Description of AdmsUploadImg
+ *
+ * @copyright (c) year, Cesar Szpak - Celke
+ */
 class AdmsUploadImgRed
 {
     private $DadosImagem;
@@ -34,7 +39,7 @@ class AdmsUploadImgRed
         if($this->Imagem){
             $this->Resultado = true;
         }else{
-            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: A extensão da imagem é inválida. Selecione um imagem JPEG ou PNG!</div>";
+            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: A extensão da imagem é inválida. Selecione um imagem JPEG ou PNG!</div>";
             $this->Resultado = false;
         }
     }

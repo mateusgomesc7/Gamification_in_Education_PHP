@@ -12,7 +12,12 @@ if (!defined('URL')) {
                 <div class="jumbotron mb-0 bg-white">
                     <h1 class="display-4"><strong>Qual a sua dúvida?</strong></h1>
                     <hr class="my-4">
-                    <a href="#" class="btn btn-primary btn-lg" role="button">Faça uma pergunta</a>
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bd-example-modal-lg">Faça uma pergunta</button>
+
+                    <?php
+                    include 'app/sts/Views/pergunta/cadPergunta.php';
+                    ?>
+
                 </div>
             </div>
             <div class="row">

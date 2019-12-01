@@ -7,6 +7,11 @@ if (!defined('URL')) {
     exit();
 }
 
+/**
+ * Description of AdmsEmail
+ *
+ * @copyright (c) year, Cesar Szpak - Celke
+ */
 class AdmsEmail
 {
     private $Resultado;
@@ -18,6 +23,7 @@ class AdmsEmail
         return $this->Resultado;
     }
 
+        
     public function valEmail($Email)
     {
         $this->Dados = (string) $Email;

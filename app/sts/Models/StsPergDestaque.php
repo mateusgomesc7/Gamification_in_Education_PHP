@@ -15,9 +15,9 @@ class StsPergDestaque
     {
         $listar = new \App\sts\Models\helper\StsRead();
         $listar->fullRead('SELECT titulo, slug FROM sts_artigos 
-                WHERE sts_sit_id =:sts_sit_id
+                WHERE adms_sit_id =:adms_sit_id
                 ORDER BY qnt_acesso DESC 
-                LIMIT :limit', "sts_sit_id=1&limit=7");
+                LIMIT :limit', "adms_sit_id=1&limit=7");
         $this->Resultado = $listar->getResultado();
         return $this->Resultado;
     }

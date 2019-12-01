@@ -7,6 +7,11 @@ if (!defined('URL')) {
     exit();
 }
 
+/**
+ * Description of AdmsEmailUnico
+ *
+ * @copyright (c) year, Cesar Szpak - Celke
+ */
 class AdmsValUsuario
 {
 
@@ -33,7 +38,7 @@ class AdmsValUsuario
         }        
         $this->Resultado = $valUsuario->getResultado();
         if (!empty($this->Resultado)) {
-            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Este usuário já está cadastrado!</div>";
+            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Este usuário já está cadastrado!</div>";
             $this->Resultado = false;
         } else {
             $this->valCarctUsuario();
@@ -43,11 +48,11 @@ class AdmsValUsuario
     private function valCarctUsuario()
     {
         if (stristr($this->Usuario, "'")) {
-            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Caracter ( ' ) utilizado no usuário inválido!</div>";
+            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Caracter ( ' ) utilizado no usuário inválido!</div>";
             $this->Resultado = false;
         } else {
             if (stristr($this->Usuario, " ")) {
-                $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Proibido utilizar espaço em branco no usuário!</div>";
+                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Proibido utilizar espaço em branco no usuário!</div>";
                 $this->Resultado = false;
             } else {
                 $this->valExtensUsuario();
@@ -58,7 +63,7 @@ class AdmsValUsuario
     private function valExtensUsuario()
     {
         if ((strlen($this->Usuario)) < 5) {
-            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: O usuário deve ter no mínimo 5 caracteres!</div>";
+            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: O usuário deve ter no mínimo 5 caracteres!</div>";
             $this->Resultado = false;
         } else {
             $this->Resultado = true;

@@ -7,6 +7,11 @@ if (!defined('URL')) {
     exit();
 }
 
+/**
+ * Description of AdmsEmailUnico
+ *
+ * @copyright (c) year, Cesar Szpak - Celke
+ */
 class AdmsEmailUnico
 {
     private $Email;
@@ -32,7 +37,7 @@ class AdmsEmailUnico
         }        
         $this->Resultado = $valEmailUnico->getResultado();
         if (!empty($this->Resultado)) {            
-            $_SESSION['adms_msg'] = "<div class='alert alert-danger'>Erro: Este e-mail já está cadastrado!</div>";
+            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Este e-mail já está cadastrado!</div>";
             $this->Resultado = false;
         } else {
             $this->Resultado = true;

@@ -15,9 +15,9 @@ class StsSobreAutor
     {
         $visSobreAutor = new \App\sts\Models\helper\StsRead();
         $visSobreAutor->fullRead('SELECT id, titulo, descricao, imagem FROM sts_sobres 
-                WHERE sts_sit_id =:sts_sit_id 
+                WHERE adms_sit_id =:adms_sit_id 
                 AND id =:id 
-                LIMIT :limit', "sts_sit_id=1&id=1&limit=1");
+                LIMIT :limit', "adms_sit_id=1&id=1&limit=1");
         $this->Resultado = $visSobreAutor->getResultado();
         return $this->Resultado;
     }

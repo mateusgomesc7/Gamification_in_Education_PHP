@@ -7,6 +7,11 @@ if (!defined('URL')) {
     exit();
 }
 
+/**
+ * Description of Menu
+ *
+ * @copyright (c) year, Cesar Szpak - Celke
+ */
 class Menu
 {
 

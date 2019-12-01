@@ -7,6 +7,11 @@ if (!defined('URL')) {
     exit();
 }
 
+/**
+ * Description of VerPerfil
+ *
+ * @copyright (c) year, Cesar Szpak - Celke
+ */
 class VerPerfil
 {
     private $Dados;

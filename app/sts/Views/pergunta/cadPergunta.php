@@ -1,0 +1,262 @@
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+            <div class="modal-header">
+                <div class="mr-auto p-2">
+                    <h2 class="display-4 titulo">Faça sua pergunta</h2>
+                </div>
+            </div>
+            <div class="modal-body">
+
+
+
+
+
+<?php
+if (isset($this->Dados['form'])) {
+    $valorForm = $this->Dados['form'];
+}
+if (isset($this->Dados['form'][0])) {
+    $valorForm = $this->Dados['form'][0];
+}
+//var_dump($this->Dados['select']);
+?>
+<div class="content p-1">
+    <div class="list-group-item">
+
+        <?php
+        if (isset($_SESSION['msg'])) {
+            echo $_SESSION['msg'];
+            unset($_SESSION['msg']);
+        }
+        ?>
+        
+        <form method="POST" action="" enctype="multipart/form-data"> 
+
+            <h2 class="display-4 titulo">Conteúdo</h2>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label><span class="text-danger">*</span> Nome</label>
+                    <input name="titulo" type="text" class="form-control" placeholder="Titulo da pergunta" value="<?php
+                    if (isset($valorForm['titulo'])) {
+                        echo $valorForm['titulo'];
+                    }
+                    ?>">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label><span class="text-danger">*</span> Prévia da Pergunta</label>
+                    <textarea name="descricao" id="editor-um" class="form-control" rows="3"><?php
+                        if (isset($valorForm['descricao'])) {
+                            echo $valorForm['descricao'];
+                        }
+                        ?>
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label><span class="text-danger">*</span> Conteúdo da pergunta</label>
+                    <textarea name="conteudo" id="editor-dois" class="form-control" rows="3"><?php
+                        if (isset($valorForm['conteudo'])) {
+                            echo $valorForm['conteudo'];
+                        }
+                        ?>
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label><span class="text-danger">*</span> Resumo Público</label>
+                    <textarea name="resumo_publico" id="editor-tres" class="form-control" rows="3"><?php
+                        if (isset($valorForm['resumo_publico'])) {
+                            echo $valorForm['resumo_publico'];
+                        }
+                        ?>
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> Situação</label>
+                    <select name="adms_sit_id" id="adms_sit_id" class="form-control">
+                        <option value="">Selecione</option>
+                        <?php
+                        foreach ($this->Dados['select']['sit'] as $sit) {
+                            extract($sit);
+                            if (isset($valorForm['adms_sit_id']) AND $valorForm['adms_sit_id'] == $id_sit) {
+                                echo "<option value='$id_sit' selected>$nome_sit</option>";
+                            } else {
+                                echo "<option value='$id_sit'>$nome_sit</option>";
+                            }
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> Tipo de Pergunta</label>
+                    <select name="sts_tps_artigo_id" id="sts_tps_artigo_id" class="form-control">
+                        <option value="">Selecione</option>
+                        <?php
+                        foreach ($this->Dados['select']['tpart'] as $tpart) {
+                            extract($tpart);
+                            if (isset($valorForm['sts_tps_artigo_id']) AND $valorForm['sts_tps_artigo_id'] == $id_tpart) {
+                                echo "<option value='$id_tpart' selected>$nome_tpart</option>";
+                            } else {
+                                echo "<option value='$id_tpart'>$nome_tpart</option>";
+                            }
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> Categoria da Pergunta</label>
+                    <select name="sts_cats_artigo_id" id="sts_cats_artigo_id" class="form-control">
+                        <option value="">Selecione</option>
+                        <?php
+                        foreach ($this->Dados['select']['catart'] as $catart) {
+                            extract($catart);
+                            if (isset($valorForm['sts_cats_artigo_id']) AND $valorForm['sts_cats_artigo_id'] == $id_catart) {
+                                echo "<option value='$id_catart' selected>$nome_catart</option>";
+                            } else {
+                                echo "<option value='$id_catart'>$nome_catart</option>";
+                            }
+                        }
+                        ?>
+                    </select>
+                </div>
+            </div>         
+
+            <?php
+            if ($this->Dados['botao']['edit_autor_art']) {
+                ?>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label><span class="text-danger">*</span> Autor da Pergunta</label>
+                        <select name="sts_usuario_id" id="sts_usuario_id" class="form-control">
+                            <option value="">Selecione</option>
+                            <?php
+                            $cont = 1;
+                            foreach ($this->Dados['select']['user'] as $user) {
+                                extract($user);
+                                if (isset($valorForm['sts_usuario_id']) AND $valorForm['sts_usuario_id'] == $id_user) {
+                                    echo "<option value='$id_user' selected>$nome_user</option>";
+                                    $cont = 2;
+                                } elseif (($_SESSION['usuario_id'] == $id_user) AND ( $cont == 1)) {
+                                    echo "<option value='$id_user' selected>$nome_user</option>";
+                                } else {
+                                    echo "<option value='$id_user'>$nome_user</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                <?php
+            } else {
+                ?>
+                <input name="sts_usuario_id" type="hidden" value="<?php echo $_SESSION['usuario_id']; ?>">
+                <?php
+            }
+            ?>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label><span class="text-danger">*</span> Foto (1200x627)</label>
+                    <input name="imagem_nova" type="file" onchange="previewImagem();">
+                </div>
+                <div class="form-group col-md-6">
+                    <?php
+                    $imagem_antiga = URL . 'assets/imagens/pergunta/preview_img.jpg';
+                    ?>
+                    <img src="<?php echo $imagem_antiga; ?>" alt="Imagem da pergunta" id="preview-user" class="img-thumbnail" style="width: 300px; height: 150px;">
+                </div>
+            </div>   
+
+            <hr>
+            <h2 class="display-4 titulo">SEO</h2>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label><span class="text-danger">*</span> Slug</label>
+                    <input name="slug" type="text" class="form-control" placeholder="Slug da pergunta" value="<?php
+                    if (isset($valorForm['slug'])) {
+                        echo $valorForm['slug'];
+                    }
+                    ?>">
+                </div>
+                <div class="form-group col-md-6">
+                    <label><span class="text-danger">*</span> Palavra chave</label>
+                    <input name="keywords" type="text" class="form-control" placeholder="Palavra chave da pergunta" value="<?php
+                    if (isset($valorForm['keywords'])) {
+                        echo $valorForm['keywords'];
+                    }
+                    ?>">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label><span class="text-danger">*</span> Descrição</label>
+                    <input name="description" type="text" class="form-control" placeholder="Descrição da pergunta. Máximo 180 letras" value="<?php
+                    if (isset($valorForm['description'])) {
+                        echo $valorForm['description'];
+                    }
+                    ?>">
+                </div>
+                <div class="form-group col-md-6">
+                    <label><span class="text-danger">*</span> Titulo do Site</label>
+                    <input name="author" type="text" class="form-control" placeholder="Titulo do Site" value="<?php
+                    if (isset($valorForm['author'])) {
+                        echo $valorForm['author'];
+                    }
+                    ?>">
+                </div>
+            </div>            
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label><span class="text-danger">*</span> Situação Buscadores</label>
+                    <select name="sts_robot_id" id="sts_robot_id" class="form-control">
+                        <option value="">Selecione</option>
+                        <?php
+                        foreach ($this->Dados['select']['rob'] as $rob) {
+                            extract($rob);
+                            if (isset($valorForm['sts_robot_id']) AND $valorForm['sts_robot_id'] == $id_rob) {
+                                echo "<option value='$id_rob' selected>$tipo_rob - $nome_rob</option>";
+                            } else {
+                                echo "<option value='$id_rob'>$nome_rob</option>";
+                            }
+                        }
+                        ?>
+                    </select>
+                </div>
+            </div>  
+
+            <p>
+                <span class="text-danger">* </span>Campo obrigatório
+            </p>
+            <input name="CadPergunta" type="submit" class="btn btn-warning" value="Salvar">
+        </form>
+    </div>
+</div>
+
+
+
+
+</div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input name="EdiPerfil" type="submit" class="btn btn-warning" value="Salvar">
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

@@ -9,6 +9,7 @@ if (!defined('URL')) {
 
 class Home
 {
+
     private $Dados;
 
     public function index()
