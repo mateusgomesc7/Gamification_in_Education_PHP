@@ -14,7 +14,7 @@ class StsPergunta
 
     private $PageId;
     private $ResultadoPg;
-    private $LimiteResultado = 2;
+    private $LimiteResultado = 10;
 
     function getResultadoPg()
     {
