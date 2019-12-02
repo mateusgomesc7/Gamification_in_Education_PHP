@@ -24,9 +24,9 @@ class StsComentarios
         $this->IdPergunta = (string) $IdPergunta;
         $listar = new \App\sts\Models\helper\StsRead();
         $listar->fullRead('SELECT comt.id, comt.conteudo,
-                user.id id_user, user.apelido, user.imagem imagem_user
+                user.id id_user, user.nome, user.imagem imagem_user
                 FROM sts_comts_perguntas comt
-                INNER JOIN adms_usuarios user ON user.id=comt.adms_usuario_id
+                INNER JOIN sts_usuarios user ON user.id=comt.sts_usuario_id
                 WHERE comt.sts_pergunta_id =:sts_pergunta_id AND
                 (comt.adms_sit_id =:adms_sit_ida OR comt.adms_sit_id =:adms_sit_idb)           
                 ORDER BY comt.id DESC', "sts_pergunta_id={$this->IdPergunta}&adms_sit_ida=1&adms_sit_idb=3");
@@ -40,8 +40,8 @@ class StsComentarios
         $this->validarDados();
         if ($this->Resultado) {
             $this->verUsuario();
-            if ($this->Resultado) {
-                unset($this->Dados['nome'], $this->Dados['apelido'], $this->Dados['email'], $this->Dados['slug']);  
+            if($this->Resultado){
+                unset($this->Dados['nome'],$this->Dados['apelido'],$this->Dados['email'], $this->Dados['id']);
                 $this->Dados['adms_sit_id'] = 3;
                 $this->Dados['created'] = date("Y-m-d H:i:s");
                 //var_dump($this->Dados);
@@ -69,7 +69,7 @@ class StsComentarios
 
     private function inserir()
     {
-        $cadComent = new \Sts\Models\helper\StsCreate();
+        $cadComent = new \App\sts\Models\helper\StsCreate();
         $cadComent->exeCreate('sts_comts_perguntas', $this->Dados);
         if ($cadComent->getResultado()) {
             $_SESSION['msg'] = "<div class='alert alert-success'>Comentário cadastrado com sucesso!</div>";
@@ -82,12 +82,12 @@ class StsComentarios
 
     private function verUsuario()
     {
-        $verUsuario = new \Sts\Models\helper\StsRead();
-        $verUsuario->fullRead("SELECT id FROM adms_usuarios
+        $verUsuario = new \App\sts\Models\helper\StsRead();
+        $verUsuario->fullRead("SELECT id FROM sts_usuarios
                 WHERE email =:email LIMIT :limit ", "email={$this->Dados['email']}&limit=1");
         $this->UserId = $verUsuario->getResultado();
         if ($this->UserId) {
-            $this->Dados['adms_usuario_id'] = $this->UserId[0]['id'];
+            $this->Dados['sts_usuario_id'] = $this->UserId[0]['id'];
             $this->Resultado = true;
         } else {
             $this->inserirUsuario();
@@ -97,18 +97,17 @@ class StsComentarios
     private function inserirUsuario()
     {
         $this->DadosUser['nome'] = $this->Dados['nome'];
-        $this->DadosUser['apelido'] = $this->Dados['apelido'];
         $this->DadosUser['email'] = $this->Dados['email'];
         $this->DadosUser['usuario'] = $this->Dados['email'];
         $this->DadosUser['senha'] = password_hash(password_hash(date("Y-m-d H:i:s"), PASSWORD_DEFAULT), PASSWORD_DEFAULT);
-        $this->DadosUser['adms_niveis_acesso_id'] = 5;
-        $this->DadosUser['adms_sits_usuario_id'] = 3;
+        $this->DadosUser['sts_niveis_acesso_id'] = 5;
+        $this->DadosUser['sts_sits_usuario_id'] = 3;
         $this->DadosUser['created'] = date("Y-m-d H:i:s");
 
-        $cadUsuario = new \Sts\Models\helper\StsCreate();
-        $cadUsuario->exeCreate("adms_usuarios", $this->DadosUser);
+        $cadUsuario = new \App\sts\Models\helper\StsCreate();
+        $cadUsuario->exeCreate("sts_usuarios", $this->DadosUser);
         if ($cadUsuario->getResultado()) {
-            $this->Dados['adms_usuario_id'] = $cadUsuario->getResultado();
+            $this->Dados['sts_usuario_id'] = $cadUsuario->getResultado();
             $this->Resultado = $cadUsuario->getResultado();
         } else {
             $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: O usuario não foi cadastrado!</div>";
