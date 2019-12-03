@@ -17,6 +17,12 @@ class Home
         $listarMenu = new \App\sts\Models\StsMenu();
         $this->Dados['menu']= $listarMenu->itemMenu();
         
+        $listarPergRecente = new \App\sts\Models\StsPergRecente();
+        $this->Dados['pergRecente'] = $listarPergRecente->listarPergRecente();
+
+        $listarPergDestaque = new \App\sts\Models\StsPergDestaque();
+        $this->Dados['pergDestaque'] = $listarPergDestaque->listarPergDestaque();
+
         $carregarView = new \Core\ConfigView("sts/Views/home/home", $this->Dados);
         $carregarView->renderizar();
     }

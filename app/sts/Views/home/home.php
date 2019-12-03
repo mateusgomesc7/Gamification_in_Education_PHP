@@ -89,12 +89,35 @@ if (!defined('URL')) {
             </div>
             <div class="row">
                 Ranking
+
+                
             </div>
             <div class="row">
-                Alguma coisa
+                <div class="p-3">
+                    <h4 class="font-italic">Recentes</h4>
+                    <ol class="list-unstyled mb-0">
+                        <?php
+                        foreach ($this->Dados['pergRecente'] as $perguntaRec) {
+                            extract($perguntaRec);
+                            var_dump($this->Dados['pergRecente']);
+                            echo "<li><a href='" . URL . "pergunta/pergunta/$id'>$titulo</a></li>";
+                        }
+                        ?>
+                    </ol>
+                </div>
             </div>
             <div class="row">
-                Mais alguma coisa
+                <div class="p-3">
+                    <h4 class="font-italic">Destaque</h4>
+                    <ol class="list-unstyled">
+                        <?php
+                        foreach ($this->Dados['pergDestaque'] as $perguntaDest) {
+                            extract($perguntaDest);
+                            echo "<li><a href='" . URL . "pergunta/pergunta/$id'>$titulo</a></li>";
+                        }
+                        ?>
+                    </ol>
+                </div>
             </div>
         </div>
 
