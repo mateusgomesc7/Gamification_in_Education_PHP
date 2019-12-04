@@ -46,12 +46,12 @@ if (isset($this->Dados['form'][0])) {
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label><span class="text-danger">*</span> Categoria da Pergunta</label>
-                    <select name="sts_cats_artigo_id" id="sts_cats_artigo_id" class="form-control">
+                    <select name="sts_cats_pergunta_id" id="sts_cats_pergunta_id" class="form-control">
                         <option value="">Selecione</option>
                         <?php
                         foreach ($this->Dados['select']['catart'] as $catart) {
                             extract($catart);
-                            if (isset($valorForm['sts_cats_artigo_id']) AND $valorForm['sts_cats_artigo_id'] == $id_catart) {
+                            if (isset($valorForm['sts_cats_pergunta_id']) AND $valorForm['sts_cats_pergunta_id'] == $id_catart) {
                                 echo "<option value='$id_catart' selected>$nome_catart</option>";
                             } else {
                                 echo "<option value='$id_catart'>$nome_catart</option>";

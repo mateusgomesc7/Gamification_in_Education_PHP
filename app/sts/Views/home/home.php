@@ -26,24 +26,28 @@ if (!defined('URL')) {
                 </div>
             </div>
             <div class="row">
-                <div class="card mb-1">
-                    <div class="card-header">
-                        <i class="fas fa-user-graduate"></i> Matemática
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">2) Dentre as assertivas a seguir, assinale a única alternativa que corresponde a uma hipótese de inexigibilidade de licitação, prevista no artigo...</p>
-                        <a href="#" class="btn btn-primary">Responder</a>
-                    </div>
-                </div>
-                <div class="card mb-1">
-                    <div class="card-header">
-                        <i class="fas fa-user-ninja"></i> Português
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">2) Dentre as assertivas a seguir, assinale a única alternativa que corresponde a uma hipótese de inexigibilidade de licitação, prevista no artigo...</p>
-                        <a href="#" class="btn btn-primary">Responder</a>
-                    </div>
-                </div>
+                    <?php
+                            foreach ($this->Dados['pergRecente'] as $perguntaRec) {
+                                extract($perguntaRec);
+                                
+                                echo "<div class='card mb-1 p-0 container'>";
+                                echo "<div class='card-header'>";
+                                    echo "<i class='$icone'></i> $categoria";
+                                echo "</div>";
+                                echo "<div class='card-body'>";
+                                    echo "<h5 class='card-title'>$titulo</h5>";
+                                    
+                                    // // echo $conteudo;
+                                    // $domain = strstr($conteudo, '</p', true);
+                                    // // echo $domain; 
+                                    // echo "<p class='card-text'>$domain</p></p>";
+                                    
+                                    echo "<a href='" . URL . "pergunta/pergunta/$id' class='btn btn-primary'>Visualizar</a>";
+                                echo "</div>";
+                                echo "</div>";
+                            
+                            }
+                    ?>
             </div>
         </div>
 
@@ -91,20 +95,6 @@ if (!defined('URL')) {
                 Ranking
 
                 
-            </div>
-            <div class="row">
-                <div class="p-3">
-                    <h4 class="font-italic">Recentes</h4>
-                    <ol class="list-unstyled mb-0">
-                        <?php
-                        foreach ($this->Dados['pergRecente'] as $perguntaRec) {
-                            extract($perguntaRec);
-                            var_dump($this->Dados['pergRecente']);
-                            echo "<li><a href='" . URL . "pergunta/pergunta/$id'>$titulo</a></li>";
-                        }
-                        ?>
-                    </ol>
-                </div>
             </div>
             <div class="row">
                 <div class="p-3">

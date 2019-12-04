@@ -19,16 +19,11 @@ if (!defined('URL')) {
                         extract($pergunta);
                         ?>
                         <div class="row featurette">
-                            <div class="col-md-7 order-md-2 blog-text anim_right">
+                            <div class="col order-md-2 container blog-text anim_right">
                                 <a href="<?php echo URL . 'pergunta/pergunta/' . $id; ?>">
                                     <h2 class="featurette-heading text-danger"><?php echo $titulo; ?></h2>
                                 </a>
                                 <p class="lead"><?php echo $descricao; ?> <a href="<?php echo URL . 'pergunta/pergunta/' . $id; ?>" class="text-danger">Continuar lendo</a></p>
-                            </div>
-                            <div class="col-md-5 order-md-1 anim_left">
-                                <a href="<?php echo URL . 'pergunta/pergunta/' . $id; ?>">
-                                    <img class="featurette-image img-fluid mx-auto" src="<?php echo URL . 'assets/imagens/pergunta/pergunta/' . $id . '/' . $imagem; ?>" alt="<?php echo $titulo; ?>">
-                                </a>
                             </div>
                         </div>
                         <hr class="featurette-divider">

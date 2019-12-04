@@ -16,7 +16,6 @@ if (!defined('URL')) {
                         ?>
                         <div class="blog-post">
                             <h2 class="blog-post-title"><?php echo $titulo; ?></h2>
-                            <img src="<?php echo URL . 'assets/imagens/pergunta/pergunta/' . $id . '/' . $imagem; ?>" class="img-fluid" alt="<?php echo $titulo; ?>" style="margin-bottom: 20px;">
                             <?php echo $conteudo; ?>
                         </div>
                         <nav class="blog-pagination">
