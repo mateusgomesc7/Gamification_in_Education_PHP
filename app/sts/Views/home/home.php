@@ -23,7 +23,7 @@ if (!defined('URL')) {
                     <?php
                         foreach ($this->Dados['catPerguntas'] as $catPerguntas) {
                             extract($catPerguntas);
-                           echo "<a class='btn btn-outline-primary m-1' role='button' href='" . URL . "ver-perguntas/perguntas'><i class='$icone'></i> $nome</a>";
+                           echo "<a class='btn btn-outline-primary m-1' role='button' href='" . URL . "ver-perguntas-esp/categorias/$id'><i class='$icone'></i> $nome</a>";
                         }
                     ?>
 
