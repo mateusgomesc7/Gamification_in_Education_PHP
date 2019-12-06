@@ -7,7 +7,7 @@ if (isset($this->Dados['form'][0])) {
 }
 //var_dump($this->Dados['select']);
 ?>
-<div class="content p-1">
+<div class="content p-1 container">
     <div class="list-group-item">
 
         <?php

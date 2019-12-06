@@ -13,7 +13,24 @@ if (!defined('URL')) {
     ?>
 
     <div class="row">
-        <div class="col-md-9 col-lg-9">
+
+        <div class="col-lg-2 d-none d-sm-none d-md-none d-lg-inline">
+            <div class="btn-group-vertical">
+                    <a class="btn btn-outline-primary m-1" role="button" href="<?php echo URL . 'ver-perguntas/perguntas'; ?>">
+                        <i class="fas fa-university"></i> Todas
+                    </a>
+
+                    <?php
+                        foreach ($this->Dados['catPerguntas'] as $catPerguntas) {
+                            extract($catPerguntas);
+                           echo "<a class='btn btn-outline-primary m-1' role='button' href='" . URL . "ver-perguntas/perguntas'><i class='$icone'></i> $nome</a>";
+                        }
+                    ?>
+
+            </div>
+        </div>
+
+        <div class="col-md-9 col-lg-7">
             <div class="row justify-content-center">
                 <div class="jumbotron mb-0 bg-white">
                     <h1 class="display-4"><strong>Qual a sua dúvida?</strong></h1>
@@ -91,11 +108,11 @@ if (!defined('URL')) {
                     </div>
                 </div>
             </div>
+            
             <div class="row">
                 Ranking
-
-                
             </div>
+            
             <div class="row">
                 <div class="p-3">
                     <h4 class="font-italic">Destaque</h4>

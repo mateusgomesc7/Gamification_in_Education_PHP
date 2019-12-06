@@ -7,7 +7,11 @@ if (!defined('URL')) {
 <div class="d-flex">
     <nav class="sidebar text-center">
         <div class="btn-group-vertical">
-        <a href="<?php echo URL . 'ver-perguntas/perguntas'; ?>"><button type="button" class="btn btn-outline-primary m-1"><i class="fas fa-university"></i> Todas as matérias</button></a>
+            <a href="<?php echo URL . 'ver-perguntas/perguntas'; ?>">
+                <button type="button" class="btn btn-outline-primary m-1">
+                    <i class="fas fa-university"></i> Todas as matérias
+                </button>
+            </a>
             <button type="button" class="btn btn-outline-primary m-1"><i class="fas fa-balance-scale"></i> ENEM</button>
             <button type="button" class="btn btn-outline-primary m-1"><i class="fas fa-square-root-alt"></i> Matemática</button>
             <button type="button" class="btn btn-outline-primary m-1"><i class="fas fa-book"></i> História</button>

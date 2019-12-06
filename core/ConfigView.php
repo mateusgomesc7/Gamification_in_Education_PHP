@@ -18,7 +18,7 @@ class ConfigView
     {
         include 'app/sts/Views/include/cabecalho_sts.php';
         include 'app/sts/Views/include/header.php';
-        include 'app/sts/Views/include/sidebar.php';
+        // include 'app/sts/Views/include/sidebar.php';
         if (file_exists('app/' . $this->Nome . '.php')) {
             include 'app/' . $this->Nome . '.php';
         }else{

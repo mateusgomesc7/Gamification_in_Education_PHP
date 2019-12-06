@@ -28,9 +28,9 @@ class Menu
         $listarMenu = new \App\sts\Models\StsMenu();
         $this->Dados['menu'] = $listarMenu->itemMenu();
 
-        $listarItensMenu = new \App\sts\Models\StsListarItensMenu();
-        $this->Dados['listItensMenu'] = $listarItensMenu->listarItensMenu($this->PageId);
-        $this->Dados['paginacao'] = $listarItensMenu->getResultadoPg();
+        // $listarItensMenu = new \App\sts\Models\StsListarItensMenu();
+        // $this->Dados['listItensMenu'] = $listarItensMenu->listarItensMenu($this->PageId);
+        // $this->Dados['paginacao'] = $listarItensMenu->getResultadoPg();
 
         $carregarView = new \Core\ConfigView("sts/Views/menu/listarMenu", $this->Dados);
         $carregarView->renderizar();

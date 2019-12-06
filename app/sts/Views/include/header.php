@@ -7,9 +7,9 @@ if (!defined('URL')) {
 
 <nav class="navbar navbar-expand navbar-dark bg-primary">
     
-    <a class="sidebar-toggle text-light mr-3">
+    <!-- <a class="sidebar-toggle text-light mr-3">
         <span class="navbar-toggler-icon"></span>
-    </a>
+    </!-->
     <?php
         echo "<a class='navbar-brand' href='" . URL . "home/index" . " '>Gamification</a>";
     ?>

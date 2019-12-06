@@ -23,6 +23,9 @@ class Home
         $listarPergDestaque = new \App\sts\Models\StsPergDestaque();
         $this->Dados['pergDestaque'] = $listarPergDestaque->listarPergDestaque();
 
+        $listarCatPerg = new \App\sts\Models\StsCatPerg();
+        $this->Dados['catPerguntas'] = $listarCatPerg->listarCatPerg();
+
         $carregarView = new \Core\ConfigView("sts/Views/home/home", $this->Dados);
         $carregarView->renderizar();
     }
