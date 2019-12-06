@@ -24,7 +24,7 @@ class StsLogin
         $this->validarDados();
         if ($this->Resultado) {
             $validaLogin = new \App\sts\Models\helper\StsRead();
-            $validaLogin->fullRead("SELECT user.id, user.nome, user.email, user.senha, user.imagem, user.sts_niveis_acesso_id,
+            $validaLogin->fullRead("SELECT user.id, user.nome, user.pontos, user.email, user.senha, user.imagem, user.sts_niveis_acesso_id,
                     nivac.ordem	ordem_nivac
                     FROM sts_usuarios user
                     INNER JOIN sts_niveis_acessos nivac ON nivac.id=user.sts_niveis_acesso_id
@@ -56,6 +56,7 @@ class StsLogin
         if (password_verify($this->Dados['senha'], $this->Resultado[0]['senha'])) {
             $_SESSION['usuario_id'] = $this->Resultado[0]['id'];
             $_SESSION['usuario_nome'] = $this->Resultado[0]['nome'];
+            $_SESSION['usuario_pontos'] = $this->Resultado[0]['pontos'];
             $_SESSION['usuario_email'] = $this->Resultado[0]['email'];
             $_SESSION['usuario_imagem'] = $this->Resultado[0]['imagem'];
             $_SESSION['sts_niveis_acesso_id'] = $this->Resultado[0]['sts_niveis_acesso_id'];

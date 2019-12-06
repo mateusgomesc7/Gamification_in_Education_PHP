@@ -99,7 +99,7 @@ if (!defined('URL')) {
                                     $nome = explode(" ", $_SESSION['usuario_nome']);
                                     $prim_nome = $nome[0];
                                     echo "<h5 class='card-title'>$prim_nome</h5>";
-                                    echo "<p class='card-text'><small class='text-muted'>Pontos: 100</small></p>";
+                                    echo "<p class='card-text'><small class='text-muted'>Pontos: " . $_SESSION['usuario_pontos'] . "</small></p>";
                                 ?>
         
 

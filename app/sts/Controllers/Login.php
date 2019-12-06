@@ -32,7 +32,7 @@ class Login
 
     public function logout()
     {
-        unset($_SESSION['usuario_id'], $_SESSION['usuario_nome'], $_SESSION['usuario_email'], $_SESSION['usuario_imagem'], $_SESSION['sts_niveis_acesso_id'], $_SESSION['ordem_nivac']);
+        unset($_SESSION['usuario_id'], $_SESSION['usuario_nome'], $_SESSION['usuario_pontos'], $_SESSION['usuario_email'], $_SESSION['usuario_imagem'], $_SESSION['sts_niveis_acesso_id'], $_SESSION['ordem_nivac']);
         $_SESSION['msg'] = "<div class='alert alert-success'>Deslogado com sucesso</div>";
         $UrlDestino = URL . 'login/acesso';
         header("Location: $UrlDestino");
