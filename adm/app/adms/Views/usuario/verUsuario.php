@@ -76,9 +76,6 @@ if (!empty($this->Dados['dados_usuario'][0])) {
                 <dt class="col-sm-3">Nome</dt>
                 <dd class="col-sm-9"><?php echo $nome; ?></dd>                
 
-                <dt class="col-sm-3">Apelido</dt>
-                <dd class="col-sm-9"><?php echo $apelido; ?></dd>   
-
                 <dt class="col-sm-3">E-mail</dt>
                 <dd class="col-sm-9"><?php echo $email; ?></dd>
 

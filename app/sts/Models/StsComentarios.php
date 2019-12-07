@@ -41,7 +41,7 @@ class StsComentarios
         if ($this->Resultado) {
             $this->verUsuario();
             if($this->Resultado){
-                unset($this->Dados['nome'],$this->Dados['apelido'],$this->Dados['email'], $this->Dados['id']);
+                unset($this->Dados['nome'],$this->Dados['email'], $this->Dados['id']);
                 $this->Dados['adms_sit_id'] = 3;
                 $this->Dados['created'] = date("Y-m-d H:i:s");
                 //var_dump($this->Dados);

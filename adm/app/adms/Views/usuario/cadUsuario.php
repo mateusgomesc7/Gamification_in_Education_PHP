@@ -43,12 +43,8 @@ if (isset($this->Dados['form'][0])) {
                     ?>">
                 </div>
                 <div class="form-group col-md-6">
-                    <label><span class="text-danger">*</span> Apelido</label>
-                    <input name="apelido" type="text" class="form-control" placeholder="Como gostaria de ser chamado" value="<?php
-                    if (isset($valorForm['apelido'])) {
-                        echo $valorForm['apelido'];
-                    }
-                    ?>">
+                    <label><span class="text-danger">*</span> Curso</label>
+                    <input name="curso" type="text" class="form-control" placeholder="Como gostaria de ser chamado" value="Curso">
                 </div>
             </div>
             <div class="form-row">
