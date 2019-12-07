@@ -26,6 +26,9 @@ class Home
         $listarCatPerg = new \App\sts\Models\StsCatPerg();
         $this->Dados['catPerguntas'] = $listarCatPerg->listarCatPerg();
 
+        $emblemas = new \App\sts\Models\StsEmblemas();
+        $this->Dados['emblemasPontos'] = $emblemas->buscarEmblemas();    
+
         $carregarView = new \Core\ConfigView("sts/Views/home/home", $this->Dados);
         $carregarView->renderizar();
     }
