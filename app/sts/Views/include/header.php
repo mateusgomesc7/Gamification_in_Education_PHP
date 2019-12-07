@@ -16,9 +16,11 @@ if (!defined('URL')) {
 
     <div class="collapse navbar-collapse">
 
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        <form class="form-inline" method="POST" action="<?php echo URL . 'pesq-perguntas/listar'; ?>">
+            <input class="form-control mr-sm-2" name="pergunta" type="text" placeholder="Qual a sua dúvida?" value="<?php if(isset($_SESSION['pesqPergunta'])){
+                echo $_SESSION['pesqPergunta'];
+            } ?>">
+            <input name="PesqPergunta" type="submit" class="btn btn-outline-danger my-2" value="Pesquisar">
         </form>
         
         <ul class="navbar-nav ml-auto">

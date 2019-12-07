@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Dez-2019 às 02:37
+-- Tempo de geração: 07-Dez-2019 às 03:29
 -- Versão do servidor: 10.4.8-MariaDB
 -- versão do PHP: 7.3.11
 
@@ -1718,8 +1718,9 @@ INSERT INTO `sts_perguntas` (`id`, `titulo`, `descricao`, `conteudo`, `imagem`, 
 (14, 'sdfgsdfg', NULL, '<p>sdfgsdfg</p>', NULL, 'sdfgsdfg', 'sdfgsdfg', 'sdfgsdf', 'gsdfgsdfg', '<p>sdfgsdfg</p>', 0, 1, 1, 1, 1, 3, '2019-12-01 14:32:58', NULL),
 (15, 'fghj', NULL, '<p>fghj</p>', NULL, NULL, NULL, 'fghj', 'fghj', NULL, 0, 1, 1, 1, 1, 2, '2019-12-01 14:40:19', NULL),
 (16, 'vbnm', NULL, '<p>vbnm</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 3, '2019-12-01 14:42:52', NULL),
-(27, 'Apenas vendo se está funcionando', NULL, '<p>Estava vendo se estava funci<strong>onando tudo em ordem&nbsp;</strong></p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 3, '2019-12-07 02:31:47', NULL),
-(24, 'Aeeeeeee', NULL, '<p>Deu certo! Finalmente</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 2, '2019-12-01 20:38:00', NULL);
+(27, 'Apenas vendo se está funcionando', NULL, '<p>Estava vendo se estava funci<strong>onando tudo em ordem&nbsp;</strong></p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 1, '2019-12-07 02:31:47', NULL),
+(24, 'Aeeeeeee', NULL, '<p>Deu certo! Finalmente</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 2, '2019-12-01 20:38:00', NULL),
+(28, 'teste', NULL, '<p>f</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 2, '2019-12-07 02:46:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -1920,7 +1921,9 @@ CREATE TABLE `sts_usuarios` (
   `id` int(11) NOT NULL,
   `nome` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `pontos` int(120) NOT NULL,
-  `apelido` varchar(220) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `curso1` int(11) NOT NULL,
+  `curso2` int(11) DEFAULT NULL,
+  `curso3` int(11) DEFAULT NULL,
   `email` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `usuario` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
   `senha` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
@@ -1938,17 +1941,17 @@ CREATE TABLE `sts_usuarios` (
 -- Extraindo dados da tabela `sts_usuarios`
 --
 
-INSERT INTO `sts_usuarios` (`id`, `nome`, `pontos`, `apelido`, `email`, `usuario`, `senha`, `recuperar_senha`, `chave_descadastro`, `conf_email`, `imagem`, `sts_niveis_acesso_id`, `sts_sits_usuario_id`, `created`, `modified`) VALUES
-(1, 'Mateus', 200, 'Mateus', 'mateusgomesc7@gmail.com', 'mateusgomesc7@gmail.com', '$2y$10$XFWEXmgQT6SyYCSSSe4nae65vyM57ZO0OhkdHefURUoB/XYeFOz6O', '6776c7c5b1b4c592b5339b774d3147ca', 'bbe0d9883f909fb95ca46e8396fd7194', '2', 'mateusgomes.jpg', 1, 1, '2018-05-23 00:00:00', '2019-11-29 16:11:31'),
-(2, 'Kelly', 50, 'Kelly', 'mateusgomes@ieee.org', 'mateusgomes@ieee.org', '$2y$10$Ljg1MfuADekeSv94OtD0d.7jZmmxP2lUblhn.911lldfs04LJYWvS', NULL, NULL, '1', 'mateus.jpg', 1, 1, '2018-05-23 00:00:00', '2018-06-20 11:12:35'),
-(3, 'Mateus', 75, 'Mateus', 'mateusgomesc3@gmail.com', 'mateusgomesc3@gmail.com', '$2y$10$g1IwcDcwY5rsAKeEHKwXDOhVjI7wIhRRkgdTN.YvEW7u996LJQNA2', NULL, NULL, '2', 'logo-mateus.jpg', 3, 1, '2018-06-02 14:29:36', '2018-06-24 15:40:59'),
-(4, 'Mateus', 63, 'Mateus', 'mateusgomesc4@gmail.com', 'mateusgomesc4@gmail.com', '$2y$10$ypvSoRiRpd8Ppx8n1pI4hOC4KX.2lPekK.jOhz1Z.DhNUMXG7jDu2', NULL, NULL, '2', NULL, 5, 2, '2018-06-02 15:10:57', '2018-06-20 12:23:53'),
-(13, 'Mateus 1', 150, 'Mateus 1', 'mateusgomesc5@gmail.com', 'mateusgomesc5@gmail.com', '$2y$10$Xgs2jrNEZLQH2ZGCOSj2KO0Y3HRvpzjijaRgpDU5Az/KT/s4oJlN2', NULL, NULL, NULL, 'logo-mateus.jpg', 2, 1, '2018-06-20 21:46:15', '2018-06-20 21:46:47'),
-(14, 'Cesar 15', 164, NULL, 'cesar15@celke.com.br', 'cesar15@celke.com.br', '$2y$10$d5GF8N3shx11YGH0.60k.uNn9fImL7w5.hjCw6rjGE/2xdRvYb7lK', NULL, NULL, NULL, NULL, 5, 3, '2019-12-02 19:47:28', NULL),
-(15, 'Cesar 16', 40, NULL, 'cesar16@celke.com.br', 'cesar16@celke.com.br', '$2y$10$AxG7tskGhOYzRn55ZEMSC.K23PP7HjGljL.5oXeI8KeVjJbuenx0C', NULL, NULL, NULL, NULL, 5, 3, '2019-12-02 19:57:33', NULL),
-(16, 'Cesar 17', 10, NULL, 'cesar17@celke.com.br', 'cesar17@celke.com.br', '$2y$10$hq5of3F984rdA6EmPg7gQewL9HwY3kQjQTVIG/UI6Q.Tv0XobNvmq', NULL, NULL, NULL, NULL, 5, 3, '2019-12-02 19:58:54', NULL),
-(17, 'Laura Alves Oliveira Macaiba De Sousa', 0, NULL, 'lauramacaiba@gmail.com', 'lauramacaiba@gmail.com', '$2y$10$FZkV04rBhP2ojOZwHaMMp.iREAvi0i0sRqQ48aGi2ocOXYCv7FJI6', NULL, NULL, NULL, NULL, 5, 3, '2019-12-02 20:21:19', NULL),
-(18, 'Opa', 0, NULL, 'opa@gmail.com', 'opa@gmail.com', '$2y$10$WC/B4i85oAjTn8H8bDanBujB4uy5eoD6rLY1kGigDusWDWOwirDQC', NULL, NULL, NULL, NULL, 5, 3, '2019-12-02 20:26:14', NULL);
+INSERT INTO `sts_usuarios` (`id`, `nome`, `pontos`, `curso1`, `curso2`, `curso3`, `email`, `usuario`, `senha`, `recuperar_senha`, `chave_descadastro`, `conf_email`, `imagem`, `sts_niveis_acesso_id`, `sts_sits_usuario_id`, `created`, `modified`) VALUES
+(1, 'Mateus', 200, 1, 2, 3, 'mateusgomesc7@gmail.com', 'mateusgomesc7@gmail.com', '$2y$10$XFWEXmgQT6SyYCSSSe4nae65vyM57ZO0OhkdHefURUoB/XYeFOz6O', '6776c7c5b1b4c592b5339b774d3147ca', 'bbe0d9883f909fb95ca46e8396fd7194', '2', 'mateusgomes.jpg', 1, 1, '2018-05-23 00:00:00', '2019-11-29 16:11:31'),
+(2, 'Kelly', 50, 2, NULL, NULL, 'mateusgomes@ieee.org', 'mateusgomes@ieee.org', '$2y$10$Ljg1MfuADekeSv94OtD0d.7jZmmxP2lUblhn.911lldfs04LJYWvS', NULL, NULL, '1', 'mateus.jpg', 1, 1, '2018-05-23 00:00:00', '2018-06-20 11:12:35'),
+(3, 'Mateus', 75, 1, NULL, NULL, 'mateusgomesc3@gmail.com', 'mateusgomesc3@gmail.com', '$2y$10$g1IwcDcwY5rsAKeEHKwXDOhVjI7wIhRRkgdTN.YvEW7u996LJQNA2', NULL, NULL, '2', 'logo-mateus.jpg', 3, 1, '2018-06-02 14:29:36', '2018-06-24 15:40:59'),
+(4, 'Mateus', 63, 2, NULL, NULL, 'mateusgomesc4@gmail.com', 'mateusgomesc4@gmail.com', '$2y$10$ypvSoRiRpd8Ppx8n1pI4hOC4KX.2lPekK.jOhz1Z.DhNUMXG7jDu2', NULL, NULL, '2', NULL, 5, 2, '2018-06-02 15:10:57', '2018-06-20 12:23:53'),
+(13, 'Mateus 1', 150, 3, NULL, NULL, 'mateusgomesc5@gmail.com', 'mateusgomesc5@gmail.com', '$2y$10$Xgs2jrNEZLQH2ZGCOSj2KO0Y3HRvpzjijaRgpDU5Az/KT/s4oJlN2', NULL, NULL, NULL, 'logo-mateus.jpg', 2, 1, '2018-06-20 21:46:15', '2018-06-20 21:46:47'),
+(14, 'Cesar 15', 164, 3, NULL, NULL, 'cesar15@celke.com.br', 'cesar15@celke.com.br', '$2y$10$d5GF8N3shx11YGH0.60k.uNn9fImL7w5.hjCw6rjGE/2xdRvYb7lK', NULL, NULL, NULL, NULL, 5, 3, '2019-12-02 19:47:28', NULL),
+(15, 'Cesar 16', 40, 1, NULL, NULL, 'cesar16@celke.com.br', 'cesar16@celke.com.br', '$2y$10$AxG7tskGhOYzRn55ZEMSC.K23PP7HjGljL.5oXeI8KeVjJbuenx0C', NULL, NULL, NULL, NULL, 5, 3, '2019-12-02 19:57:33', NULL),
+(16, 'Cesar 17', 10, 1, NULL, NULL, 'cesar17@celke.com.br', 'cesar17@celke.com.br', '$2y$10$hq5of3F984rdA6EmPg7gQewL9HwY3kQjQTVIG/UI6Q.Tv0XobNvmq', NULL, NULL, NULL, NULL, 5, 3, '2019-12-02 19:58:54', NULL),
+(17, 'Laura Alves Oliveira Macaiba De Sousa', 0, 3, NULL, NULL, 'lauramacaiba@gmail.com', 'lauramacaiba@gmail.com', '$2y$10$FZkV04rBhP2ojOZwHaMMp.iREAvi0i0sRqQ48aGi2ocOXYCv7FJI6', NULL, NULL, NULL, NULL, 5, 3, '2019-12-02 20:21:19', NULL),
+(18, 'Opa', 0, 2, NULL, NULL, 'opa@gmail.com', 'opa@gmail.com', '$2y$10$WC/B4i85oAjTn8H8bDanBujB4uy5eoD6rLY1kGigDusWDWOwirDQC', NULL, NULL, NULL, NULL, 5, 3, '2019-12-02 20:26:14', NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -2280,7 +2283,7 @@ ALTER TABLE `sts_paginas`
 -- AUTO_INCREMENT de tabela `sts_perguntas`
 --
 ALTER TABLE `sts_perguntas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de tabela `sts_seo`
