@@ -117,7 +117,19 @@ if (!defined('URL')) {
             </div>
             
             <div class="row">
-                Ranking
+                <div class="p-3">
+                    <h4 class="font-italic">Ranking</h4>
+                    <ol class="list-unstyled">
+                        <?php
+                            foreach ($this->Dados['ranking'] as $ranking) {
+                            extract($ranking);
+
+                            echo "<li><a href='#'>$nome - $pontos</a></li>";            
+
+                        }
+                        ?>
+                    </ol>
+                </div>
             </div>
             
             <div class="row">

@@ -27,7 +27,10 @@ class Home
         $this->Dados['catPerguntas'] = $listarCatPerg->listarCatPerg();
 
         $emblemas = new \App\sts\Models\StsEmblemas();
-        $this->Dados['emblemasPontos'] = $emblemas->buscarEmblemas();    
+        $this->Dados['emblemasPontos'] = $emblemas->buscarEmblemas(); 
+        
+        $ranking = new \App\sts\Models\StsRanking();
+        $this->Dados['ranking'] = $ranking->buscarMaioresPontos();
 
         $carregarView = new \Core\ConfigView("sts/Views/home/home", $this->Dados);
         $carregarView->renderizar();
