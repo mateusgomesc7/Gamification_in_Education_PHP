@@ -23,7 +23,7 @@ if (!defined('URL')) {
                                 <a href="<?php echo URL . 'pergunta/pergunta/' . $id; ?>">
                                     <h2 class="featurette-heading text-danger"><?php echo $titulo; ?></h2>
                                 </a>
-                                <p class="lead"><?php echo $descricao; ?> <a href="<?php echo URL . 'pergunta/pergunta/' . $id; ?>" class="text-danger">Continuar lendo</a></p>
+                                <p class="lead"><a href="<?php echo URL . 'pergunta/pergunta/' . $id; ?>" class="text-danger">Continuar lendo</a></p>
                             </div>
                         </div>
                         <hr class="featurette-divider">

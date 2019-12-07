@@ -15,7 +15,7 @@ class StsPerguntaPesq
 
     private $PageId;
     private $ResultadoPg;
-    private $LimiteResultado = 5;
+    private $LimiteResultado = 10;
 
     function getResultadoPg()
     {
@@ -48,17 +48,19 @@ class StsPerguntaPesq
             $paginacao = new \App\sts\Models\helper\StsPaginacaoa(URL . 'pesq-perguntas/listar', '&?pergunta='.$this->Dados['pergunta']);
             $paginacao->condicao($this->PageId, $this->LimiteResultado);
             $paginacao->paginacao("SELECT COUNT(id) AS num_result
-                    FROM sts_perguntas perg
-                    WHERE perg.adms_sit_id =:adms_sit_id
-                    AND perg.titulo LIKE '%' :titulo '%' ", 
+                    FROM sts_perguntas
+                    WHERE adms_sit_id =:adms_sit_id
+                    AND (titulo LIKE '%' :titulo '%' 
+                    OR conteudo LIKE '%' :titulo '%')", 
                     "adms_sit_id=1&titulo={$this->Dados['pergunta']}");
             $this->ResultadoPg = $paginacao->getResultado();
 
             $listar = new \App\sts\Models\helper\StsRead();
-            $listar->fullRead("SELECT id, titulo, descricao
+            $listar->fullRead("SELECT id, titulo, conteudo
                             FROM sts_perguntas
                             WHERE adms_sit_id =:adms_sit_id
-                            AND titulo LIKE '%' :titulo '%'
+                            AND (titulo LIKE '%' :titulo '%'
+                            OR conteudo LIKE '%' :titulo '%')
                             ORDER BY id DESC
                             LIMIT :limit OFFSET :offset", 
                             "adms_sit_id=1&titulo={$this->Dados['pergunta']}&limit={$this->LimiteResultado}&offset={$paginacao->getOffset()}");

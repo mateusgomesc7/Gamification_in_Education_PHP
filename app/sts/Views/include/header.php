@@ -54,7 +54,6 @@ if (!defined('URL')) {
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="<?php echo URL . 'ver-perfil/perfil'; ?>"><i class="fas fa-user"></i> Perfil</a>
-                    <a class="dropdown-item" href="#">Ranking</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="<?php echo URL . 'login/logout'; ?>"><i class="fas fa-sign-out-alt"></i> Sair</a>
                 </div>
