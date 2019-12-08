@@ -17,7 +17,7 @@ class StsPergDestaque
         $listar->fullRead('SELECT titulo, id FROM sts_perguntas 
                 WHERE adms_sit_id =:adms_sit_id
                 ORDER BY qnt_acesso DESC 
-                LIMIT :limit', "adms_sit_id=1&limit=7");
+                LIMIT :limit', "adms_sit_id=1&limit=3");
         $this->Resultado = $listar->getResultado();
         return $this->Resultado;
     }

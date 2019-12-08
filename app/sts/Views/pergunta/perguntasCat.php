@@ -6,11 +6,11 @@ if (!defined('URL')) {
 ?>
 <main role="main">
 
-    <div class="jumbotron blog">
+    <!-- <div class="jumbotron blog"> -->
         <div class="container">
-            <h2 class="display-4 text-center" style="margin-bottom: 40px;">Perguntas Categorias</h2>
+            <h2 class="display-4 text-center mt-4" style="margin-bottom: 40px;">Perguntas Categorias</h2>
             <div class="row">
-                <div class="col-md-8 blog-main">
+            <div class="col-md-8 blog-main">
                     <?php
                     if (empty($this->Dados['perguntas'])) {
                         echo "<div class='alert alert-danger'>Erro: Nenhum pergunta encontrado!</div>";
@@ -18,21 +18,19 @@ if (!defined('URL')) {
                     foreach ($this->Dados['perguntas'] as $pergunta) {
                         extract($pergunta);
                         ?>
-                        <div class="row featurette">
-                            <div class="col order-md-2 container blog-text anim_right">
-                                <a href="<?php echo URL . 'pergunta/pergunta/' . $id; ?>">
-                                    <h2 class="featurette-heading text-danger"><?php echo $titulo; ?></h2>
-                                </a>
-                                <p class="lead"><?php echo $descricao; ?> <a href="<?php echo URL . 'pergunta/pergunta/' . $id; ?>" class="text-danger">Continuar lendo</a></p>
-                            </div>
-                        </div>
-                        <hr class="featurette-divider">
+                        <div class="jumbotron container blog-text  anim_right p-1">
+                                    <a href="<?php echo URL . 'pergunta/pergunta/' . $id; ?>">
+                                        <h1 class="display-4 featurette-heading"><?php echo $titulo; ?></h1></a>
+                                    <hr class="my-4">
+                                    <p class="lead"><?php echo $descricao; ?> <a href="<?php echo URL . 'pergunta/pergunta/' . $id; ?>" class="text-danger">Continuar lendo</a></p>
+                                  </div>
                         <?php
                     }
 
                     echo $this->Dados['paginacao'];
                     ?>
                 </div>
+                
                 <aside class="col-md-4 blog-sidebar">
                     <?php if (!empty($this->Dados['sobreAutor'][0])) { ?>
                         <div class="p-3 mb-3 bg-light rounded">
@@ -43,33 +41,42 @@ if (!defined('URL')) {
 
                         </div>
                     <?php } ?>
-
-                    <div class="p-3">
-                        <h4 class="font-italic">Recentes</h4>
-                        <ol class="list-unstyled mb-0">
+                    <!-- Area de Recentes -->
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-header">
+                            Recentes
+                        </div>
+                        <ul class="list-group list-group-flush">
                             <?php
-                            foreach ($this->Dados['pergRecente'] as $perguntaRec) {
-                                extract($perguntaRec);
-                                echo "<li><a href='" . URL . "pergunta/pergunta/$id'>$titulo</a></li>";
-                            }
-                            ?>
-                        </ol>
+                                foreach ($this->Dados['pergRecente'] as $perguntaRec) {
+                                    extract($perguntaRec);
+                                    echo "<li class='list-group-item'><a href='" . URL . "pergunta/pergunta/$id'>$titulo</a></li>";
+                                }
+                                ?>
+                        </ul>
                     </div>
-
-                    <div class="p-3">
-                        <h4 class="font-italic">Destaque</h4>
-                        <ol class="list-unstyled">
+                  <!-- Final de Recentes -->
+                    <br>
+                    <br>
+                    <br>
+                  <!-- Area de Destaque -->
+                  <div class="card" style="width: 18rem;">
+                        <div class="card-header">
+                            Destaque
+                        </div>
+                        <ul class="list-group list-group-flush">
                             <?php
-                            foreach ($this->Dados['pergDestaque'] as $perguntaDest) {
-                                extract($perguntaDest);
-                                echo "<li><a href='" . URL . "pergunta/pergunta/$id'>$titulo</a></li>";
-                            }
-                            ?>
-                        </ol>
+                                foreach ($this->Dados['pergDestaque'] as $perguntaDest) {
+                                    extract($perguntaDest);
+                                    echo "<li class='list-group-item'><a href='" . URL . "pergunta/pergunta/$id'>$titulo</a></li>";
+                                }
+                                ?>
+                        </ul>
                     </div>
+                    <!-- Fim da Area de Destaque -->
                 </aside>
             </div>
         </div>
-    </div>					
+    <!-- </div>					 -->
 
 </main>

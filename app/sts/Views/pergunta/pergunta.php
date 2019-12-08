@@ -6,17 +6,24 @@ if (!defined('URL')) {
 ?>
 <main role="main">
 
-    <div class="jumbotron blog">
-        <div class="container">
+    <!-- <div class="jumbotron blog"> -->
+        <div class="container mt-5">
             <div class="row">
+                <aside class="col-md-2 blog-sidebar">                      
+                </aside>
                 <div class="col-md-8 blog-main">
+                <!-- Inicio da Area de Perguntas -->
                     <?php
                     if (!empty($this->Dados['sts_perguntas'][0])) {
                         extract($this->Dados['sts_perguntas'][0]);
                         ?>
-                        <div class="blog-post">
-                            <h2 class="blog-post-title"><?php echo $titulo; ?></h2>
-                            <?php echo $conteudo; ?>
+                        <div class="card mb-1">
+                            <div class="card-body ">
+                                <h5 class="card-title display-4"><?php echo $titulo; ?></h5>
+                                <hr class="my-4">
+                                <p class="card-text"><?php echo $conteudo; ?></p>
+
+                            </div>
                         </div>
                         <nav class="blog-pagination">
                             <?php
@@ -39,44 +46,7 @@ if (!defined('URL')) {
                         echo "<div class='alert alert-danger'>Erro: Pergunta não encontrado!</div>";
                     }
                     ?>      
-                </div>
-                <aside class="col-md-4 blog-sidebar">
-                    <?php if (!empty($this->Dados['sobreAutor'][0])) { ?>
-                        <div class="p-3 mb-3 bg-light rounded">
-                            <?php extract($this->Dados['sobreAutor'][0]); ?>
-                            <h4 class="font-italic"><?php echo $titulo; ?></h4>  
-                            <img src="<?php echo URL . 'assets/imagens/sobre_autor/' . $id . '/' . $imagem; ?>" class="img-fluid" alt="<?php echo $titulo; ?>">
-                            <p class="mb-0"><?php echo $descricao; ?></p>
-
-                        </div>
-                    <?php } ?>
-
-                    <div class="p-3">
-                        <h4 class="font-italic">Recentes</h4>
-                        <ol class="list-unstyled mb-0">
-                            <?php
-                            foreach ($this->Dados['pergRecente'] as $perguntaRec) {
-                                extract($perguntaRec);
-                                echo "<li><a href='" . URL . "pergunta/pergunta/$id'>$titulo</a></li>";
-                            }
-                            ?>
-                        </ol>
-                    </div>
-
-                    <div class="p-3">
-                        <h4 class="font-italic">Destaque</h4>
-                        <ol class="list-unstyled">
-                            <?php
-                            foreach ($this->Dados['pergDestaque'] as $perguntaDest) {
-                                extract($perguntaDest);
-                                echo "<li><a href='" . URL . "pergunta/pergunta/$id'>$titulo</a></li>";
-                            }
-                            ?>
-                        </ol>
-                    </div>                        
-                </aside>
-
-                <div class='col-md-8 blog-main'>
+               
                     <span id="msg_comentario"></span>
                     <?php
                     
@@ -84,9 +54,11 @@ if (!defined('URL')) {
                         echo $_SESSION['msg'];
                         unset($_SESSION['msg']);
                     }
-
+                    // Final das Perguntas
+                    // Inicio do Forms
                     if (!empty($this->Dados['sts_perguntas'][0])) {
                         ?>
+                        <div class="jumbotron text-white bg-primary p-3">
                         <h3>Participe da discussão</h3>
                         <form method="POST" action="<?php echo URL; ?>comentario/index">
                             <input type="hidden" name="sts_pergunta_id" value="<?php echo $this->Dados['sts_perguntas'][0]['id']; ?>">
@@ -109,15 +81,14 @@ if (!defined('URL')) {
                                     <textarea class="form-control" name="conteudo" id="conteudo" rows="3"><?php if(isset($_SESSION['form']['conteudo'])){echo $_SESSION['form']['conteudo']; } ?></textarea>
                                 </div>
                             </div>
-                            <p>
-                                <span class="text-danger">* </span>Campo obrigatório
-                            </p>
-                            <input name="CadComent" type="submit" class="btn btn-warning" value="Cadastrar">
+                            <input name="CadComent" type="submit" class="btn btn-secondary" value="Cadastrar">
                         </form>
+                        </div>
                         <hr>
                         <?php
                     }
-
+                    // Final do Forms
+                    // Inicio dos Area dos Comentarios
                     if (!empty($this->Dados['sts_coment']['0'])) {
                         foreach ($this->Dados['sts_coment'] as $comentario) {
                             extract($comentario);
@@ -137,11 +108,12 @@ if (!defined('URL')) {
                         }
                     }
                     ?>
-
+                    <!-- Final dos Area dos Comentario -->
                 </div>
-                
+                <aside class="col-md-2 blog-sidebar">                      
+                </aside>
             </div>
         </div>
-    </div>					
+    <!-- </div>					 -->
 
 </main>
