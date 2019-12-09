@@ -12,7 +12,7 @@ if (!defined('URL')) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo URL . 'assets/css/fontawesome.min.css'; ?>">
     <link rel="stylesheet" href="<?php echo URL . 'assets/css/dashboard.css'; ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo URL . 'assets/css/main.css'; ?>">
     <link rel="stylesheet" href="<?php echo URL; ?>assets/css/personalizado.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo URL . 'assets/css/main.css'; ?>">
 </head>
 <body>

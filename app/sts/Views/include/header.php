@@ -20,7 +20,7 @@ if (!defined('URL')) {
             <input class="form-control mr-sm-2" name="pergunta" type="text" placeholder="Qual a sua dúvida?" value="<?php if(isset($_SESSION['pesqPergunta'])){
                 echo $_SESSION['pesqPergunta'];
             } ?>">
-            <input name="PesqPergunta" type="submit" class="btn btn-outline-danger my-2" value="Pesquisar">
+            <input name="PesqPergunta" type="submit" class="btn btn-info my-2" value="Pesquisar">
         </form>
         
         <ul class="navbar-nav ml-auto">
