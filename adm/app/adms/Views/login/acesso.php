@@ -1,7 +1,7 @@
 
 <body class="text-center">
     <form class="form-signin" method="POST" action="">
-        <img class="mb-4" src="<?php echo URLADM . 'assets/imagens/logo_login/logo.png'; ?>" alt="Celke" width="72" height="72">
+        <img class="mb-4" src="<?php echo URLADM . 'assets/imagens/logo_login/logo.png'; ?>" alt="logo" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Área Restrita</h1>
         <?php
         if (isset($_SESSION['adms_msg'])) {
