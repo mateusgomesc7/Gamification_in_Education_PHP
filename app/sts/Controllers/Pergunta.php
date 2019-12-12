@@ -21,6 +21,10 @@ class Pergunta
         $this->IdPergunta = (string) $IdPergunta;
         //echo "<br><br><br>{$this->IdPergunta}";
 
+
+        
+
+
         $visualizarPerg = new \App\sts\Models\StsPergunta();
         $this->Dados['sts_perguntas'] = $visualizarPerg->visualizarPergunta($this->IdPergunta);
 

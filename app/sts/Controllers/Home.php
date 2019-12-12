@@ -26,6 +26,9 @@ class Home
         $listarCatPerg = new \App\sts\Models\StsCatPerg();
         $this->Dados['catPerguntas'] = $listarCatPerg->listarCatPerg();
 
+        $pontuacao = new \App\sts\Models\StsPontos();
+        $this->Dados['pontosAtual'] = $pontuacao->verPotuacaoAtual();
+
         $emblemas = new \App\sts\Models\StsEmblemas();
         $this->Dados['emblemasPontos'] = $emblemas->buscarEmblemas(); 
         

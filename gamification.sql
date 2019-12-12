@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Dez-2019 às 03:29
+-- Tempo de geração: 12-Dez-2019 às 15:31
 -- Versão do servidor: 10.4.8-MariaDB
 -- versão do PHP: 7.3.11
 
@@ -1205,7 +1205,8 @@ INSERT INTO `adms_usuarios` (`id`, `nome`, `apelido`, `email`, `usuario`, `senha
 (2, 'Kelly', 'Kelly', 'mateusgomes@ieee.org', 'mateusgomes@ieee.org', '$2y$10$Ljg1MfuADekeSv94OtD0d.7jZmmxP2lUblhn.911lldfs04LJYWvS', NULL, NULL, '1', 'mateus.jpg', 2, 1, '2018-05-23 00:00:00', '2018-06-20 11:12:35'),
 (3, 'Mateus', 'Mateus', 'mateusgomesc3@gmail.com', 'mateusgomesc3@gmail.com', '$2y$10$g1IwcDcwY5rsAKeEHKwXDOhVjI7wIhRRkgdTN.YvEW7u996LJQNA2', NULL, NULL, '2', 'logo-mateus.jpg', 3, 1, '2018-06-02 14:29:36', '2018-06-24 15:40:59'),
 (4, 'Mateus', 'Mateus', 'mateusgomesc4@gmail.com', 'mateusgomesc4@gmail.com', '$2y$10$ypvSoRiRpd8Ppx8n1pI4hOC4KX.2lPekK.jOhz1Z.DhNUMXG7jDu2', NULL, NULL, '2', NULL, 5, 2, '2018-06-02 15:10:57', '2018-06-20 12:23:53'),
-(13, 'Mateus 1', 'Mateus 1', 'mateusgomesc5@gmail.com', 'mateusgomesc5@gmail.com', '$2y$10$Xgs2jrNEZLQH2ZGCOSj2KO0Y3HRvpzjijaRgpDU5Az/KT/s4oJlN2', NULL, NULL, NULL, 'logo-mateus.jpg', 2, 1, '2018-06-20 21:46:15', '2018-06-20 21:46:47');
+(13, 'Mateus 1', 'Mateus 1', 'mateusgomesc5@gmail.com', 'mateusgomesc5@gmail.com', '$2y$10$Xgs2jrNEZLQH2ZGCOSj2KO0Y3HRvpzjijaRgpDU5Az/KT/s4oJlN2', NULL, NULL, NULL, 'logo-mateus.jpg', 2, 1, '2018-06-20 21:46:15', '2018-06-20 21:46:47'),
+(0, 'Gomes', NULL, 'mateus.gomes@academico.ifpb.edu.br', 'Gomes', '$2y$10$oFF9Te24.KcdIWUZ1Z4w4eGWK5D3jxGmcRHyFrtzGsCNe4D0GjdgC', NULL, NULL, '78440117ebbb28cb9b751fe538a69a44', NULL, 5, 3, '2019-12-11 12:47:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -1227,7 +1228,7 @@ CREATE TABLE `sts_cads_usuarios` (
 --
 
 INSERT INTO `sts_cads_usuarios` (`id`, `env_email_conf`, `sts_niveis_acesso_id`, `sts_sits_usuario_id`, `created`, `modified`) VALUES
-(1, 2, 5, 3, '2018-06-23 00:00:00', '2018-06-29 22:24:18');
+(1, 1, 1, 1, '2018-06-23 00:00:00', '2018-06-29 22:24:18');
 
 -- --------------------------------------------------------
 
@@ -1297,7 +1298,24 @@ INSERT INTO `sts_comts_perguntas` (`id`, `conteudo`, `sts_usuario_id`, `sts_perg
 (21, 'Agora tem comentários!!!', 1, 24, 3, '2019-12-02 20:26:56', NULL),
 (22, 'Testando', 1, 25, 3, '2019-12-02 20:31:28', NULL),
 (23, 'Olá', 1, 25, 3, '2019-12-03 16:06:09', NULL),
-(24, 'Parece ta tudo ok mesmo', 1, 27, 3, '2019-12-07 02:32:07', NULL);
+(24, 'Parece ta tudo ok mesmo', 1, 27, 3, '2019-12-07 02:32:07', NULL),
+(25, 'é algo muito bom', 1, 29, 3, '2019-12-09 18:10:08', NULL),
+(26, 'Verdade, é mesmo', 1, 29, 3, '2019-12-12 11:33:12', NULL),
+(27, 'teste', 1, 29, 3, '2019-12-12 14:04:17', NULL),
+(28, 'teste', 1, 29, 3, '2019-12-12 14:06:45', NULL),
+(29, 'teste', 1, 29, 3, '2019-12-12 15:07:50', NULL),
+(30, 'teste 1', 1, 29, 3, '2019-12-12 15:08:16', NULL),
+(31, 'teste 2', 1, 29, 3, '2019-12-12 15:10:11', NULL),
+(32, 'teste 3', 21, 29, 3, '2019-12-12 15:11:08', NULL),
+(33, 'teste 4', 21, 29, 3, '2019-12-12 15:12:02', NULL),
+(34, 'teste 5', 21, 29, 3, '2019-12-12 15:13:10', NULL),
+(35, 'teste 6', 21, 29, 3, '2019-12-12 15:18:04', NULL),
+(36, 'teste 7', 21, 29, 3, '2019-12-12 15:25:22', NULL),
+(37, 'teste 7', 21, 29, 3, '2019-12-12 15:26:07', NULL),
+(38, 'teste 8', 21, 29, 3, '2019-12-12 15:26:39', NULL),
+(39, 'teste 9', 21, 29, 3, '2019-12-12 15:29:43', NULL),
+(40, 'teste 10', 21, 29, 3, '2019-12-12 15:29:56', NULL),
+(41, 'teste 11', 1, 29, 3, '2019-12-12 15:30:41', NULL);
 
 -- --------------------------------------------------------
 
@@ -1323,7 +1341,7 @@ CREATE TABLE `sts_confs_emails` (
 --
 
 INSERT INTO `sts_confs_emails` (`id`, `nome`, `email`, `host`, `usuario`, `senha`, `smtpsecure`, `porta`, `created`, `modified`) VALUES
-(1, '', '', '', '', '', '', 547, '2018-06-23 00:00:00', '2018-06-29 19:12:47');
+(1, 'Gamification in Education', 'gamification@duvidas.site', 'mail.duvidas.site', 'gamification@duvidas.site', 'i@dour%1dnO2', 'ssl', 465, '2018-06-23 00:00:00', '2018-06-29 19:12:47');
 
 -- --------------------------------------------------------
 
@@ -1405,7 +1423,8 @@ INSERT INTO `sts_grps_pgs` (`id`, `nome`, `ordem`, `created`, `modified`) VALUES
 (5, 'Visualizar', 5, '2018-05-23 00:00:00', NULL),
 (6, 'Outros', 6, '2018-05-23 00:00:00', NULL),
 (7, 'Acesso', 7, '2018-05-23 00:00:00', '2018-06-29 21:35:16'),
-(8, 'Alterar Ordem', 8, '2018-06-23 00:00:00', '2018-06-29 21:35:16');
+(8, 'Alterar Ordem', 8, '2018-06-23 00:00:00', '2018-06-29 21:35:16'),
+(9, 'Pesquisar', 9, '2019-12-23 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -1537,7 +1556,8 @@ INSERT INTO `sts_nivacs_pgs` (`id`, `permissao`, `ordem`, `dropdown`, `lib_menu`
 (8, 1, 8, 2, 2, 2, 1, 8, '2019-11-23 00:00:00', NULL),
 (78, 1, 79, 2, 2, 4, 1, 79, '2019-12-23 00:00:00', NULL),
 (79, 1, 80, 2, 2, 4, 1, 80, '2019-12-23 00:00:00', NULL),
-(80, 1, 81, 2, 2, 4, 1, 81, '2019-12-21 00:00:00', NULL);
+(80, 1, 81, 2, 2, 4, 1, 81, '2019-12-21 00:00:00', NULL),
+(7781, 1, 82, 2, 2, 4, 1, 82, '2019-12-25 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -1671,7 +1691,8 @@ INSERT INTO `sts_paginas` (`id`, `controller`, `metodo`, `menu_controller`, `men
 (78, 'CadastrarPergunta', 'cadPergunta', 'cadastrar-pergunta', 'cad-pergunta', 'Cadastrar Pergunta', 'Página para cadastrar perguntas', 2, NULL, 2, 1, 1, '2019-12-23 00:00:00', NULL),
 (79, 'Pergunta', 'pergunta', 'pergunta', 'pergunta', 'Pergunta', 'Página para visualizar a pergunta', 2, NULL, 5, 1, 1, '2019-12-23 00:00:00', NULL),
 (80, 'Comentario', 'index', 'comentario', 'index', 'Comentário', 'página relacionada aos comentários', 2, NULL, 2, 1, 1, '2019-12-23 00:00:00', NULL),
-(81, 'VerPerguntasEsp', 'categorias', 'ver-perguntas-esp', 'categorias', 'Ver perguntas específicas', 'Página para visualizar perguntas específicas de uma categoria', 2, NULL, 5, 1, 1, '2019-12-21 00:00:00', NULL);
+(81, 'VerPerguntasEsp', 'categorias', 'ver-perguntas-esp', 'categorias', 'Ver perguntas específicas', 'Página para visualizar perguntas específicas de uma categoria', 2, NULL, 5, 1, 1, '2019-12-21 00:00:00', NULL),
+(82, 'PesqPerguntas', 'listar', 'pesq-perguntas', 'listar', 'Pesquisar perguntas', 'Páginas para listar as perguntas pesquisadas', 2, NULL, 9, 1, 1, '2019-12-21 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -1712,15 +1733,39 @@ INSERT INTO `sts_perguntas` (`id`, `titulo`, `descricao`, `conteudo`, `imagem`, 
 (5, 'Sample blog post 5', 'Donec 5 ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\r\n								<hr>\r\n								<p>Cum sociis natoque penatibus et magnis <a href=\"#\">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>\r\n								<blockquote>\r\n								  <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\r\n								</blockquote>\r\n								<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>\r\n								<h2>Heading</h2>\r\n								<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\r\n								<pre><code>Example code block</code></pre>\r\n								<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>\r\n								<h3>Sub-heading</h3>\r\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>\r\n								<ul>\r\n									<li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>\r\n									<li>Donec id elit non mi porta gravida at eget metus.</li>\r\n									<li>Nulla vitae elit libero, a pharetra augue.</li>\r\n								</ul>\r\n								<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>\r\n								<ol>\r\n									<li>Vestibulum id ligula porta felis euismod semper.</li>\r\n									<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>\r\n									<li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>\r\n								</ol>\r\n								<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>', 'artigo.jpg', 'sample-blog-post-5', 'artigo, artigo 5', 'Descricao do artigo cinco para seo', 'gamification', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\n                            <hr>\n                            <p>Cum sociis natoque penatibus et magnis <a href=\"#\">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>', 1, 1, 1, 1, 1, 1, '2018-02-22 00:00:00', NULL),
 (6, 'Sample blog post 6', 'Donec 6 ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.', '<p>6This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\n								<hr>\n								<p>Cum sociis natoque penatibus et magnis <a href=\"#\">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>\n								<blockquote>\n								  <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>\n								</blockquote>\n								<p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>\n								<h2>Heading</h2>\n								<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>\n								<h3>Sub-heading</h3>\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>\n								<pre><code>Example code block</code></pre>\n								<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>\n								<h3>Sub-heading</h3>\n								<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>\n								<ul>\n									<li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>\n									<li>Donec id elit non mi porta gravida at eget metus.</li>\n									<li>Nulla vitae elit libero, a pharetra augue.</li>\n								</ul>\n								<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>\n								<ol>\n									<li>Vestibulum id ligula porta felis euismod semper.</li>\n									<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>\n									<li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>\n								</ol>\n								<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>', 'artigo.jpg', 'sample-blog-post-6', 'artigo, artigo 6', 'Descricao do artigo seis para seo', 'gamification', '<p>This blog post shows a few different types of content that\'s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>\n                            <hr>\n                            <p>Cum sociis natoque penatibus et magnis <a href=\"#\">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>', 20, 4, 1, 1, 1, 1, '2018-02-23 00:00:00', NULL),
 (26, 'Testando com texto longo', NULL, '<p>Nem sei o que colocar aqui só quero que fique um texto longo mesmo e ver o que acontece. Po que no caso eu paro onde tem &lt;/p&gt;, mas ai nesse caso é so um texto longoooooooo. Será que vai ficar desprorcinal as outrasw nao sei, so quero testar e ver uma outra solução logo.</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 3, '2019-12-04 02:43:13', NULL),
-(25, 'teste Teste tEste teSte', NULL, '<p><strong>teste</strong> <i>Teste </i><a href=\"https://www.youtube.com/\">tEste&nbsp;</a></p><ul><li>teSte&nbsp;</li></ul><ol><li>tesTe&nbsp;</li><li>testE</li></ol><blockquote><p>Não sei&nbsp;</p></blockquote>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 3, '2019-12-02 20:30:52', NULL),
-(12, 'dfgh', '<p>dfgh</p>', '<p>dfgh</p>', NULL, 'dfgh', 'dfgh', 'fgh', 'dfgh', '<p>dgfh</p>', 0, 1, 1, 1, 2, 2, '2019-12-01 14:25:08', NULL),
-(13, 'qwer', '<p>qwerq</p>', '<p>wer</p>', NULL, 'qwer', 'qwer', 'qwer', 'qwer', '<p>qwer</p>', 0, 1, 1, 1, 1, 3, '2019-12-01 14:32:38', NULL),
-(14, 'sdfgsdfg', NULL, '<p>sdfgsdfg</p>', NULL, 'sdfgsdfg', 'sdfgsdfg', 'sdfgsdf', 'gsdfgsdfg', '<p>sdfgsdfg</p>', 0, 1, 1, 1, 1, 3, '2019-12-01 14:32:58', NULL),
-(15, 'fghj', NULL, '<p>fghj</p>', NULL, NULL, NULL, 'fghj', 'fghj', NULL, 0, 1, 1, 1, 1, 2, '2019-12-01 14:40:19', NULL),
-(16, 'vbnm', NULL, '<p>vbnm</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 3, '2019-12-01 14:42:52', NULL),
+(25, 'teste Testea tEste teSte', NULL, '<p><strong>teste</strong> <i>Teste </i><a href=\"https://www.youtube.com/\">tEste&nbsp;</a></p><ul><li>teSte&nbsp;</li></ul><ol><li>tesTe&nbsp;</li><li>testE</li></ol><blockquote><p>Não sei&nbsp;</p></blockquote>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 3, '2019-12-02 20:30:52', NULL),
+(12, 'dfgha', '<p>dfgh</p>', '<p>dfgh</p>', NULL, 'dfgh', 'dfgh', 'fgh', 'dfgh', '<p>dgfh</p>', 0, 1, 1, 1, 2, 2, '2019-12-01 14:25:08', NULL),
+(13, 'qwera', '<p>qwerq</p>', '<p>wer</p>', NULL, 'qwer', 'qwer', 'qwer', 'qwer', '<p>qwer</p>', 0, 1, 1, 1, 1, 3, '2019-12-01 14:32:38', NULL),
+(14, 'sdfgsdfga', NULL, '<p>sdfgsdfg</p>', NULL, 'sdfgsdfg', 'sdfgsdfg', 'sdfgsdf', 'gsdfgsdfg', '<p>sdfgsdfg</p>', 0, 1, 1, 1, 1, 3, '2019-12-01 14:32:58', NULL),
+(15, 'fghja', NULL, '<p>fghj</p>', NULL, NULL, NULL, 'fghj', 'fghj', NULL, 0, 1, 1, 1, 1, 2, '2019-12-01 14:40:19', NULL),
+(16, 'vbnma', NULL, '<p>vbnm</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 3, '2019-12-01 14:42:52', NULL),
 (27, 'Apenas vendo se está funcionando', NULL, '<p>Estava vendo se estava funci<strong>onando tudo em ordem&nbsp;</strong></p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 1, '2019-12-07 02:31:47', NULL),
 (24, 'Aeeeeeee', NULL, '<p>Deu certo! Finalmente</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 2, '2019-12-01 20:38:00', NULL),
-(28, 'teste', NULL, '<p>f</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 2, '2019-12-07 02:46:05', NULL);
+(28, 'testea', NULL, '<p>f</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 2, '2019-12-07 02:46:05', NULL),
+(29, 'gamificação', NULL, '<p>o que é gamificação??</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 3, '2019-12-09 18:08:43', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `sts_pontos`
+--
+
+CREATE TABLE `sts_pontos` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(120) NOT NULL,
+  `quant_pontos` int(11) NOT NULL,
+  `adms_sit_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `sts_pontos`
+--
+
+INSERT INTO `sts_pontos` (`id`, `nome`, `quant_pontos`, `adms_sit_id`, `created`, `modified`) VALUES
+(1, 'Pontos por resposta', 25, 1, '2019-12-13 00:00:00', NULL),
+(2, 'Pontos por pergunta', 10, 1, '2019-12-23 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -1942,8 +1987,8 @@ CREATE TABLE `sts_usuarios` (
 --
 
 INSERT INTO `sts_usuarios` (`id`, `nome`, `pontos`, `curso1`, `curso2`, `curso3`, `email`, `usuario`, `senha`, `recuperar_senha`, `chave_descadastro`, `conf_email`, `imagem`, `sts_niveis_acesso_id`, `sts_sits_usuario_id`, `created`, `modified`) VALUES
-(1, 'Mateus', 200, 1, 2, 3, 'mateusgomesc7@gmail.com', 'mateusgomesc7@gmail.com', '$2y$10$XFWEXmgQT6SyYCSSSe4nae65vyM57ZO0OhkdHefURUoB/XYeFOz6O', '6776c7c5b1b4c592b5339b774d3147ca', 'bbe0d9883f909fb95ca46e8396fd7194', '2', 'mateusgomes.jpg', 1, 1, '2018-05-23 00:00:00', '2019-11-29 16:11:31'),
-(2, 'Kelly', 50, 2, NULL, NULL, 'mateusgomes@ieee.org', 'mateusgomes@ieee.org', '$2y$10$Ljg1MfuADekeSv94OtD0d.7jZmmxP2lUblhn.911lldfs04LJYWvS', NULL, NULL, '1', 'mateus.jpg', 1, 1, '2018-05-23 00:00:00', '2018-06-20 11:12:35'),
+(1, 'Mateus', 600, 1, 2, 3, 'mateusgomesc7@gmail.com', 'mateusgomesc7@gmail.com', '$2y$10$XFWEXmgQT6SyYCSSSe4nae65vyM57ZO0OhkdHefURUoB/XYeFOz6O', '6776c7c5b1b4c592b5339b774d3147ca', 'bbe0d9883f909fb95ca46e8396fd7194', '2', 'mateusgomes.jpg', 1, 1, '2018-05-23 00:00:00', '2019-11-29 16:11:31'),
+(21, 'Gomes', 375, 0, NULL, NULL, 'mateusgomes@ieee.org', 'mateusgomes@ieee.org', '$2y$10$2ukaQ7xhwXExtKWRq3E3seROgp3rf2pOp3NzaShCfZsVxSqjEJdKi', NULL, NULL, NULL, NULL, 1, 1, '2019-12-11 13:25:38', '2019-12-11 14:29:16'),
 (3, 'Mateus', 75, 1, NULL, NULL, 'mateusgomesc3@gmail.com', 'mateusgomesc3@gmail.com', '$2y$10$g1IwcDcwY5rsAKeEHKwXDOhVjI7wIhRRkgdTN.YvEW7u996LJQNA2', NULL, NULL, '2', 'logo-mateus.jpg', 3, 1, '2018-06-02 14:29:36', '2018-06-24 15:40:59'),
 (4, 'Mateus', 63, 2, NULL, NULL, 'mateusgomesc4@gmail.com', 'mateusgomesc4@gmail.com', '$2y$10$ypvSoRiRpd8Ppx8n1pI4hOC4KX.2lPekK.jOhz1Z.DhNUMXG7jDu2', NULL, NULL, '2', NULL, 5, 2, '2018-06-02 15:10:57', '2018-06-20 12:23:53'),
 (13, 'Mateus 1', 150, 3, NULL, NULL, 'mateusgomesc5@gmail.com', 'mateusgomesc5@gmail.com', '$2y$10$Xgs2jrNEZLQH2ZGCOSj2KO0Y3HRvpzjijaRgpDU5Az/KT/s4oJlN2', NULL, NULL, NULL, 'logo-mateus.jpg', 2, 1, '2018-06-20 21:46:15', '2018-06-20 21:46:47'),
@@ -1951,7 +1996,8 @@ INSERT INTO `sts_usuarios` (`id`, `nome`, `pontos`, `curso1`, `curso2`, `curso3`
 (15, 'Cesar 16', 40, 1, NULL, NULL, 'cesar16@celke.com.br', 'cesar16@celke.com.br', '$2y$10$AxG7tskGhOYzRn55ZEMSC.K23PP7HjGljL.5oXeI8KeVjJbuenx0C', NULL, NULL, NULL, NULL, 5, 3, '2019-12-02 19:57:33', NULL),
 (16, 'Cesar 17', 10, 1, NULL, NULL, 'cesar17@celke.com.br', 'cesar17@celke.com.br', '$2y$10$hq5of3F984rdA6EmPg7gQewL9HwY3kQjQTVIG/UI6Q.Tv0XobNvmq', NULL, NULL, NULL, NULL, 5, 3, '2019-12-02 19:58:54', NULL),
 (17, 'Laura Alves Oliveira Macaiba De Sousa', 0, 3, NULL, NULL, 'lauramacaiba@gmail.com', 'lauramacaiba@gmail.com', '$2y$10$FZkV04rBhP2ojOZwHaMMp.iREAvi0i0sRqQ48aGi2ocOXYCv7FJI6', NULL, NULL, NULL, NULL, 5, 3, '2019-12-02 20:21:19', NULL),
-(18, 'Opa', 0, 2, NULL, NULL, 'opa@gmail.com', 'opa@gmail.com', '$2y$10$WC/B4i85oAjTn8H8bDanBujB4uy5eoD6rLY1kGigDusWDWOwirDQC', NULL, NULL, NULL, NULL, 5, 3, '2019-12-02 20:26:14', NULL);
+(18, 'Opa', 0, 2, NULL, NULL, 'opa@gmail.com', 'opa@gmail.com', '$2y$10$WC/B4i85oAjTn8H8bDanBujB4uy5eoD6rLY1kGigDusWDWOwirDQC', NULL, NULL, NULL, NULL, 5, 3, '2019-12-02 20:26:14', NULL),
+(20, 'Gomes', 0, 0, NULL, NULL, 'mateus.gomes@academico.ifpb.edu.br', 'mateus.gomes@academico.ifpb.edu.br', '$2y$10$BbWNk9Z4ty/doSkOAWt7teU.w5PEAYW8FAdutne3LndOXgDKfY206', NULL, NULL, 'f0238763841744f203a25fa34ec54cc2', NULL, 1, 1, '2019-12-11 13:10:48', NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -2114,6 +2160,12 @@ ALTER TABLE `sts_perguntas`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `sts_pontos`
+--
+ALTER TABLE `sts_pontos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `sts_seo`
 --
 ALTER TABLE `sts_seo`
@@ -2259,7 +2311,7 @@ ALTER TABLE `sts_cats_perguntas`
 -- AUTO_INCREMENT de tabela `sts_comts_perguntas`
 --
 ALTER TABLE `sts_comts_perguntas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de tabela `sts_emblemas_pontos`
@@ -2268,22 +2320,34 @@ ALTER TABLE `sts_emblemas_pontos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de tabela `sts_grps_pgs`
+--
+ALTER TABLE `sts_grps_pgs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT de tabela `sts_nivacs_pgs`
 --
 ALTER TABLE `sts_nivacs_pgs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7781;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7782;
 
 --
 -- AUTO_INCREMENT de tabela `sts_paginas`
 --
 ALTER TABLE `sts_paginas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT de tabela `sts_perguntas`
 --
 ALTER TABLE `sts_perguntas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT de tabela `sts_pontos`
+--
+ALTER TABLE `sts_pontos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `sts_seo`
@@ -2307,7 +2371,7 @@ ALTER TABLE `sts_tps_perguntas`
 -- AUTO_INCREMENT de tabela `sts_usuarios`
 --
 ALTER TABLE `sts_usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

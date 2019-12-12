@@ -16,7 +16,7 @@ class EsqueceuSenha
     {
         $this->Dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
         if (!empty($this->Dados['RecupUserLogin'])) {
-            $esqSenha = new \App\sts\Models\stsEsqueceuSenha();
+            $esqSenha = new \App\sts\Models\StsEsqueceuSenha();
             $esqSenha->esqueceuSenha($this->Dados);
             if ($esqSenha->getResultado()) {                
                 $UrlDestino = URL . 'login/acesso';

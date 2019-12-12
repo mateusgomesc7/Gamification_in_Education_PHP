@@ -76,8 +76,13 @@ if (!defined('URL')) {
                         $nome = explode(" ", $_SESSION['usuario_nome']);
                         $prim_nome = $nome[0];
                         echo "<h5 class='card-title'>$prim_nome</h5>";
-                        echo "<p class='card-text'><small class='text-muted'>Pontos: " . $_SESSION['usuario_pontos'] . "</small></p>";
 
+                        foreach ($this->Dados['pontosAtual'] as $pontosAtual) {
+                            extract($pontosAtual);
+
+                        echo "<p class='card-text'><small class='text-muted'>Pontos: " . $pontos . "</small></p>";
+                        
+                        }
 
                         foreach ($this->Dados['emblemasPontos'] as $emblemasPontos) {
                             extract($emblemasPontos);

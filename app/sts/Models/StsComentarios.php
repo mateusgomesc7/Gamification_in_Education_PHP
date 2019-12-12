@@ -39,9 +39,10 @@ class StsComentarios
         $this->Dados = $Dados;
         $this->validarDados();
         if ($this->Resultado) {
-            $this->verUsuario();
+            // $this->verUsuario();
             if($this->Resultado){
                 unset($this->Dados['nome'],$this->Dados['email'], $this->Dados['id']);
+                $this->Dados['sts_usuario_id'] = $_SESSION['usuario_id'];
                 $this->Dados['adms_sit_id'] = 3;
                 $this->Dados['created'] = date("Y-m-d H:i:s");
                 //var_dump($this->Dados);
@@ -55,16 +56,20 @@ class StsComentarios
         $this->Dados = array_map('strip_tags', $this->Dados);
         $this->Dados = array_map('trim', $this->Dados);
         if (in_array('', $this->Dados)) {
-            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Para enviar o comentário preencha todos os campos!</div>";
+            $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Para enviar o comentário preencha o campo!</div>";
             $this->Resultado = false;
         } else {
-            if (filter_var($this->Dados['email'], FILTER_VALIDATE_EMAIL)) {
-                $this->Resultado = true;
-            } else {
-                $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: E-mail inválido!</div>";
-                $this->Resultado = false;
-            }
+            $this->Resultado = true;
         }
+
+        // else {
+        //     if (filter_var($this->Dados['email'], FILTER_VALIDATE_EMAIL)) {
+        //         $this->Resultado = true;
+        //     } else {
+        //         $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: E-mail inválido!</div>";
+        //         $this->Resultado = false;
+        //     }
+        // }
     }
 
     private function inserir()
@@ -72,7 +77,12 @@ class StsComentarios
         $cadComent = new \App\sts\Models\helper\StsCreate();
         $cadComent->exeCreate('sts_comts_perguntas', $this->Dados);
         if ($cadComent->getResultado()) {
-            $_SESSION['msg'] = "<div class='alert alert-success'>Comentário cadastrado com sucesso!</div>";
+
+            $ganharPontos = new \App\sts\Models\StsAdicionarPontuacao();
+            $ganharPontos->pontosPorResposta();
+            $ganhoDePontos = $ganharPontos->getGanhoDePontos();
+
+            $_SESSION['msg'] = "<div class='alert alert-success'>Comentário cadastrado com sucesso! Você ganhou $ganhoDePontos pontos!</div>";
             $this->Resultado = true;
         } else {
             $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Comentário não foi cadastrado!</div>";
