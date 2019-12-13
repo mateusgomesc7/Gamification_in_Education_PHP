@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12-Dez-2019 às 15:31
--- Versão do servidor: 10.4.8-MariaDB
--- versão do PHP: 7.3.11
+-- Tempo de geração: 13-Dez-2019 às 22:16
+-- Versão do servidor: 10.4.10-MariaDB
+-- versão do PHP: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -1315,7 +1315,23 @@ INSERT INTO `sts_comts_perguntas` (`id`, `conteudo`, `sts_usuario_id`, `sts_perg
 (38, 'teste 8', 21, 29, 3, '2019-12-12 15:26:39', NULL),
 (39, 'teste 9', 21, 29, 3, '2019-12-12 15:29:43', NULL),
 (40, 'teste 10', 21, 29, 3, '2019-12-12 15:29:56', NULL),
-(41, 'teste 11', 1, 29, 3, '2019-12-12 15:30:41', NULL);
+(41, 'teste 11', 1, 29, 3, '2019-12-12 15:30:41', NULL),
+(42, 'teste', 1, 30, 3, '2019-12-13 20:15:32', NULL),
+(43, 'teste 1', 1, 31, 3, '2019-12-13 21:16:01', NULL),
+(44, 'teste 2', 1, 31, 3, '2019-12-13 21:32:28', NULL),
+(45, 'teste 3', 1, 31, 3, '2019-12-13 21:42:33', NULL),
+(46, 'teste 4', 1, 31, 3, '2019-12-13 21:42:55', NULL),
+(47, 'teste 5', 1, 31, 3, '2019-12-13 21:43:48', NULL),
+(48, 'teste 5', 1, 31, 3, '2019-12-13 21:44:08', NULL),
+(49, 'teste 6', 1, 31, 3, '2019-12-13 21:44:54', NULL),
+(50, 'teste 7', 1, 31, 3, '2019-12-13 21:45:41', NULL),
+(51, 'teste 8', 1, 31, 3, '2019-12-13 21:45:47', NULL),
+(52, 'teste 9', 1, 31, 3, '2019-12-13 21:46:28', NULL),
+(53, 'teste 10', 1, 31, 3, '2019-12-13 21:46:34', NULL),
+(54, 'teste 11', 1, 31, 3, '2019-12-13 21:47:57', NULL),
+(55, 'teste 12', 1, 31, 3, '2019-12-13 21:48:05', NULL),
+(56, 'teste é algo geralmente para medir se alguma coisa ou objeto este funcionando, creio que em relação ao site está tudo ok.', 21, 31, 3, '2019-12-13 22:06:25', NULL),
+(57, 'teste', 21, 32, 3, '2019-12-13 22:15:50', NULL);
 
 -- --------------------------------------------------------
 
@@ -1379,10 +1395,11 @@ INSERT INTO `sts_cors` (`id`, `nome`, `cor`, `created`, `modified`) VALUES
 
 CREATE TABLE `sts_emblemas_pontos` (
   `id` int(11) NOT NULL,
-  `nome` varchar(220) NOT NULL,
-  `descricao` varchar(220) NOT NULL,
-  `icone` varchar(120) NOT NULL,
+  `nome` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
+  `descricao` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
+  `icone` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
   `quant_pontos` int(120) NOT NULL,
+  `sts_cor_id` int(11) NOT NULL,
   `adms_sit_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL
@@ -1392,10 +1409,19 @@ CREATE TABLE `sts_emblemas_pontos` (
 -- Extraindo dados da tabela `sts_emblemas_pontos`
 --
 
-INSERT INTO `sts_emblemas_pontos` (`id`, `nome`, `descricao`, `icone`, `quant_pontos`, `adms_sit_id`, `created`, `modified`) VALUES
-(1, 'Estrela 1', 'Emblema Estrela 1 por atingir 100 pontos', 'fas fa-star', 100, 1, '2019-12-23 00:00:00', NULL),
-(2, 'Estrela 2', 'Emblema Estrela 2 por atingir 200 pontos', 'fas fa-star-of-david', 200, 1, '2019-12-26 00:00:00', NULL),
-(3, 'Estrela 3', 'Emblema Estrela 3 por atingir 300 pontos', 'fas fa-certificate', 300, 1, '2019-12-23 00:00:00', NULL);
+INSERT INTO `sts_emblemas_pontos` (`id`, `nome`, `descricao`, `icone`, `quant_pontos`, `sts_cor_id`, `adms_sit_id`, `created`, `modified`) VALUES
+(1, 'Estrela 1', 'Emblema Estrela 1 por atingir 100 pontos', 'fas fa-star', 100, 1, 1, '2019-12-23 00:00:00', NULL),
+(2, 'Estrela 2', 'Emblema Estrela 2 por atingir 200 pontos', 'fas fa-star-of-david', 500, 2, 1, '2019-12-26 00:00:00', NULL),
+(3, 'Estrela 3', 'Emblema Estrela 3 por atingir 300 pontos', 'fas fa-certificate', 1000, 3, 1, '2019-12-23 00:00:00', NULL),
+(4, 'Velocista', 'Velocista', 'fas fa-biking', 25, 1, 1, '2019-12-11 00:00:00', NULL),
+(5, 'Ta com todo o gas', 'Ta com todo o gas', 'fas fa-coffee', 10, 2, 1, '2019-12-18 00:00:00', NULL),
+(6, 'Ilhama da primeira pergunta', 'Ilhama da primeira pergunta', 'fas fa-democrat', 50, 3, 1, '2019-12-18 00:00:00', NULL),
+(7, 'Mestre das respostas', 'Mestre das respostas', 'fab fa-earlybirds', 150, 4, 1, '2019-12-17 00:00:00', NULL),
+(8, 'Pegando Fogo nas perguntas', 'Pegando Fogo nas perguntas', 'fab fa-free-code-camp', 200, 5, 1, '2019-12-18 00:00:00', NULL),
+(9, 'Furios perguntas', 'Furios perguntas', 'fab fa-grunt', 300, 6, 1, '2019-12-17 00:00:00', NULL),
+(10, 'Estudioso', 'Estudioso', 'fas fa-glasses', 400, 4, 1, '2019-12-21 00:00:00', NULL),
+(11, 'Cranio', 'Cranio', 'fas fa-brain', 600, 8, 1, '2019-12-17 00:00:00', NULL),
+(12, 'Wikipedia em pessoa', 'Wikipedia em pessoa', 'fab fa-wikipedia-w', 800, 1, 1, '2019-12-22 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -1742,7 +1768,10 @@ INSERT INTO `sts_perguntas` (`id`, `titulo`, `descricao`, `conteudo`, `imagem`, 
 (27, 'Apenas vendo se está funcionando', NULL, '<p>Estava vendo se estava funci<strong>onando tudo em ordem&nbsp;</strong></p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 1, '2019-12-07 02:31:47', NULL),
 (24, 'Aeeeeeee', NULL, '<p>Deu certo! Finalmente</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 2, '2019-12-01 20:38:00', NULL),
 (28, 'testea', NULL, '<p>f</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 2, '2019-12-07 02:46:05', NULL),
-(29, 'gamificação', NULL, '<p>o que é gamificação??</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 3, '2019-12-09 18:08:43', NULL);
+(29, 'gamificação', NULL, '<p>o que é gamificação??</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 3, '2019-12-09 18:08:43', NULL),
+(30, 'teste 3', NULL, '<p>teste 3</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 2, '2019-12-13 20:15:23', NULL),
+(31, 'teste 4', NULL, '<p>teste</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 2, '2019-12-13 21:13:32', NULL),
+(32, 'O estudo EAD', NULL, '<p>O estudo EAD é eficaz, ou apenas uma forma de iludir o aluno?</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 21, 1, 1, 3, '2019-12-13 22:07:46', NULL);
 
 -- --------------------------------------------------------
 
@@ -1752,7 +1781,7 @@ INSERT INTO `sts_perguntas` (`id`, `titulo`, `descricao`, `conteudo`, `imagem`, 
 
 CREATE TABLE `sts_pontos` (
   `id` int(11) NOT NULL,
-  `nome` varchar(120) NOT NULL,
+  `nome` varchar(120) COLLATE utf8_unicode_ci NOT NULL,
   `quant_pontos` int(11) NOT NULL,
   `adms_sit_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
@@ -1987,8 +2016,8 @@ CREATE TABLE `sts_usuarios` (
 --
 
 INSERT INTO `sts_usuarios` (`id`, `nome`, `pontos`, `curso1`, `curso2`, `curso3`, `email`, `usuario`, `senha`, `recuperar_senha`, `chave_descadastro`, `conf_email`, `imagem`, `sts_niveis_acesso_id`, `sts_sits_usuario_id`, `created`, `modified`) VALUES
-(1, 'Mateus', 600, 1, 2, 3, 'mateusgomesc7@gmail.com', 'mateusgomesc7@gmail.com', '$2y$10$XFWEXmgQT6SyYCSSSe4nae65vyM57ZO0OhkdHefURUoB/XYeFOz6O', '6776c7c5b1b4c592b5339b774d3147ca', 'bbe0d9883f909fb95ca46e8396fd7194', '2', 'mateusgomes.jpg', 1, 1, '2018-05-23 00:00:00', '2019-11-29 16:11:31'),
-(21, 'Gomes', 375, 0, NULL, NULL, 'mateusgomes@ieee.org', 'mateusgomes@ieee.org', '$2y$10$2ukaQ7xhwXExtKWRq3E3seROgp3rf2pOp3NzaShCfZsVxSqjEJdKi', NULL, NULL, NULL, NULL, 1, 1, '2019-12-11 13:25:38', '2019-12-11 14:29:16'),
+(1, 'Mateus', 1000, 1, 2, 3, 'mateusgomesc7@gmail.com', 'mateusgomesc7@gmail.com', '$2y$10$XFWEXmgQT6SyYCSSSe4nae65vyM57ZO0OhkdHefURUoB/XYeFOz6O', '6776c7c5b1b4c592b5339b774d3147ca', 'bbe0d9883f909fb95ca46e8396fd7194', '2', 'mateusgomes.jpg', 1, 1, '2018-05-23 00:00:00', '2019-11-29 16:11:31'),
+(21, 'Gomes', 60, 0, NULL, NULL, 'mateusgomes@ieee.org', 'mateusgomes@ieee.org', '$2y$10$2ukaQ7xhwXExtKWRq3E3seROgp3rf2pOp3NzaShCfZsVxSqjEJdKi', NULL, NULL, NULL, NULL, 1, 1, '2019-12-11 13:25:38', '2019-12-11 14:29:16'),
 (3, 'Mateus', 75, 1, NULL, NULL, 'mateusgomesc3@gmail.com', 'mateusgomesc3@gmail.com', '$2y$10$g1IwcDcwY5rsAKeEHKwXDOhVjI7wIhRRkgdTN.YvEW7u996LJQNA2', NULL, NULL, '2', 'logo-mateus.jpg', 3, 1, '2018-06-02 14:29:36', '2018-06-24 15:40:59'),
 (4, 'Mateus', 63, 2, NULL, NULL, 'mateusgomesc4@gmail.com', 'mateusgomesc4@gmail.com', '$2y$10$ypvSoRiRpd8Ppx8n1pI4hOC4KX.2lPekK.jOhz1Z.DhNUMXG7jDu2', NULL, NULL, '2', NULL, 5, 2, '2018-06-02 15:10:57', '2018-06-20 12:23:53'),
 (13, 'Mateus 1', 150, 3, NULL, NULL, 'mateusgomesc5@gmail.com', 'mateusgomesc5@gmail.com', '$2y$10$Xgs2jrNEZLQH2ZGCOSj2KO0Y3HRvpzjijaRgpDU5Az/KT/s4oJlN2', NULL, NULL, NULL, 'logo-mateus.jpg', 2, 1, '2018-06-20 21:46:15', '2018-06-20 21:46:47'),
@@ -2311,13 +2340,13 @@ ALTER TABLE `sts_cats_perguntas`
 -- AUTO_INCREMENT de tabela `sts_comts_perguntas`
 --
 ALTER TABLE `sts_comts_perguntas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT de tabela `sts_emblemas_pontos`
 --
 ALTER TABLE `sts_emblemas_pontos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `sts_grps_pgs`
@@ -2341,7 +2370,7 @@ ALTER TABLE `sts_paginas`
 -- AUTO_INCREMENT de tabela `sts_perguntas`
 --
 ALTER TABLE `sts_perguntas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de tabela `sts_pontos`
