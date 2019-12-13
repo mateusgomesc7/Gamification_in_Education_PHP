@@ -1386,7 +1386,7 @@ CREATE TABLE `sts_emblemas_pontos` (
   `adms_sit_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Extraindo dados da tabela `sts_emblemas_pontos`
@@ -1757,7 +1757,7 @@ CREATE TABLE `sts_pontos` (
   `adms_sit_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Extraindo dados da tabela `sts_pontos`

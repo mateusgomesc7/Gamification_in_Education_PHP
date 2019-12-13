@@ -44,9 +44,6 @@ class CadastrarPergunta
         $listarBotao = new \App\sts\Models\StsBotao();
         $this->Dados['botao'] = $listarBotao->valBotao($botao);
         
-        $listarMenu = new \App\sts\Models\StsMenu();
-        $this->Dados['menu'] = $listarMenu->itemMenu();
-        
         $carregarView = new \Core\ConfigView("sts/Views/pergunta/cadPergunta", $this->Dados);
         $carregarView->renderizar();
     }

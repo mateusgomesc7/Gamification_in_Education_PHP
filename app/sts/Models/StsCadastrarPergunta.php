@@ -51,7 +51,12 @@ class StsCadastrarPergunta
         $cadPergunta->exeCreate("sts_perguntas", $this->Dados);
         if ($cadPergunta->getResultado()) {
             if (empty($this->Foto['name'])) {
-                $_SESSION['msg'] = "<div class='alert alert-success'>Pergunta cadastrada com sucesso!</div>";
+
+                $ganharPontos = new \App\sts\Models\StsAdicionarPontuacao();
+                $ganharPontos->pontosPorPergunta();
+                $ganhoDePontos = $ganharPontos->getGanhoDePontos();
+
+                $_SESSION['msg'] = "<div class='alert alert-success'>Pergunta cadastrada com sucesso! Você ganhou $ganhoDePontos pontos!</div>";
                 $this->Resultado = true;
             } else {
                 $this->Dados['id'] = $cadPergunta->getResultado();
