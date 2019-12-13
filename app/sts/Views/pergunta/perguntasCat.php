@@ -8,7 +8,7 @@ if (!defined('URL')) {
 
     <!-- <div class="jumbotron blog"> -->
         <div class="container">
-            <h2 class="display-4 text-center mt-4" style="margin-bottom: 40px;">Perguntas Categorias</h2>
+            <h2 class="display-4 text-center my-3" style="margin-bottom: 40px;">Perguntas Categorias</h2>
             <div class="row">
             <div class="col-md-8 blog-main">
                     <?php

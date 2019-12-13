@@ -7,7 +7,7 @@ if (!defined('URL')) {
 <main role="main">
 
     <!-- <div class="jumbotron blog"> -->
-    <div class="container mt-5">
+    <div class="container my-3">
         <div class="row">
             <aside class="col-md-2 blog-sidebar">
             </aside>
@@ -77,7 +77,7 @@ if (!defined('URL')) {
                 // Inicio do Forms
                 if (!empty($this->Dados['sts_perguntas'][0])) {
                     ?>
-                    <div class="jumbotron text-white bg-primary p-3">
+                    <div class="jumbotron bg-success p-3">
                         <h3>Participe da discussão</h3>
                         <form method="POST" action="<?php echo URL; ?>comentario/index">
                             <input type="hidden" name="sts_pergunta_id" value="<?php echo $this->Dados['sts_perguntas'][0]['id']; ?>">

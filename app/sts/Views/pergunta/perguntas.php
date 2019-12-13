@@ -8,7 +8,7 @@ if (!defined('URL')) {
 
     <!-- <div class="jumbotron blog"> -->
         <div class="container">
-            <h2 class="display-4 text-center mt-4" style="margin-bottom: 40px;">Perguntas</h2>
+            <h2 class="display-4 text-center my-3" style="margin-bottom: 40px;">Perguntas</h2>
             <div class="row">
                 <div class="col-md-8 blog-main">
                     <?php
@@ -23,7 +23,7 @@ if (!defined('URL')) {
                                         <h1 class="display-4 featurette-heading"><?php echo $titulo; ?></h1></a>
                                     <hr class="my-4">
                                     <p class="lead"><?php echo $descricao; ?> <a href="<?php echo URL . 'pergunta/pergunta/' . $id; ?>" class="text-danger">Continuar lendo</a></p>
-                                  </div>
+                        </div>
                         <?php
                     }
 

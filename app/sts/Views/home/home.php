@@ -32,7 +32,7 @@ if (!defined('URL')) {
 
         <div class="col-md-9 col-lg-7">
             <div class="row justify-content-center">
-                <div class="jumbotron mb-0 bg-white container text-center">
+                <div class="card py-5 mb-0 bg-white container text-center">
                     <h1 class="display-4"><strong>Qual a sua dúvida?</strong></h1>
                     <hr class="my-4">
 
