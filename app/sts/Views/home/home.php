@@ -84,13 +84,14 @@ if (!defined('URL')) {
                         
                         }
 
+                        echo "<div style='width: 160px;'>";
                         foreach ($this->Dados['emblemasPontos'] as $emblemasPontos) {
                             extract($emblemasPontos);
 
-                            echo "<button type='button' class='btn btn-sm btn-secondary p-auto' data-toggle='popover' title='$nome' data-content='$descricao'><i class='$icone'></i></button>";
-                            echo "<button type='button' class='btn btn-sm btn-danger p-auto' data-toggle='popover' title='$nome' data-content='$descricao'><i class='$icone'></i></button>";
-                            echo "<button type='button' class='btn btn-sm btn-primary p-auto                    ' data-toggle='popover' title='$nome' data-content='$descricao'><i class='$icone'></i></button>";
+                            echo "<button type='button' class='btn btn-sm btn-$cor p-auto' data-toggle='popover' title='$nome' data-content='$descricao'><i class='$icone'></i></button>";
                         }
+                        echo "</div>";
+
                         ?>
                     </div>
                 </div>

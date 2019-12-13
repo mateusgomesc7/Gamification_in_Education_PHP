@@ -30,7 +30,7 @@ class Home
         $this->Dados['pontosAtual'] = $pontuacao->verPotuacaoAtual();
 
         $emblemas = new \App\sts\Models\StsEmblemas();
-        $this->Dados['emblemasPontos'] = $emblemas->buscarEmblemas(); 
+        $this->Dados['emblemasPontos'] = $emblemas->buscarEmblemas();
         
         $ranking = new \App\sts\Models\StsRanking();
         $this->Dados['ranking'] = $ranking->buscarMaioresPontos();

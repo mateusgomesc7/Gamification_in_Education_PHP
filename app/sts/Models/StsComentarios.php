@@ -79,10 +79,17 @@ class StsComentarios
         if ($cadComent->getResultado()) {
 
             $ganharPontos = new \App\sts\Models\StsAdicionarPontuacao();
-            $ganharPontos->pontosPorResposta();
-            $ganhoDePontos = $ganharPontos->getGanhoDePontos();
-
-            $_SESSION['msg'] = "<div class='alert alert-success'>Comentário cadastrado com sucesso! Você ganhou $ganhoDePontos pontos!</div>";
+            
+            if($ganharPontos->pontosPorResposta()){
+                $ganhoDePontos = $ganharPontos->getGanhoDePontos();
+                $_SESSION['msg'] = "<div class='alert alert-success'>Você ganhou um novo Emblema e $ganhoDePontos pontos!</div>";
+            }else{
+                $ganhoDePontos = $ganharPontos->getGanhoDePontos();
+                $_SESSION['msg'] = "<div class='alert alert-success'>Você ganhou $ganhoDePontos pontos!</div>";
+                $ganhoDePontos = $ganharPontos->getGanhoDePontos();
+            }
+            
+            
             $this->Resultado = true;
         } else {
             $_SESSION['msg'] = "<div class='alert alert-danger'>Erro: Comentário não foi cadastrado!</div>";
