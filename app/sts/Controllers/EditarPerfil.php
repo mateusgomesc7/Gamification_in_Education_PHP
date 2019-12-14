@@ -15,7 +15,7 @@ class EditarPerfil
     public function altPerfil()
     {
         $this->Dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-        var_dump($this->Dados);
+
         if (!empty($this->Dados['EdiPerfil'])) {
             unset($this->Dados['EdiPerfil']);
             $this->Dados['imagem_nova'] = ($_FILES['imagem_nova'] ? $_FILES['imagem_nova'] : null);

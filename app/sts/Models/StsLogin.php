@@ -28,7 +28,8 @@ class StsLogin
                     nivac.ordem	ordem_nivac
                     FROM sts_usuarios user
                     INNER JOIN sts_niveis_acessos nivac ON nivac.id=user.sts_niveis_acesso_id
-                    WHERE usuario =:usuario LIMIT :limit", "usuario={$this->Dados['usuario']}&limit=1");
+                    WHERE (usuario =:usuario OR email =:email) 
+                    LIMIT :limit", "usuario={$this->Dados['usuario']}&email={$this->Dados['usuario']}&limit=1");
             $this->Resultado = $validaLogin->getResultado();
             if (!empty($this->Resultado)) {
                 $this->validarSenha();

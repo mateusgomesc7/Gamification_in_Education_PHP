@@ -15,6 +15,7 @@ class NovoUsuario
     public function novoUsuario()
     {
         $this->Dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        
         if (!empty($this->Dados['CadUserLogin'])) {
             unset($this->Dados['CadUserLogin']);
             $cadUser = new \App\sts\Models\StsNovoUsuario();
@@ -23,11 +24,17 @@ class NovoUsuario
                 $UrlDestino = URL . 'login/acesso';
                 header("Location: $UrlDestino");
             } else {
+                $verPerfil = new \App\sts\Models\StsVerPerfil();
+                $this->Dados['select'] = $verPerfil->listarCursos();
+                
                 $this->Dados['form'] = $this->Dados;
                 $carregarView = new \Core\ConfigView("sts/Views/login/novoUsuario", $this->Dados);
                 $carregarView->renderizarLogin();
             }
         } else {
+            $verPerfil = new \App\sts\Models\StsVerPerfil();
+            $this->Dados['select'] = $verPerfil->listarCursos();
+
             $carregarView = new \Core\ConfigView("sts/Views/login/novoUsuario", $this->Dados);
             $carregarView->renderizarLogin();
         }
