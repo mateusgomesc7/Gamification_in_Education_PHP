@@ -11,4 +11,5 @@ if (!defined('URL')) {
     <link rel="icon" href="<?php echo URL . 'assets/imagens/icone/ghost.ico'; ?>">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo URL . 'assets/css/signin.css'; ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo URL . 'assets/css/main.css'; ?>">
 </head>
