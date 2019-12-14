@@ -9,15 +9,16 @@ if (!defined('URL')) {
 
     <!-- <a class="sidebar-toggle text-light mr-3">
         <span class="navbar-toggler-icon"></span>
-    </!-->
+    </! -->
     <?php
-    echo "<a class='navbar-brand' href='" . URL . "home/index" . " '>Gamification</a>";
+    echo "<a class='navbar-brand' href='" . URL . "home/index" . " '><img src='". URL ."assets/imagens/logo_login/logo.png' width='40' height='40' alt='Gamification'> Gamification</a>";
     ?>
 
     <div class="collapse navbar-collapse">
 
+        <!-- Início Pesquisa -->
         <form class="form-inline" method="POST" action="<?php echo URL . 'pesq-perguntas/listar'; ?>">
-            <input class="form-control mr-sm-2" name="pergunta" type="text" placeholder="Qual a sua dúvida?" value="<?php if (isset($_SESSION['pesqPergunta'])) {
+            <input class="form-control mr-sm-2" name="pergunta" type="text" placeholder="Pesquise sua dúvida..." value="<?php if (isset($_SESSION['pesqPergunta'])) {
                                                                                                                         echo $_SESSION['pesqPergunta'];
                                                                                                                     } ?>">
             <input name="PesqPergunta" type="submit" class="btn btn-info my-2" value="Pesquisar">

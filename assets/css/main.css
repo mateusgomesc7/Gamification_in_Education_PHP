@@ -34,6 +34,10 @@ body {
    background: #66cc99;
 }
 
+.navbar-brand:hover {
+  filter: brightness(70%);
+}
+
  /* body {
    background-color: #c7d0db !important;
  } */
