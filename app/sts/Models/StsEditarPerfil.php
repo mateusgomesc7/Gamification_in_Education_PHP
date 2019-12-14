@@ -84,8 +84,11 @@ class StsEditarPerfil
         $upAltSenha->exeUpdate("sts_usuarios", $this->Dados, "WHERE id =:id", "id=" . $_SESSION['usuario_id']);
         if ($upAltSenha->getResultado()) {
             $_SESSION['usuario_nome'] = $this->Dados['nome'];
+            $_SESSION['usuario_curso1'] = $this->Dados['curso1'];
             $_SESSION['usuario_email'] = $this->Dados['email'];
-            $_SESSION['usuario_imagem'] = $this->Dados['imagem'];
+            if(!empty($this->Dados['imagem'])){
+                $_SESSION['usuario_imagem'] = $this->Dados['imagem'];
+            }
             $_SESSION['msg'] = "<div class='alert alert-success'>Perfil atualizado com sucesso!</div>";
             $this->Resultado = true;
         } else {

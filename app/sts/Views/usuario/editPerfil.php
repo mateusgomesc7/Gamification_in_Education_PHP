@@ -1,4 +1,4 @@
-<div class="content p-1">
+<div class="container my-3 p-1">
     <div class="list-group-item">
         <div class="d-flex">
             <div class="mr-auto p-2">
@@ -21,8 +21,10 @@
             $valorForm = $this->Dados['form'][0];
         }
         ?>
+
         <form method="POST" action="" enctype="multipart/form-data">
             <div class="form-row">
+                <!-- Início Editar NOME -->
                 <div class="form-group col-md-6">
                     <label><span class="text-danger">*</span> Nome</label>
                     <input name="nome" type="text" class="form-control" placeholder="Digite o nome completo" value="<?php
@@ -31,12 +33,26 @@
                                                                                                                     }
                                                                                                                     ?>">
                 </div>
-                <div class="form-group col-md-6">
+                <!-- Início Editar Curso -->
+                <div class="form-group col-md-4">
                     <label><span class="text-danger">*</span> Curso</label>
-                    <input name="curso" type="text" class="form-control" placeholder="Como gostaria de ser chamado" value="curso">
+                    <select name="curso1" id="curso1" class="form-control">
+                        <option value="">Selecione</option>
+                        <?php
+                        foreach ($this->Dados['select']['curso1'] as $curso1) {
+                            extract($curso1);
+                            if ($valorForm['curso1'] == $id_curso) {
+                                echo "<option value='$id_curso' selected>$nome_curso1</option>";
+                            } else {
+                                echo "<option value='$id_curso'>$nome_curso1</option>";
+                            }
+                        }
+                        ?>
+                    </select>
                 </div>
             </div>
             <div class="form-row">
+                <!-- Início Editar E-mail -->
                 <div class="form-group col-md-6">
                     <label><span class="text-danger">*</span> E-mail</label>
                     <input name="email" type="text" class="form-control" placeholder="Seu melhor e-mail" value="<?php
@@ -45,6 +61,7 @@
                                                                                                                 }
                                                                                                                 ?>">
                 </div>
+                <!-- Início Editar Usuário -->
                 <div class="form-group col-md-6">
                     <label><span class="text-danger">*</span> Usuário</label>
                     <input name="usuario" type="text" class="form-control" id="nome" placeholder="Digite o usuário" value="<?php
@@ -56,6 +73,7 @@
             </div>
 
             <div class="form-row">
+                <!-- Início Editar Escolhe Imagem -->
                 <div class="form-group col-md-6">
                     <input name="imagem_antiga" type="hidden" value="<?php
                                                                         if (isset($valorForm['imagem_antiga'])) {
@@ -68,6 +86,7 @@
                     <label><span class="text-danger">*</span> Foto (150x150)</label>
                     <input name="imagem_nova" type="file" onchange="previewImagem();">
                 </div>
+                <!-- Início Editar Preview da Imagem -->
                 <div class="form-group col-md-6">
                     <?php
                     if (isset($valorForm['imagem']) and !empty($valorForm['imagem'])) {

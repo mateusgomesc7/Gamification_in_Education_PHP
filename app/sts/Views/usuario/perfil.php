@@ -4,7 +4,7 @@ if (!defined('URL')) {
     exit();
 }
 ?>
-<div class="content p-1">
+<div class="container my-3 p-1">
     <div class="list-group-item">
         <div class="d-flex">
             <div class="mr-auto p-2">
@@ -47,9 +47,6 @@ if (!defined('URL')) {
                     }
                     ?>
                 </dd>
-
-                <dt class="col-sm-3">ID</dt>
-                <dd class="col-sm-9"><?php echo $id; ?></dd>
 
                 <dt class="col-sm-3">Nome</dt>
                 <dd class="col-sm-9"><?php echo $nome; ?></dd>                
