@@ -31,15 +31,16 @@ if (!defined('URL')) {
         </div>
 
         <div class="col-md-9 col-lg-7">
-            <div class="row justify-content-center">
+            <div class="row">
                 <div class="card py-5 mb-0 bg-white container text-center">
-                    <h1 class="display-4"><strong>Qual a sua dúvida?</strong></h1>
-                    <hr class="my-4">
+                    <div class="card-body">
+                        <h1 class="display-4"><strong>Qual a sua dúvida?</strong></h1>
+                        <hr class="my-4">
 
-                    <a href="<?php echo URL . "cadastrar-pergunta/cad-pergunta"; ?>">
-                        <button type="button" class="btn btn-primary btn-lg">Faça uma pergunta</button>
-                    </a>
-
+                        <a href="<?php echo URL . "cadastrar-pergunta/cad-pergunta"; ?>" class="btn btn-primary btn-lg">
+                            Faça uma pergunta
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="row">
