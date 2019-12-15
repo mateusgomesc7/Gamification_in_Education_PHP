@@ -14,14 +14,6 @@ class VerPerguntas
 
     public function perguntas()
     {
-
-        // Não ta sendo utilizado. Seria para os menus que ficam em cima da página
-        // $listarMenu = new \Sts\Models\StsMenu();
-        // $this->Dados['menu'] = $listarMenu->listarMenu();
-
-        // Não ta sendo utilizado.
-        // $listarSeo = new \Sts\Models\StsSeo();
-        // $this->Dados['seo'] = $listarSeo->listarSeo();
         
         $this->PageId = filter_input(INPUT_GET, 'pg', FILTER_SANITIZE_NUMBER_INT);
         $this->PageId = $this->PageId ? $this->PageId : 1;

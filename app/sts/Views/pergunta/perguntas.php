@@ -10,6 +10,7 @@ if (!defined('URL')) {
         <div class="container">
             <h2 class="display-4 text-center my-3" style="margin-bottom: 40px;">Perguntas</h2>
             <div class="row">
+                <!-- INICIO do Listar Perguntas -->
                 <div class="col-md-8 blog-main">
                     <?php
                     if (empty($this->Dados['perguntas'])) {
@@ -20,9 +21,9 @@ if (!defined('URL')) {
                         ?>
                         <div class="jumbotron container blog-text  anim_right p-1">
                                     <a href="<?php echo URL . 'pergunta/pergunta/' . $id; ?>">
-                                        <h1 class="display-4 featurette-heading"><?php echo $titulo; ?></h1></a>
+                                        <h1 class="display-4 featurette-heading"><?php echo $conteudo; ?></h1></a>
                                     <hr class="my-4">
-                                    <p class="lead"><?php echo $descricao; ?> <a href="<?php echo URL . 'pergunta/pergunta/' . $id; ?>" class="text-danger">Continuar lendo</a></p>
+                                    <p class="lead"><a href="<?php echo URL . 'pergunta/pergunta/' . $id; ?>" class="text-danger">Continuar lendo</a></p>
                         </div>
                         <?php
                     }
@@ -30,17 +31,10 @@ if (!defined('URL')) {
                     echo $this->Dados['paginacao'];
                     ?>
                 </div>
-                <aside class="col-md-4 blog-sidebar">
-                    <?php if (!empty($this->Dados['sobreAutor'][0])) { ?>
-                        <div class="p-3 mb-3 bg-light rounded">
-                            <?php extract($this->Dados['sobreAutor'][0]); ?>
-                            <h4 class="font-italic"><?php echo $titulo; ?></h4>  
-                            <img src="<?php echo URL . 'assets/imagens/sobre_autor/' . $id . '/' . $imagem; ?>" class="img-fluid" alt="<?php echo $titulo; ?>">
-                            <p class="mb-0"><?php echo $descricao; ?></p>
+                <!-- FIM do Listar Perguntas -->
 
-                        </div>
-                    <?php } ?>
-                    <!-- Area de Recentes -->
+                <aside class="col-md-4 blog-sidebar">
+                    <!-- INICIO Area de Recentes -->
                     <div class="card" style="width: 18rem;">
                         <div class="card-header">
                             Recentes
@@ -49,12 +43,12 @@ if (!defined('URL')) {
                             <?php
                                 foreach ($this->Dados['pergRecente'] as $perguntaRec) {
                                     extract($perguntaRec);
-                                    echo "<li class='list-group-item'><a href='" . URL . "pergunta/pergunta/$id'>$titulo</a></li>";
+                                    echo "<li class='list-group-item'><a href='" . URL . "pergunta/pergunta/$id'>$conteudo</a></li>";
                                 }
                                 ?>
                         </ul>
                     </div>
-                    <!-- Fim da Area de Recentes -->
+                    <!-- FIM da Area de Recentes -->
                     <br>
                     <br>
                     <br>
@@ -67,7 +61,7 @@ if (!defined('URL')) {
                             <?php
                                 foreach ($this->Dados['pergDestaque'] as $perguntaDest) {
                                     extract($perguntaDest);
-                                    echo "<li class='list-group-item'><a href='" . URL . "pergunta/pergunta/$id'>$titulo</a></li>";
+                                    echo "<li class='list-group-item'><a href='" . URL . "pergunta/pergunta/$id'>$conteudo</a></li>";
                                 }
                                 ?>
                         </ul>

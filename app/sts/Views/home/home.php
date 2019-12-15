@@ -14,6 +14,7 @@ if (!defined('URL')) {
 
     <div class="row">
 
+        <!-- INICIO Categorias -->
         <div class="col-lg-2 d-none d-sm-none d-md-none d-lg-inline">
             <div class="btn-group-vertical">
                 <a class="btn btn-outline-primary m-1" role="button" href="<?php echo URL . 'ver-perguntas/perguntas'; ?>">
@@ -29,8 +30,10 @@ if (!defined('URL')) {
 
             </div>
         </div>
+        <!-- FIM Categorias -->
 
         <div class="col-md-9 col-lg-7">
+            <!-- INICIO QUAL A SUA DUVIDA -->
             <div class="row">
                 <div class="card py-5 mb-0 bg-white container text-center">
                     <div class="card-body">
@@ -43,6 +46,9 @@ if (!defined('URL')) {
                     </div>
                 </div>
             </div>
+            <!-- FIM QUAL A SUA DUVIDA -->
+
+            <!-- INICIO Perguntas Recentes -->
             <div class="row">
                 <?php
                 foreach ($this->Dados['pergRecente'] as $perguntaRec) {
@@ -53,7 +59,7 @@ if (!defined('URL')) {
                     echo "<i class='$icone'></i> $categoria";
                     echo "</div>";
                     echo "<div class='card-body'>";
-                    echo "<h5 class='card-title'>$titulo</h5>";
+                    echo "<h5 class='card-title'>$conteudo</h5>";
 
                     // // echo $conteudo;
                     // $domain = strstr($conteudo, '</p', true);
@@ -66,9 +72,11 @@ if (!defined('URL')) {
                 }
                 ?>
             </div>
+            <!-- FIM Perguntas Recentes -->
         </div>
 
         <div class="col-md-3 col-lg-3">
+            <!-- INICIO Card do Perfil Usuário -->
             <div class="row justify-content-center mb-2">
                 <div class="card text-center p-4">
                     
@@ -109,8 +117,9 @@ if (!defined('URL')) {
                 </div>
 
             </div>
+            <!-- FIM Card do Perfil Usuário -->
 
-            <!-- Area de Ranking -->
+            <!-- INICIO Area de Ranking -->
             <div class="card text-center mb-4">
                 <div class="card-header">
                     Ranking
@@ -128,9 +137,9 @@ if (!defined('URL')) {
                     ?>
                 </ul>
             </div>
-            <!-- Fim da Area de Ranking -->
+            <!-- FIM da Area de Ranking -->
 
-            <!-- Area de Destaque -->
+            <!-- INICIO Area de Destaque -->
             <div class="card">
                 <div class="card-header">
                     Destaques
@@ -139,12 +148,12 @@ if (!defined('URL')) {
                     <?php
                     foreach ($this->Dados['pergDestaque'] as $perguntaDest) {
                         extract($perguntaDest);
-                        echo "<li class='list-group-item'><a href='" . URL . "pergunta/pergunta/$id'>$titulo</a></li>";
+                        echo "<li class='list-group-item'><a href='" . URL . "pergunta/pergunta/$id'>$conteudo</a></li>";
                     }
                     ?>
                 </ul>
             </div>
-            <!-- Fim da Area de Destaque -->
+            <!-- FIM da Area de Destaque -->
         </div>
 
     </div>

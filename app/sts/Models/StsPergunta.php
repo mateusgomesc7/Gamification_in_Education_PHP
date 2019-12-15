@@ -44,12 +44,33 @@ class StsPergunta
         $this->ResultadoPg = $paginacao->getResultado();
 
         $listar = new \App\sts\Models\helper\StsRead();
-        $listar->fullRead('SELECT id, titulo, descricao, imagem, slug FROM sts_perguntas 
+        $listar->fullRead('SELECT id, titulo, conteudo FROM sts_perguntas 
                 WHERE adms_sit_id =:adms_sit_id
                 ORDER BY id DESC
                 LIMIT :limit OFFSET :offset', "adms_sit_id=1&limit={$this->LimiteResultado}&offset={$paginacao->getOffset()}");
+        
+        
         $this->Resultado = $listar->getResultado();
+        // Colocando todos os conteudos das perguntas com o mínimo de palavras
+        $QuantidadePalavras = 15;
+        foreach ($this->Resultado as $key => $value) {
+            $this->Resultado[$key]["conteudo"] = $this->comecoConteudo($this->Resultado[$key]["conteudo"], $QuantidadePalavras);
+        }
+
         return $this->Resultado;
+    }
+
+    private function comecoConteudo($StringConteudo, $QuantPalavras)
+    {
+        $StringSemTags = strip_tags($StringConteudo);
+        
+        $ArraysemEspaco = explode(" ", $StringSemTags);
+
+        $ArrayPrimeirasPalavras = array_slice($ArraysemEspaco, 0, $QuantPalavras);
+
+        $StringComEspacos = implode(" ", $ArrayPrimeirasPalavras);
+
+        return $StringComEspacos . " ...";
     }
 
 }
