@@ -21,18 +21,6 @@ if (isset($this->Dados['form'][0])) {
 
             <div class="form-row">
                 <div class="form-group col-md-12">
-                    <label><span class="text-danger">*</span> Nome</label>
-                    <input name="titulo" type="text" class="form-control" placeholder="Titulo da pergunta" value="<?php
-                    if (isset($valorForm['titulo'])) {
-                        echo $valorForm['titulo'];
-                    }
-                    ?>">
-                </div>
-            </div>
-
-
-            <div class="form-row">
-                <div class="form-group col-md-12">
                     <label><span class="text-danger">*</span> Conteúdo da pergunta</label>
                     <textarea name="conteudo" id="editor-dois" class="form-control" rows="3"><?php
                         if (isset($valorForm['conteudo'])) {

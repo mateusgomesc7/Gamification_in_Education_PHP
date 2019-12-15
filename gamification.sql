@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13-Dez-2019 às 22:16
+-- Tempo de geração: 15-Dez-2019 às 16:27
 -- Versão do servidor: 10.4.10-MariaDB
 -- versão do PHP: 7.3.12
 
@@ -1331,7 +1331,8 @@ INSERT INTO `sts_comts_perguntas` (`id`, `conteudo`, `sts_usuario_id`, `sts_perg
 (54, 'teste 11', 1, 31, 3, '2019-12-13 21:47:57', NULL),
 (55, 'teste 12', 1, 31, 3, '2019-12-13 21:48:05', NULL),
 (56, 'teste é algo geralmente para medir se alguma coisa ou objeto este funcionando, creio que em relação ao site está tudo ok.', 21, 31, 3, '2019-12-13 22:06:25', NULL),
-(57, 'teste', 21, 32, 3, '2019-12-13 22:15:50', NULL);
+(57, 'teste', 21, 32, 3, '2019-12-13 22:15:50', NULL),
+(58, 'teste 13', 1, 31, 3, '2019-12-14 12:10:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -1411,8 +1412,8 @@ CREATE TABLE `sts_emblemas_pontos` (
 
 INSERT INTO `sts_emblemas_pontos` (`id`, `nome`, `descricao`, `icone`, `quant_pontos`, `sts_cor_id`, `adms_sit_id`, `created`, `modified`) VALUES
 (1, 'Estrela 1', 'Emblema Estrela 1 por atingir 100 pontos', 'fas fa-star', 100, 1, 1, '2019-12-23 00:00:00', NULL),
-(2, 'Estrela 2', 'Emblema Estrela 2 por atingir 200 pontos', 'fas fa-star-of-david', 500, 2, 1, '2019-12-26 00:00:00', NULL),
-(3, 'Estrela 3', 'Emblema Estrela 3 por atingir 300 pontos', 'fas fa-certificate', 1000, 3, 1, '2019-12-23 00:00:00', NULL),
+(2, 'Estrela 2', 'Emblema Estrela 2 por atingir 500 pontos', 'fas fa-star-of-david', 500, 2, 1, '2019-12-26 00:00:00', NULL),
+(3, 'Estrela 3', 'Emblema Estrela 3 por atingir 1000 pontos', 'fas fa-certificate', 1000, 3, 1, '2019-12-23 00:00:00', NULL),
 (4, 'Velocista', 'Velocista', 'fas fa-biking', 25, 1, 1, '2019-12-11 00:00:00', NULL),
 (5, 'Ta com todo o gas', 'Ta com todo o gas', 'fas fa-coffee', 10, 2, 1, '2019-12-18 00:00:00', NULL),
 (6, 'Ilhama da primeira pergunta', 'Ilhama da primeira pergunta', 'fas fa-democrat', 50, 3, 1, '2019-12-18 00:00:00', NULL),
@@ -1728,7 +1729,7 @@ INSERT INTO `sts_paginas` (`id`, `controller`, `metodo`, `menu_controller`, `men
 
 CREATE TABLE `sts_perguntas` (
   `id` int(11) NOT NULL,
-  `titulo` varchar(220) COLLATE utf8_unicode_ci NOT NULL,
+  `titulo` varchar(220) COLLATE utf8_unicode_ci DEFAULT NULL,
   `descricao` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `conteudo` text COLLATE utf8_unicode_ci NOT NULL,
   `imagem` varchar(220) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -1771,7 +1772,11 @@ INSERT INTO `sts_perguntas` (`id`, `titulo`, `descricao`, `conteudo`, `imagem`, 
 (29, 'gamificação', NULL, '<p>o que é gamificação??</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 3, '2019-12-09 18:08:43', NULL),
 (30, 'teste 3', NULL, '<p>teste 3</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 2, '2019-12-13 20:15:23', NULL),
 (31, 'teste 4', NULL, '<p>teste</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 2, '2019-12-13 21:13:32', NULL),
-(32, 'O estudo EAD', NULL, '<p>O estudo EAD é eficaz, ou apenas uma forma de iludir o aluno?</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 21, 1, 1, 3, '2019-12-13 22:07:46', NULL);
+(32, 'O estudo EAD', NULL, '<p>O estudo EAD é eficaz, ou apenas uma forma de iludir o aluno?</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 21, 1, 1, 3, '2019-12-13 22:07:46', NULL),
+(33, 'testando 2', NULL, '<p>testando 2</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 2, '2019-12-14 12:11:24', NULL),
+(34, 'Teste N1', NULL, '<p><strong>Testando</strong> <i>coteúdo</i>&nbsp;</p><p>&nbsp;</p><p><a href=\"google.com\">com</a> vários <strong>coisas</strong></p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 2, '2019-12-14 18:53:50', NULL),
+(36, NULL, NULL, '<p>Testando agora sem o título da pergunta!</p><p><strong>Será que vai dá certo?</strong></p><p>Vamos ver né!</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 3, '2019-12-15 16:24:15', NULL),
+(37, NULL, NULL, '<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', NULL, NULL, NULL, NULL, '', NULL, 0, 1, 1, 1, 1, 1, '2019-12-15 16:25:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -2016,7 +2021,7 @@ CREATE TABLE `sts_usuarios` (
 --
 
 INSERT INTO `sts_usuarios` (`id`, `nome`, `pontos`, `curso1`, `curso2`, `curso3`, `email`, `usuario`, `senha`, `recuperar_senha`, `chave_descadastro`, `conf_email`, `imagem`, `sts_niveis_acesso_id`, `sts_sits_usuario_id`, `created`, `modified`) VALUES
-(1, 'Mateus', 1000, 1, 2, 3, 'mateusgomesc7@gmail.com', 'mateusgomesc7@gmail.com', '$2y$10$XFWEXmgQT6SyYCSSSe4nae65vyM57ZO0OhkdHefURUoB/XYeFOz6O', '6776c7c5b1b4c592b5339b774d3147ca', 'bbe0d9883f909fb95ca46e8396fd7194', '2', 'mateusgomes.jpg', 1, 1, '2018-05-23 00:00:00', '2019-11-29 16:11:31'),
+(1, 'Mateus', 1075, 1, 2, 3, 'mateusgomesc7@gmail.com', 'mateusgomesc7@gmail.com', '$2y$10$XFWEXmgQT6SyYCSSSe4nae65vyM57ZO0OhkdHefURUoB/XYeFOz6O', '6776c7c5b1b4c592b5339b774d3147ca', 'bbe0d9883f909fb95ca46e8396fd7194', '2', 'mateusgomes.jpg', 1, 1, '2018-05-23 00:00:00', '2019-12-14 03:18:51'),
 (21, 'Gomes', 60, 0, NULL, NULL, 'mateusgomes@ieee.org', 'mateusgomes@ieee.org', '$2y$10$2ukaQ7xhwXExtKWRq3E3seROgp3rf2pOp3NzaShCfZsVxSqjEJdKi', NULL, NULL, NULL, NULL, 1, 1, '2019-12-11 13:25:38', '2019-12-11 14:29:16'),
 (3, 'Mateus', 75, 1, NULL, NULL, 'mateusgomesc3@gmail.com', 'mateusgomesc3@gmail.com', '$2y$10$g1IwcDcwY5rsAKeEHKwXDOhVjI7wIhRRkgdTN.YvEW7u996LJQNA2', NULL, NULL, '2', 'logo-mateus.jpg', 3, 1, '2018-06-02 14:29:36', '2018-06-24 15:40:59'),
 (4, 'Mateus', 63, 2, NULL, NULL, 'mateusgomesc4@gmail.com', 'mateusgomesc4@gmail.com', '$2y$10$ypvSoRiRpd8Ppx8n1pI4hOC4KX.2lPekK.jOhz1Z.DhNUMXG7jDu2', NULL, NULL, '2', NULL, 5, 2, '2018-06-02 15:10:57', '2018-06-20 12:23:53'),
@@ -2340,7 +2345,7 @@ ALTER TABLE `sts_cats_perguntas`
 -- AUTO_INCREMENT de tabela `sts_comts_perguntas`
 --
 ALTER TABLE `sts_comts_perguntas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT de tabela `sts_emblemas_pontos`
@@ -2370,7 +2375,7 @@ ALTER TABLE `sts_paginas`
 -- AUTO_INCREMENT de tabela `sts_perguntas`
 --
 ALTER TABLE `sts_perguntas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de tabela `sts_pontos`
@@ -2400,7 +2405,7 @@ ALTER TABLE `sts_tps_perguntas`
 -- AUTO_INCREMENT de tabela `sts_usuarios`
 --
 ALTER TABLE `sts_usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

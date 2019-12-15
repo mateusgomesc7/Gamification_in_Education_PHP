@@ -12,14 +12,14 @@ if (!defined('URL')) {
             <aside class="col-md-2 blog-sidebar">
             </aside>
             <div class="col-md-8 blog-main">
-                <!-- Inicio da Area de Perguntas -->
+                <!-- Inicio da Area da Pergunta -->
                 <?php
                 if (!empty($this->Dados['sts_perguntas'][0])) {
                     extract($this->Dados['sts_perguntas'][0]);
                     ?>
                     <div class="card mb-1">
                         <div class="card-body ">
-                            <h5 class="card-title display-4"><?php echo $titulo; ?></h5>
+                            <h5 class="card-title"><i class='<?php echo $icone; ?>'></i> <?php echo $categoria; ?></h5>
                             <hr class="my-4">
                             <p class="card-text"><?php echo $conteudo; ?></p>
 
@@ -54,7 +54,8 @@ if (!defined('URL')) {
                     echo $_SESSION['msg'];
                     unset($_SESSION['msg']);
                 }
-                // Final das Perguntas
+                // Final da Pergunta
+
                 // Inicio dos Area dos Comentarios
                 if (!empty($this->Dados['sts_coment']['0'])) {
                     foreach ($this->Dados['sts_coment'] as $comentario) {
@@ -74,6 +75,7 @@ if (!defined('URL')) {
                     }
                 }
                 // Final dos Area dos Comentarios
+
                 // Inicio do Forms
                 if (!empty($this->Dados['sts_perguntas'][0])) {
                     ?>
@@ -84,7 +86,7 @@ if (!defined('URL')) {
                             <input type="hidden" name="id" value="<?php echo $this->Dados['sts_perguntas'][0]['id']; ?>">
 
                             <div class="form-group row">
-                                <label for="conteudo" class="col-sm-2 col-form-label">Conteúdo<span class="text-danger">*</span></label>
+                                <label for="conteudo" class="col-sm-2 col-form-label">Resposta<span class="text-danger">*</span></label>
                                 <div class="col-sm-10">
                                     <textarea class="form-control" name="conteudo" id="conteudo" rows="3"><?php if (isset($_SESSION['form']['conteudo'])) {
                                                                                                                     echo $_SESSION['form']['conteudo'];

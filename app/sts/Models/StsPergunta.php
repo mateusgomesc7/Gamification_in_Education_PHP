@@ -25,9 +25,12 @@ class StsPergunta
     {
         $this->IdPergunta = (string) $IdPergunta;
         $visualizarPerg = new \App\sts\Models\helper\StsRead();
-        $visualizarPerg->fullRead('SELECT id, titulo, conteudo, imagem, slug FROM sts_perguntas 
-                WHERE adms_sit_id =:adms_sit_id AND id =:id
-                ORDER BY id DESC
+        $visualizarPerg->fullRead('SELECT perg.id, perg.titulo, perg.conteudo, 
+                cape.nome categoria, cape.icone
+                FROM sts_perguntas perg
+                INNER JOIN sts_cats_perguntas cape ON cape.id=perg.sts_cats_pergunta_id
+                WHERE perg.adms_sit_id =:adms_sit_id AND perg.id =:id
+                ORDER BY perg.id DESC
                 LIMIT :limit', "adms_sit_id=1&id={$this->IdPergunta}&limit=1");
         $this->Resultado = $visualizarPerg->getResultado();        
         return $this->Resultado;
