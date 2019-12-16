@@ -2,7 +2,7 @@
 
 A WEB system where the student can answer their questions and that of their colleagues. And interact with other students and teachers with game elements.
 
-![Layout](\assets\imagens\layouts\gamificationLayout.jpg)
+![Layout](https://github.com/mateusgomesc7/Gamification_in_Education/blob/master/assets/imagens/layouts/gamificationLayout.jpg)
 
 ## How to install ? ⚙
 
