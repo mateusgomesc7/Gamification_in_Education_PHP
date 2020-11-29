@@ -4,7 +4,7 @@ if (!defined('URL')) {
     exit();
 }
 ?>
-<div class="container my-3 p-1">
+<div class="container container-show my-3 p-1">
     <div class="list-group-item">
         <div class="d-flex">
             <div class="mr-auto p-2">

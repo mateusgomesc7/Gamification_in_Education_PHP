@@ -7,7 +7,7 @@ if (!defined('URL')) {
 <main role="main">
 
     <!-- <div class="jumbotron blog"> -->
-        <div class="container">
+        <div class="container container-show">
             <h2 class="display-4 text-center my-3" style="margin-bottom: 40px;">Perguntas</h2>
             <div class="row">
                 <!-- INICIO do Listar Perguntas -->
@@ -19,7 +19,7 @@ if (!defined('URL')) {
                     foreach ($this->Dados['perguntas'] as $pergunta) {
                         extract($pergunta);
                         ?>
-                        <div class="jumbotron container blog-text  anim_right p-1">
+                        <div class="jumbotron container container-show blog-text  anim_right p-1">
                                     <a href="<?php echo URL . 'pergunta/pergunta/' . $id; ?>">
                                         <h1 class="display-4 featurette-heading"><?php echo $conteudo; ?></h1></a>
                                     <hr class="my-4">

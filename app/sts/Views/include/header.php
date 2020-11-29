@@ -5,7 +5,7 @@ if (!defined('URL')) {
 }
 ?>
 
-<nav class="navbar navbar-expand navbar-dark bg-success">
+<nav class="navbar navbar-expand navbar-dark bg-success sticky-top">
 
     <!-- <a class="sidebar-toggle text-light mr-3">
         <span class="navbar-toggler-icon"></span>

@@ -11,11 +11,22 @@ body {
    background: var(--light) !important;
  }
 
-.card, .container {
-   
+.card {
    background: var(--white) !important;
    box-shadow: 5px 5px 15px rgba(var(--rose), .5);
    border-radius: 10px;
+}
+
+.container-show {
+   background: var(--white) !important;
+   box-shadow: 5px 5px 15px rgba(var(--rose), .5);
+   border-radius: 10px;
+}
+
+.center-column-home {
+	background: var(--white) !important;
+	box-shadow: 5px 5px 15px rgba(var(--rose), .5);
+	border-radius: 10px;
 }
 
 .col-sm {   

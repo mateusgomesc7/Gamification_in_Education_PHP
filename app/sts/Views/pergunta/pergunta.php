@@ -7,7 +7,7 @@ if (!defined('URL')) {
 <main role="main">
 
     <!-- <div class="jumbotron blog"> -->
-    <div class="container my-3">
+    <div class="container container-show my-3">
         <div class="row">
             <aside class="col-md-2 blog-sidebar">
             </aside>

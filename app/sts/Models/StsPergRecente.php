@@ -28,7 +28,7 @@ class StsPergRecente
                     OR perg.sts_cats_pergunta_id =:curso3_usuario)
                     ORDER BY id DESC
                     LIMIT :limit', 
-                    "adms_sit_id=1&curso1_usuario={$_SESSION['usuario_curso1']}&curso2_usuario={$_SESSION['usuario_curso2']}&curso3_usuario={$_SESSION['usuario_curso3']}&limit=3");
+                    "adms_sit_id=1&curso1_usuario={$_SESSION['usuario_curso1']}&curso2_usuario={$_SESSION['usuario_curso2']}&curso3_usuario={$_SESSION['usuario_curso3']}&limit=6");
         }else{
             $listar->fullRead('SELECT perg.id, perg.titulo, perg.conteudo, perg.sts_cats_pergunta_id,
                     cape.nome categoria, cape.icone
@@ -37,7 +37,7 @@ class StsPergRecente
                     WHERE perg.adms_sit_id =:adms_sit_id
                     ORDER BY id DESC
                     LIMIT :limit', 
-                    "adms_sit_id=1&limit=3");
+                    "adms_sit_id=1&limit=6");
         }
         
         
