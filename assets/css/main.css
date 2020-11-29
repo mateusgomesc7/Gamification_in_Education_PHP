@@ -49,6 +49,11 @@ body {
   filter: brightness(70%);
 }
 
+a {
+	text-decoration: none !important;
+	color: black;
+}
+
 
 /* Efeito do pesquisar */
 input {

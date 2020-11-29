@@ -132,9 +132,6 @@ html {
   margin-bottom: 1.25rem;
   color: #999;
 }
-.blog-text a{
-	text-decoration: none;
-}
 #msg_comentario{
     position: absolute;
     top: -80px;
