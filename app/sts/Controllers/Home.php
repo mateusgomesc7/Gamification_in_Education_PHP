@@ -29,6 +29,10 @@ class Home
         $pontuacao = new \App\sts\Models\StsPontos();
         $this->Dados['pontosAtual'] = $pontuacao->verPotuacaoAtual();
 
+        $nivel = new \App\sts\Models\StsNivel();
+        $this->Dados['nivel'] = $nivel->verNivel();
+        $this->Dados['pontosProxNivel'] = $nivel->verPontosProxNivel();
+
         $emblemas = new \App\sts\Models\StsEmblemas();
         $this->Dados['emblemasPontos'] = $emblemas->buscarEmblemas();
         

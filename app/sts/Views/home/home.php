@@ -103,64 +103,11 @@ if (!defined('URL')) {
         <!-- INICIO 3ª COLUNA -->
         <div class="col-md-3 col-lg-3">
             <!-- INICIO Card do Perfil Usuário -->
-            <div class="row justify-content-center my-3 p-0">
-                <div class="card text-center p-4">
-
-                    <?php if (isset($_SESSION['usuario_imagem']) and (!empty($_SESSION['usuario_imagem']))) { ?>
-
-                        <img class="img" id="imgPerfil" src="<?php echo URL . 'assets/imagens/usuario/' . $_SESSION['usuario_id'] . '/' . $_SESSION['usuario_imagem']; ?>" alt="Imagem de capa do card">
-
-                    <?php } else { ?>
-
-                        <img class="img" id="imgPerfil" src="<?php echo URL . 'assets/imagens/usuario/icone_usuario.png'; ?>" alt="Imagem de capa do card">
-
-                    <?php
-                    }
-                    ?>
-                    <div class="card-body">
-                        <?php
-                        $nome = explode(" ", $_SESSION['usuario_nome']);
-                        $prim_nome = $nome[0];
-                        echo "<h5 class='card-title'>$prim_nome</h5>";
-
-                        foreach ($this->Dados['pontosAtual'] as $pontosAtual) {
-                            extract($pontosAtual);
-
-                            echo "<p class='card-text'><small class='text-muted'>Pontos: " . $pontos . "</small></p>";
-                        }
-
-                        echo "<div style='width: 160px;'>";
-                        foreach ($this->Dados['emblemasPontos'] as $emblemasPontos) {
-                            extract($emblemasPontos);
-
-                            echo "<button type='button' class='btn btn-sm btn-$cor p-auto' data-toggle='popover' title='$nome' data-content='$descricao'><i class='$icone'></i></button>";
-                        }
-                        echo "</div>";
-
-                        ?>
-                    </div>
-                </div>
-            </div>
+            <?php include('perfilCard.php') ?>
             <!-- FIM Card do Perfil Usuário -->
 
             <!-- INICIO Area de Ranking -->
-            <div class="card text-center mb-4">
-                <div class="card-header">
-                    Ranking
-                </div>
-                <ul class="list-group">
-                    <?php
-                    foreach ($this->Dados['ranking'] as $ranking) {
-                        extract($ranking);
-                        // Pegando apenas o primeiro e segundo nome, se o útlimo tiver
-                        $nome = explode(" ", $nome);
-                        $primEsegun_nome = $nome[0] . " " . (isset($nome[1]) ? $nome[1] : "");
-
-                        echo "<li class='list-group-item d-flex justify-content-between align-items-center'>$primEsegun_nome<span class='badge badge-primary badge-pill'>$pontos</span></li>";
-                    }
-                    ?>
-                </ul>
-            </div>
+            <?php include('rankingCard.php') ?>
             <!-- FIM da Area de Ranking -->
         </div>
         <!-- FIM 3ª COLUNA -->
