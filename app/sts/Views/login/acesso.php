@@ -1,6 +1,6 @@
 <body class="text-center">
     <div class="container">
-        <div class="row p-0 no-gutters bg-success rounded">
+        <div class="row p-0 no-gutters bg-success" style="border-radius: 0.75rem!important;">
             <div class="col-lg-8">
                 <div class="card border-0 p-4 h-100" style="
             background-color: transparent !important;
