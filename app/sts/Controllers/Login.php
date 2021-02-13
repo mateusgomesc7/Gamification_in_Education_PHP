@@ -15,8 +15,10 @@ class Login
     public function acesso()
     {
         $this->Dados = filter_input_array(INPUT_POST, FILTER_DEFAULT); 
+
         if (!empty($this->Dados['SendLogin'])) {
             unset($this->Dados['SendLogin']);
+
             $visualLogin = new \App\sts\Models\StsLogin();
             $visualLogin->acesso($this->Dados);
             if ($visualLogin->getResultado()) {
@@ -25,9 +27,15 @@ class Login
             } else {
                 $this->Dados['form'] = $this->Dados;
             }
+
         }
+
+        $usuarios = new \App\sts\Models\StsUsuarios();
+        $this->Dados['usuarios'] = $usuarios->listarUsuarios();
+
         $carregarView = new \Core\ConfigView("sts/Views/login/acesso", $this->Dados);
         $carregarView->renderizarLogin();
+
     }
 
     public function logout()

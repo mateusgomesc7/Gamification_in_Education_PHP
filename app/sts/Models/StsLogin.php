@@ -54,6 +54,9 @@ class StsLogin
 
     private function validarSenha()
     {
+        // Remover quando não precisar do automático
+        $this->Dados['senha'] = 123456;
+
         if (password_verify($this->Dados['senha'], $this->Resultado[0]['senha'])) {
             $_SESSION['usuario_id'] = $this->Resultado[0]['id'];
             $_SESSION['usuario_nome'] = $this->Resultado[0]['nome'];

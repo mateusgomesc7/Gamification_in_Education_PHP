@@ -32,15 +32,27 @@
                             }
                             ?>
                             <div class="form-group">
-                                <label>Usuário ou E-mail</label>
-                                <input name="usuario" type="text" class="form-control" placeholder="Digite o usuário" value="<?php if (isset($valorForm['usuario'])) {
-                                                                                                                                    echo $valorForm['usuario'];
-                                                                                                                                } ?>">
+                                <label>Selecione um usuário</label>
+                                <select name="usuario" type="text" class="form-control" onchange="doSomething(this.selectedIndex)">
+                                <option value="-1">Selecionar usuário...</option>
+                                <?php
+                                    foreach ($this->Dados['usuarios'] as $usuarios) {
+                                        extract($usuarios);
+
+                                        echo "<option value='$usuario'>$usuario</option>";
+                                    }
+                                ?>
+                                </select>
+                                <!-- <input name="usuario" type="text" class="form-control" placeholder="Digite o usuário" value="<?php // if (isset($valorForm['usuario'])) {
+                                                                                                                                   // echo $valorForm['usuario'];
+                                                                                                                                // } ?>"> -->
                             </div>
-                            <div class="form-group">
-                                <label>Senha</label>
-                                <input name="senha" type="password" class="form-control" placeholder="Digite a senha">
-                            </div>
+                            <fieldset disabled>
+                                <div class="form-group">
+                                    <label>Senha</label>
+                                    <input id="senha" name="senha" type="password" class="form-control" placeholder="Digite a senha">
+                                </div>
+                            </fieldset>
                             <input name="SendLogin" type="submit" class="btn btn-lg btn-primary btn-block" value="Acessar">
                         </form>
                         <p class="text-center my-2"><a href="<?php echo URL . 'novo-usuario/novo-usuario' ?>">Cadastrar</a> - <a href="<?php echo URL . 'esqueceu-senha/esqueceu-senha' ?>">Esqueceu a senha?</a></p>
@@ -50,3 +62,14 @@
         </div>
     </div>
 </body>
+
+<script>
+    function doSomething(selectedIndex) {
+        const senha = document.getElementById('senha')
+        let senhaAleatoria = Math.random().toString(36).substr(2, Math.floor(Math.random() * 10 + 4))
+        if (selectedIndex)
+            senha.value = senhaAleatoria
+        else
+            senha.value = ''
+    }
+</script>
