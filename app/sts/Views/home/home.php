@@ -103,11 +103,11 @@ if (!defined('URL')) {
         <!-- INICIO 3ª COLUNA -->
         <div class="col-md-3 col-lg-3">
             <!-- INICIO Card do Perfil Usuário -->
-            <?php include('perfilCard.php') ?>
+            <?php include('app/sts/Views/home/perfilCard/perfilCard.php') ?>
             <!-- FIM Card do Perfil Usuário -->
 
             <!-- INICIO Area de Ranking -->
-            <?php include('rankingCard.php') ?>
+            <?php include('app/sts/Views/home/rankingCard/rankingCard.php') ?>
             <!-- FIM da Area de Ranking -->
         </div>
         <!-- FIM 3ª COLUNA -->
